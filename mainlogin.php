@@ -24,15 +24,19 @@
             <input type="password" name="password" placeholder="Password" id="password" required>
             <br>
             <input type="submit" value="Login">
+
             <br><br>
         </form>
+    </div>
+    <div>
+        <button onclick="window.location.href='mainregister.php';">Registrieren</button>
     </div>
     <div>
         <button onclick="window.location.href='https://w3docs.com';">Ohne Anmeldung fortfahren</button>
     </div>
 
     <?php
-        //include 'config.php';
+        include 'config.php';
         include 'login.php';
     ?>
 
