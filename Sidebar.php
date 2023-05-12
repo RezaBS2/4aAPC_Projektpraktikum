@@ -52,7 +52,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
-          <i class="bi bi-dash-circle"></i>
+              <i class="bi bi-star-fill"></i>
           <span>Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->

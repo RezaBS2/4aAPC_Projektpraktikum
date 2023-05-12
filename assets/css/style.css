@@ -9,22 +9,111 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.heart
+{
+ font-size: 30px;
+ color: rgb(207, 6, 6);
+}
+.hrd 
+{
+  width:14%; 
+  height:1px;
+   border:1px solid;
+    border-color:#000000;
+    margin-left: 100px;
+}
+
+.star{
+font-size: 35px;
+margin-left: 110px;
+
+}
+
 .preloader {
   position: fixed;
   top: 0;
-  left: 200px;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .preloader img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  height: 200px; /* Beispielhöhe */
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.preloader img {
   width: 45%;
   height: 65%;
 }
+
+.loader {
+  margin-top: 500px;
+  border: 12px solid #dadada;
+  border-radius: 50%;
+  border-top: 12px solid rgb(0, 0, 0);
+  border-right: 12px solid #dadada;
+  border-bottom: 12px solid rgb(0, 0, 0);
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.loading-bar::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 100%;
+  background-color: #007bff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 1s ease-in-out;
+}
+
+.loading {
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
 
 .hidden {
   display: none;
@@ -74,6 +163,7 @@ color: black;
   margin-top: 5%; 
   margin-bottom: 5%;
 }
+
 .services .icon-box {
  
   margin-bottom: 20px;
@@ -87,6 +177,18 @@ color: black;
   border-style: solid;
   border-color: black;
 }
+
+.vert-line {
+  width: 3px;
+  height: 185px;
+  border-radius: 10px;
+  color: #000000;
+  background-image: linear-gradient(to bottom, #000000, #000000 80%);
+  display: inline-block;
+  vertical-align: middle;
+  right: 50px;
+}
+
 
 .services .icon-box:hover {
   background: rgb(231, 231, 231);
@@ -102,10 +204,20 @@ color: black;
   width: 100px;
   height: 100px;
   line-height: 0;
+  border-radius: 10px;
+}
+
+.services .icon-box .img-size2 {
+  float: left;
+  margin-top: 0px;
+  width: 180px;
+  height: 180px;
+  line-height: 0;
+  border-radius: 10px;
 }
 
 .services .icon-box h4 {
-  margin-left: 120px;
+  margin-left: 100px;
   font-weight: 700px;
   margin-bottom: 15px;
   font-size: 18px;
@@ -130,7 +242,7 @@ color: black;
 
 .services .icon-box p {
   color: #000000;
-  margin-left: 120px;
+  margin-left: 100px;
   line-height: 14px;
   font-size: 14px;
 }

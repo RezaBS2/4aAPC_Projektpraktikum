@@ -87,6 +87,8 @@ include "footer.php";
   <!-- Template Main JS File -->
   <div class="preloader">
   <img src="assets/img/logo.png" alt="Logo">
+  <div class="loader"></div>
+  <div class="loading-bar"></div>
 </div>
 </body>
 
