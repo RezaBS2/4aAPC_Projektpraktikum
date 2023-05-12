@@ -1,5 +1,10 @@
 <?php
-require_once "config.php";
+/*  Reza:
+ *  "This page is for the backend element of the register page"
+ * */
+
+
+//require_once "config.php";
 
 
 $email = "";
@@ -13,10 +18,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $username_err = "Username can only contain letters, numbers, and underscores.";
+        $username_err = "Username can only contain letters, numbers, and underscores.\nPlease do not use special characters in your username.";
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
+
+        $sql -> bind_param($username);
+        $username = $_POST["username"];
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
