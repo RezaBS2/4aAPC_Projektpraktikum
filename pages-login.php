@@ -73,7 +73,7 @@ include "Sidebar.php";
                 <div class="col-2-8-2">
                       <a href="index.php">
                       <button class="btn btn-danger w-100" type="submit">Home</button>
-</a>
+                      </a>
               </div>
             </div>
           </div>
