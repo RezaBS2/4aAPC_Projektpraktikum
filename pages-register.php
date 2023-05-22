@@ -74,6 +74,12 @@ include "Sidebar.php";
                     </div>
 
                     <div class="col-12">
+                      <label for="yourPasswordConfirmation" class="form-label">Password</label>
+                      <input type="password" name="confirm_password" class="form-control" id="yourPasswordConfirmation" required>
+                      <div class="invalid-feedback">Please confirm your password!</div>
+                    </div>
+
+                    <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
                         <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>

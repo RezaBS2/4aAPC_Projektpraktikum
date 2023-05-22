@@ -8,18 +8,25 @@ session_start();
  *  "This page is for the backend element of the register page"
  * */
 
+/* Verbindung uzum Thomas sein Server
+$server = 'tom.m1nd.at:80';
+$user = 'bs-linz2';
+$pwd = 'bs-linz2';
+$db = 'skimp';
+*/
 
 //require_once "config.php";
 
-//DB-Verbinfdung
+//DB-Verbinfdungsdaten zum Testen
 $servername = 'localhost:3306';
 $db_username = 'root';
 $db_password = '';
 $db_name = 'projektpraktikum';
 //
 
+//Variablen für die Tabellen
 $email = "";
-$username = $password = $confirm_password = "";
+$name = $username = $password = $confirm_password = "";
 $confirm_password_err = "";
 
 // Processing form data when form is submitted
@@ -28,6 +35,14 @@ try {
     $con = new PDO('mysql:host='.$servername.';dbname='.$db_name.';charset=utf8', $db_username, $db_password);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Validate name
+    if (empty(trim($_POST["name"]))) {
+        $username_err = "Please enter a name.";
+    } else {
+        $name = $_POST["name"];
+    }
+
+
     // Validate username
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter a username.";
@@ -35,9 +50,11 @@ try {
         $username_err = "Username can only contain letters, numbers, and underscores.\nPlease do not use special characters in your username.";
     } else {
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        /*$sqlSelect = "SELECT id FROM users WHERE username = ?";
 
-        $sql->bind_param($username);
+        //$sql->bind_param($username);
+        $result = $con->query($sqlSelect);*/
+
         $username = $_POST["username"];
         /*
         if ($stmt = mysqli_prepare($link, $sql)) {
@@ -88,25 +105,27 @@ try {
     }
 
     // Check input errors before inserting in database
-    if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+    //if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
 
 
         try {
-            $sqlInsert = $con->prepare('INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort)
+            $sqlInsert = $con->prepare('INSERT INTO projektpraktikum.benutzer (benutzer_name, benutzer_username, benutzer_email, benutzer_passwort)
             values
             (
+                ?,
                 ?,
                 ?,
                 MD5(?)
             )');
 
-            $sqlInsert->execute([$username, $email, $passwort]);
+            $sqlInsert->execute([$name, $username, $email, $password]);
 
 
 
             $remember = true;
+            $_SESSION['logged in'] = true;
             echo "<a href=index.php>Registrierung erfolgreich</a>";
 //            header("location: login.php");
         } catch (Exception $e) {
@@ -133,7 +152,7 @@ try {
             // Close statement
             mysqli_stmt_close($stmt);
         }*/
-    }
+    //}
 
     // Close connection
     $con = null;

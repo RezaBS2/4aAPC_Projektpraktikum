@@ -4,11 +4,17 @@
 session_start();
 /*  Reza:
  *  "This page is for the backend element of the login page"
- *
+ **/
+
+/* Verbindung uzum Thomas sein Server
+$server = 'tom.m1nd.at:80';
+$user = 'bs-linz2';
+$pwd = 'bs-linz2';
+$db = 'skimp';
+*/
 
 
-
-
+/*
 $str = "Mary Had 5 Little Lambs and She LOVED HTEMöüäöÖÖÄÜÚ So";
 //$str_converted = mb_convert_case($str, MB_CASE_LOWER, "UTF-8");
 $str_converted = strtolower($str);
