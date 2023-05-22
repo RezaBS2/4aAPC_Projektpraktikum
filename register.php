@@ -27,7 +27,7 @@ $db_name = 'projektpraktikum';
 //Variablen für die Tabellen
 $email = "";
 $name = $username = $password = $confirm_password = "";
-$confirm_password_err = "";
+$confirm_password_err = $username_err = $password_err = $email_err = "";
 
 // Processing form data when form is submitted
 //if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -40,6 +40,14 @@ try {
         $username_err = "Please enter a name.";
     } else {
         $name = $_POST["name"];
+    }
+
+
+    // Validate email
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Please enter a valid email.";
+    } else {
+        $email = $_POST["email"];
     }
 
 
