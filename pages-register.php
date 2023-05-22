@@ -10,6 +10,7 @@ include "header.php";
 <?php
 include "Sidebar.php";
 ?>
+
 <body>
 
   <main>
@@ -22,8 +23,12 @@ include "Sidebar.php";
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.php" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <div class="d-flex justify-content-center py-4">
+                    <div class="logo d-flex align-items-center">
+                      <img class="logo2" src="assets/img/logo.png" alt="">
+                      <span class="logoueb">SKIMP®</span>
+                    </div>
+                  </div><!-- End Logo -->
                 </a>
               </div><!-- End Logo -->
 
@@ -76,25 +81,25 @@ include "Sidebar.php";
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="pages-login.php">Log in</a></p>
-</div>             
+                    </div>
                   </form>
                   <div class="col-2-8-2">
-                      <a href="index.php">
+                    <a href="index.php">
                       <button class="btn btn-danger w-100" type="submit">Home</button>
-</a>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
       </section>
 
     </div>
   </main><!-- End #main -->
   <?php
-include "footer.php";
-?>
+  include "footer.php";
+  ?>
 </body>
 
 </html>
