@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+?>
+
+<?php
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */
