@@ -29,17 +29,25 @@ window.onload = function () {
   }, intervall);
 }
 
-// Get the button
-let mybutton = document.getElementById("myBtn");
-
-// Wenn der Benutzer 200px von der oberen Seite des Dokuments gescrollt hat, wird der Button angezeigt
-window.onscroll = function () { scrollFunction() };
+window.onscroll = function() {
+  scrollFunction();
+};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
+  var mybutton = document.getElementById("myBtn");
+  if (
+    document.body.scrollTop > 450 ||
+    document.documentElement.scrollTop > 50
+  ) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
   }
 }
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
 
