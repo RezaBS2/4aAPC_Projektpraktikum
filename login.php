@@ -1,11 +1,7 @@
-
-
-
-
 <?php
 /*  Reza:
  *  "This page is for the backend element of the login page"
- * */
+ *
 
 
 
@@ -15,6 +11,7 @@ $str = "Mary Had 5 Little Lambs and She LOVED HTEMöüäöÖÖÄÜÚ So";
 $str_converted = strtolower($str);
 
 echo $str_converted;
+*/
 
 /*
 
@@ -46,30 +43,81 @@ if (!$result) {
 
 
 //w3schools
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "projektpraktikum";
+$servername = "localhost:3306";
+$db_username = "root";
+$db_password = "";
+$db_name = "projektpraktikum";
+
+$input_username = "";
+$input_password = "";
+
+$temp_username = "";
+$temp_password = "";
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//}
+//else{
+//    echo "<br>Mysqli connection successful!<br>";
+    //$sql = "SELECT id, firstname, lastname FROM MyGuests";
 
-$sql = "SELECT id, firstname, lastname FROM MyGuests";
-$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+try {
+    $con = new PDO('mysql:host='.$servername.';dbname='.$db_name.';charset=utf8', $db_username, $db_password);
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    $input_username = $_POST["username"];
+    $input_password = $_POST["password"];
+
+    $sql = $con->prepare("SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?");
+
+    $sql->execute([$input_username]);
+
+    $result = $con->query($sql);
+
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
+            $temp_username = $row["benutzer_username"];
+            $temp_password = $row["benutzer_passwort"];
+        }
+        if ($temp_password == md5($input_password))
+        {
+            $remember = true;
+            $_SESSION['logged in'] = true;
+            echo "<a href=index.php>Anmeldung erfolgreich</a>";
+
+        }
+        else{
+            echo "Inkorrektes Passwort!";
+        }
+
+
+
+
+
+        //if($temp_password == )
+
+
+
+    } else {
+        echo "Dieser Benutzer existiert nicht!";
     }
-} else {
-    echo "0 results";
 }
-$conn->close();
+catch (Exception $eall)
+{
+    echo $eall->getCode().': '.$eall->getMessage().'<br>;';
+    echo "<br>Failure!<br>";
+    //die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+//$conn->close();
 
 
 

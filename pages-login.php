@@ -36,7 +36,7 @@ include "Sidebar.php";
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="login.php" method="POST" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
