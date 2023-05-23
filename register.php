@@ -17,27 +17,30 @@ $db = 'skimp';
 
 //require_once "config.php";
 
-//DB-Verbinfdungsdaten zum Testen
+/*/DB-Verbinfdungsdaten zum Testen
 $servername = 'localhost:3306';
 $db_username = 'root';
 $db_password = '';
 $db_name = 'projektpraktikum';
-//
+/*/
 
 //Variablen für die Tabellen
 $email = "";
 $name = $username = $password = $confirm_password = "";
-$confirm_password_err = $username_err = $password_err = $email_err = "";
+$confirm_password_err = $name_err =  $username_err = $password_err = $email_err = "";
 
 // Processing form data when form is submitted
 //if($_SERVER["REQUEST_METHOD"] == "POST"){
 try {
+    /*
     $con = new PDO('mysql:host='.$servername.';dbname='.$db_name.';charset=utf8', $db_username, $db_password);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+*/
+    global $con;
 
     // Validate name
     if (empty(trim($_POST["name"]))) {
-        $username_err = "Please enter a name.";
+        $name_err = "Please enter a name.";
     } else {
         $name = $_POST["name"];
     }
@@ -113,7 +116,7 @@ try {
     }
 
     // Check input errors before inserting in database
-    //if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+    if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($name_err)  && empty($email_err)) {
 
         // Prepare an insert statement
 
@@ -132,11 +135,16 @@ try {
 
 
 
-            $remember = true;
-            $_SESSION['logged in'] = true;
+
+            $_SESSION['logged_in'] = true;
+            $_SESSION['name'] = $name;
+            $_SESSION['username'] = $username;
+
+
             echo "<a href=index.php>Registrierung erfolgreich</a>";
 //            header("location: login.php");
         } catch (Exception $e) {
+            echo 'Error - Verbindung: '.$e->getCode().': '.$e->getMessage().'<br>'; // Nachher entfernen
             echo "Oops! Something went wrong. Please try again later.";
         }
 
@@ -160,7 +168,7 @@ try {
             // Close statement
             mysqli_stmt_close($stmt);
         }*/
-    //}
+    }
 
     // Close connection
     $con = null;
@@ -171,6 +179,7 @@ catch (Exception $eall)
 {
     echo $eall->getCode().': '.$eall->getMessage().'<br>;';
     echo "<br>Failure while trying to register!<br>";
+    $con = null;
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 ?>
