@@ -170,7 +170,7 @@ try {
 catch (Exception $eall)
 {
     echo $eall->getCode().': '.$eall->getMessage().'<br>;';
-    echo "<br>Failure!<br>";
+    echo "<br>Failure while trying to register!<br>";
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 ?>
