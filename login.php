@@ -51,11 +51,12 @@ if (!$result) {
 
 
 
-//w3schools
+/*/w3schools
 $servername = "localhost:3306";
 $db_username = "root";
 $db_password = "";
 $db_name = "projektpraktikum";
+*/
 
 $input_username = "";
 $input_password = "";
