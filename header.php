@@ -173,7 +173,14 @@ session_start();
           <li class="nav-item dropdown pe-3">
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <span class="d-none d-sm-block dropdown-toggle ps-2"><?php  ?>></span>
+              <span class="d-none d-sm-block dropdown-toggle ps-2"><?php 
+				if ($_SESSION['logged_in']){
+					echo $_SESSION['name'];
+				}
+				else {
+					echo 'User';
+				}
+			  ?></span>
             </a><!-- End Profile Iamge Icon -->
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="border: 2px solid black;">
               <li class="dropdown-header">
