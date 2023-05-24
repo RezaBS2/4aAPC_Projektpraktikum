@@ -4,6 +4,7 @@ session_start();
 ?>
 
 <?php
+require 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */
@@ -25,9 +26,9 @@ $db_name = 'projektpraktikum';
 /*/
 
 //Variablen für die Tabellen
-$email = "";
-$name = $username = $password = $confirm_password = "";
-$confirm_password_err = $name_err =  $username_err = $password_err = $email_err = "";
+$email = $alert = "";
+$username = $password = $confirm_password = "";
+$confirm_password_err = $username_err = $password_err = $email_err = "";
 
 // Processing form data when form is submitted
 //if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -38,13 +39,6 @@ try {
 */
     global $con;
 
-    // Validate name
-    if (empty(trim($_POST["name"]))) {
-        $name_err = "Please enter a name.";
-    } else {
-        $name = $_POST["name"];
-    }
-
 
     // Validate email
     if (empty(trim($_POST["email"]))) {
@@ -53,12 +47,27 @@ try {
         $email = $_POST["email"];
     }
 
+    $userAlreadyExists = false;
+
+    $queryCheckIfUserExists =    'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
+    $stmtCheckIfUserExists = $con-> prepare($queryCheckIfUserExists);
+    $stmtCheckIfUserExists->execute([trim($username)]);
+
+    $colCount = $stmtCheckIfUserExists->columnCount();
+    if($colCount > 0)
+    {
+        $userAlreadyExists = true;
+    }
+
+
 
     // Validate username
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter a username.";
     } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))) {
         $username_err = "Username can only contain letters, numbers, and underscores.\nPlease do not use special characters in your username.";
+    } elseif ($userAlreadyExists) {
+        $username_err = "User already exists.";
     } else {
         // Prepare a select statement
         /*$sqlSelect = "SELECT id FROM users WHERE username = ?";
@@ -116,28 +125,26 @@ try {
     }
 
     // Check input errors before inserting in database
-    if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($name_err)  && empty($email_err)) {
+    if (empty($username_err)  && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
 
 
         try {
-            $sqlInsert = $con->prepare('INSERT INTO projektpraktikum.benutzer (benutzer_name, benutzer_username, benutzer_email, benutzer_passwort)
+            $sqlInsert = $con->prepare('INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort)
             values
             (
                 ?,
                 ?,
-                ?,
-                MD5(?)
+                ?
             )');
 
-            $sqlInsert->execute([$name, $username, $email, $password]);
+            $sqlInsert->execute([$username, $email, md5($password)]);
 
 
 
 
             $_SESSION['logged_in'] = true;
-            $_SESSION['name'] = $name;
             $_SESSION['username'] = $username;
 
 
@@ -168,6 +175,9 @@ try {
             // Close statement
             mysqli_stmt_close($stmt);
         }*/
+    } else {
+        $alert = $username_err.' '.$password_err.' '.$confirm_password_err.' '.$email_err;
+        echo '<script>alert("'.$alert.'")</script>';
     }
 
     // Close connection

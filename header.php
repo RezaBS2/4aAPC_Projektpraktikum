@@ -1,6 +1,7 @@
 <?php
 // Start the session
-session_start();
+//session_start();
+$loggedIn = $_SESSION['logged_in'];
 ?>
 
 <!DOCTYPE html>
@@ -173,18 +174,26 @@ session_start();
           <li class="nav-item dropdown pe-3">
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <span class="d-none d-sm-block dropdown-toggle ps-2"><?php 
-				if ($_SESSION['logged_in']){
-					echo $_SESSION['name'];
-				}
-				else {
-					echo 'User';
-				}
+              <span class="d-none d-sm-block dropdown-toggle ps-2"><?php
+              try {
+                      if ($loggedIn){
+                          echo $_SESSION['username'];
+                      }
+                      else {
+                          echo 'User';
+                      }
+                  } catch (Exception $e)
+                  {
+                      echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
+                  }
 			  ?></span>
             </a><!-- End Profile Iamge Icon -->
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="border: 2px solid black;">
               <li class="dropdown-header">
-                <h6>Kevin Anderson</h6>
+                <h6><?php
+                    if ($loggedIn){echo $_SESSION['username'];}
+                    else {echo 'User';}?>
+                </h6>
                 <span>Web Designer</span>
               </li>
               <li>
@@ -220,7 +229,16 @@ session_start();
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <i class="bi bi-box-arrow-right"></i>
-                  <span>Sign Out</span>
+                  <!-- span>Sign Out</span -->
+                    <span><input type="button" id="signout" name="signout" method="POST" title="Sign Out" action="
+                    <?php
+                          $loggedIn = false;
+                          $_SESSION['logged_in'] = false;
+                          $_SESSION['username'] = "";
+                          header("Refresh:0");
+                      //echo "<a href=index.php>Sign Out</a>";
+                      ?>"></span>
+
                 </a>
               </li>
             </ul><!-- End Profile Dropdown Items -->

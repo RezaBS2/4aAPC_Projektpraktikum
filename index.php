@@ -1,7 +1,10 @@
 <?php
 // Start the session
+
 session_start();
-include 'conf.php';
+
+
+include 'config.php';
 ?>
 
 

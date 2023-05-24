@@ -2,6 +2,7 @@
 <?php
 
 session_start();
+require 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
  **/
@@ -86,7 +87,7 @@ try {
 
     $sql = $con->prepare("SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?");
 
-    $sql->execute([$input_username]);
+    $sql->execute([trim($input_username)]);
 
     $result = $con->query($sql);
 
@@ -100,9 +101,8 @@ try {
         }
         if ($temp_password == md5($input_password))
         {
-            $remember = true;
+            //$remember = true;
             $_SESSION['logged_in'] = true;
-            $_SESSION['name'] = $name;
             $_SESSION['username'] = $input_username;
             echo "<a href=index.php>Anmeldung erfolgreich</a>";
 
@@ -110,14 +110,6 @@ try {
         else{
             echo "Inkorrektes Passwort!";
         }
-
-
-
-
-
-        //if($temp_password == )
-
-
 
     } else {
         echo "Dieser Benutzer existiert nicht!";
