@@ -53,6 +53,10 @@ try {
     $stmtCheckIfUserExists = $con-> prepare($queryCheckIfUserExists);
     $stmtCheckIfUserExists->execute([trim($username)]);
 
+        $s = $stmtCheckIfUserExists->rowCount();
+
+
+
     $colCount = $stmtCheckIfUserExists->columnCount();
     if($colCount > 0)
     {
@@ -66,7 +70,7 @@ try {
         $username_err = "Please enter a username.";
     } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))) {
         $username_err = "Username can only contain letters, numbers, and underscores.\nPlease do not use special characters in your username.";
-    } elseif ($userAlreadyExists) {
+    } elseif ($s > 0) {
         $username_err = "User already exists.";
     } else {
         // Prepare a select statement

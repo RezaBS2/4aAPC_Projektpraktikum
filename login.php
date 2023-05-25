@@ -85,16 +85,21 @@ try {
     $input_username = $_POST["username"];
     $input_password = $_POST["password"];
 
-    $sql = $con->prepare("SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?");
 
-    $sql->execute([trim($input_username)]);
+    $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
+    $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
-    $result = $con->query($sql);
+
+    $stmt = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
+    $sql = $con->prepare($stmt);
+    $sql->execute([trim($input_username)]); //Sichere Methode
+
+
 
 
     if ($result->fetch(PDO::FETCH_NUM) > 1) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
+        while($row = $stmt->fetch_assoc()) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
             $temp_username = $row["benutzer_username"];
             $temp_password = $row["benutzer_passwort"];
@@ -102,10 +107,17 @@ try {
         if ($temp_password == md5($input_password))
         {
             //$remember = true;
-            $_SESSION['logged_in'] = true;
-            $_SESSION['username'] = $input_username;
-            echo "<a href=index.php>Anmeldung erfolgreich</a>";
-
+            if($_SESSION['logged_in'] == false)
+            {
+                $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $input_username;
+                echo "<a href=index.php>Anmeldung erfolgreich</a>";
+            }
+            else
+            {
+                $_SESSION['username'] = $input_username;
+                echo "<a href=index.php>Anmeldung erfolgreich</a>";
+            }
         }
         else{
             echo "Inkorrektes Passwort!";
