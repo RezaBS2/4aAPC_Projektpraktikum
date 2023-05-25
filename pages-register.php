@@ -17,7 +17,7 @@ include "Sidebar.php";
 ?>
 
 <body>
-
+<div class="background-image"></div>
   <main>
     <div class="container">
 

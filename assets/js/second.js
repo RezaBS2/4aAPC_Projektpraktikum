@@ -50,4 +50,27 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+var ratingInputs = document.querySelectorAll('.rating input');
+
+ratingInputs.forEach(function(input) {
+  input.addEventListener('change', function() {
+    var rating = this.value;
+    // Hier kannst du den Bewertungswert verwenden oder an einen Server senden
+    console.log('Bewertung: ' + rating);
+  });
+});
+
+function countCharacters(textarea) {
+  var message = textarea.value;
+  var characterCount = message.length;
+  document.getElementById("characterCount").textContent = characterCount + " Zeichen geschrieben";
+}
+
+function countCharacters(textarea) {
+  var message = textarea.value;
+  var characterCount = message.length;
+  var remainingCharacters = 500 - characterCount;
+  document.getElementById("characterCount").textContent = characterCount + " Zeichen geschrieben";
+  document.getElementById("remainingCharacters").textContent = "Noch " + remainingCharacters + " Zeichen übrig";
+}
 

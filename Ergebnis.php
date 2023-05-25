@@ -10,7 +10,7 @@ session_start();
 <?php include "head.php"; ?>
 <?php include "header.php"; ?>
 <?php include "Sidebar.php"; ?>
-
+<div class="background-image"></div>
 <main id="main" class="main">
   <!-- Dropdown Filter -->
   <div class="dropdown2 d-flex align-items-center justify-content-end">

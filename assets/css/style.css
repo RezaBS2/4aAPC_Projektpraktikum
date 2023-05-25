@@ -5,12 +5,397 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+/*--------------------------------------------------------------
+# About
+/*--------------------------------------------------------------*/
+.c2{
+  border: 1px solid #000000;
+}
+
+.background-image {
+  background-image: url(/assets/img/logo.png);
+  background-repeat: repeat;
+  opacity: 0.1;
+  position: fixed;
+  top: 0;
+  margin-left: -255px;
+  width: 300%;
+  height: 260%;
+  z-index: -1;
+  transform: rotate(30deg);
+  background-size: 200px;
+}
+
+.about .content h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.about .content h3 {
+  font-weight: 500;
+  line-height: 32px;
+  font-size: 24px;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  padding: 10px 0 0 28px;
+  position: relative;
+}
+
+.about .content ul i {
+  left: 0;
+  top: 7px;
+  position: absolute;
+  font-size: 20px;
+  color: #d9232d;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Team
+--------------------------------------------------------------*/
+.team .member {
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 3px solid #000000;
+}
+
+.team .member .member-img {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 2px;
+  padding-top: 19px;
+}
+
+.team .member .social {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team .member .social a {
+  transition: color 0.3s;
+  color: #111111;
+  margin: 0 3px;
+  border-radius: 50px;
+  width: 36px;
+  height: 36px;
+  background: #e03a3c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+}
+
+.team .member .social a:hover {
+  background: #ffffff;
+}
+
+.team .member .social i {
+  font-size: 18px;
+  line-height: 0;
+}
+
+.team .member .member-info {
+  padding: 25px 15px;
+  background-color: #000000;
+}
+
+.team .member .member-info h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.team .member .member-info h3 {
+font-weight: 700;
+font-size: 48px;
+line-height: 60px;
+margin-bottom: 20px;
+text-transform: uppercase;
+}
+
+.team .member .member-info span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #aaaaaa;
+}
+
+.team .member .member-info p {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.team .member:hover .social {
+  opacity: 1;
+  bottom: 15px;
+}
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info {
+  border-top: 3px solid #000000;
+  border-left: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+  padding: 30px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
+}
+.contact .info2 {
+  border-top: 3px solid #000000;
+  border-left: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+}
+
+.contact .info i {
+  font-size: 20px;
+  color: #000000;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 2px solid #000000; 
+  transition: all 0.3s ease-in-out;
+}
+
+
+.contact .info i:hover{
+  font-size: 20px;
+  color: #ffffff;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.contact .info h3 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.contact .info p {
+  padding: 0 0 10px 60px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #284b96;
+}
+
+.contact .info .email p {
+  padding-top: 5px;
+}
+
+.contact .info .social-links {
+  padding-left: 60px;
+}
+
+.contact .info .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #a51818;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+.contact .info .social-links a:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.contact .info .email:hover i,
+.contact .info .address:hover i,
+.contact .info .phone:hover i {
+  background: #000000;;
+  color: #fff;
+}
+
+.contact .php-email-form {
+  width: 100%;
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+  border-right: 3px solid #000000;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+}
+
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact .php-email-form label {
+  padding-bottom: 8px;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #000000;
+}
+
+.contact .php-email-form input {
+  height: 44px;
+}
+
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.contact .php-email-form button[type=submit] {
+  background: #47b2e4;
+  border: 0;
+  padding: 12px 34px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: #020202;
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+.geslog {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.txtcenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .map {
-  width: 90%;
+  width: 100%;
   height: 310px;
   display: block;
   margin: 0 auto;
@@ -26,6 +411,7 @@
   border: 3px solid #000000;
   border-radius: 10px;
 }
+
 
 .dropdown2 {
   position: fixed;
@@ -156,13 +542,11 @@
   height: 1px;
   border: 1px solid;
   border-color: #000000;
-  margin-left: 20px;
+  margin-left: 220px;
 }
 
 .star {
-  font-size: 45px;
-  margin-left: 190px;
-  color: gold;
+font-size: 46px;
 }
 
 .star:hover {
@@ -357,6 +741,12 @@
     -1px -1px 1px #ffffff;
 }
 
+.uber1 {
+  text-align: center;
+  color: black;
+
+}
+
 .inf {
   font-family: 'Oswald', sans-serif;
   font-size: 36px;
@@ -367,6 +757,8 @@
     -1px 1px 1px #ffffff,
     -1px -1px 1px #ffffff;
 }
+
+
 
 .topi {
   margin-top: 3%;
@@ -382,6 +774,9 @@
   margin-bottom: 3%;
 }
 
+.topi3 {
+  margin-top: 5%;
+}
 .search-form input[type="text"]::placeholder {
   text-align: center;
   transition: text-align 0.5s ease;
@@ -534,13 +929,6 @@
 
 /*Login Backgr*/
 
-.bg-pa-log {
-  background: url(/SKIMP/assets/img/logo.png);
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .center {
   align-items: center;
 }
@@ -556,12 +944,12 @@ body {
 }
 
 a {
-  color: #4154f1;
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #717ff5;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -578,7 +966,10 @@ h6 {
   scroll-behavior: smooth;
 }
 
+::selection {background: #000000; color: #ffffff;}
+
 body {
+  
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -602,12 +993,12 @@ body {
 
 
 a {
-  color: #4154f1;
+  color: #000000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #717ff5;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -625,12 +1016,12 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
-  top: 45px;
+  height: 100%;
+  top: 80px;
   background: url("/assets/img/logo2.png") top center no-repeat;
   background-size: contain;
   background-position: center;
-  position: relative;
+  position:absolute;
 }
 
 
@@ -719,7 +1110,7 @@ h6 {
 @media (max-width: 1199px) {
   #hero h1 {
     margin: 25%;
-    font-size: 48px;
+    font-size: 55px;
     font-weight: 700;
     color: #fff;
   }
@@ -728,7 +1119,7 @@ h6 {
 @media (min-width: 1200px) {
   #hero h1 {
     margin-left: 36%;
-    font-size: 45px;
+    font-size: 75px;
     font-weight: 700;
     color: #fff;
   }
@@ -2014,6 +2405,7 @@ h6 {
 --------------------------------------------------------------*/
 .contact .info-box {
   padding: 28px 30px;
+  border: 3px solid black;
 }
 
 .contact .info-box i {
@@ -2032,9 +2424,10 @@ h6 {
 .contact .info-box p {
   padding: 0;
   line-height: 24px;
-  font-size: 14px;
+  font-size: 20px;
   margin-bottom: 0;
 }
+
 
 .contact .php-email-form .error-message {
   display: none;
