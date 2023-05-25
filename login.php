@@ -86,24 +86,26 @@ try {
     $input_password = $_POST["password"];
 
 
-    $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
-    $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
+   // $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
+   // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    $stmt = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
+    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
     $sql = $con->prepare($stmt);
     $sql->execute([trim($input_username)]); //Sichere Methode
 
 
+    $rcount = $sql->rowCount();
 
 
-    if ($result->fetch(PDO::FETCH_NUM) > 1) {
+    if ($rcount > 0) {
         // output data of each row
-        while($row = $stmt->fetch_assoc()) {
+        while($row = $sql->fetch(PDO::FETCH_NUM)) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
-            $temp_username = $row["benutzer_username"];
-            $temp_password = $row["benutzer_passwort"];
+            $temp_username = $row[0];
+            $temp_password = $row[1];
         }
+        //echo 'temp password: '.$temp_password.'  input password: '.md5($input_password).'<br>';
         if ($temp_password == md5($input_password))
         {
             //$remember = true;
@@ -134,10 +136,5 @@ catch (Exception $eall)
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-//$conn->close();
 
-
-
-
-echo "test";
 ?>
