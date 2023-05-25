@@ -232,6 +232,7 @@ $loggedIn = $_SESSION['logged_in'];
                   <!-- span>Sign Out</span -->
                     <span><input type="button" id="signout" name="signout" method="POST" title="Sign Out" action="
                     <?php
+                        echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
                         if($_SESSION['logged_in'])
                         {
                             $loggedIn = false;

@@ -47,15 +47,16 @@ try {
         $email = $_POST["email"];
     }
 
+    $username = $_POST["username"];
     $userAlreadyExists = false;
 
-    $queryCheckIfUserExists =    'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
+    $queryCheckIfUserExists = 'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
     $stmtCheckIfUserExists = $con-> prepare($queryCheckIfUserExists);
     $stmtCheckIfUserExists->execute([trim($username)]);
 
     $rcount = $stmtCheckIfUserExists->rowCount();
-    $colCount = $stmtCheckIfUserExists->columnCount();
-
+//    $colCount = $stmtCheckIfUserExists->columnCount();
+    // echo "RCount: ".$rcount.'<br>';
     if($rcount > 0)
     {
         $userAlreadyExists = true;
@@ -77,7 +78,7 @@ try {
         //$sql->bind_param($username);
         $result = $con->query($sqlSelect);*/
 
-        $username = $_POST["username"];
+       // $username = $_POST["username"];
         /*
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -179,7 +180,8 @@ try {
         }*/
     } else {
         $alert = $username_err.' '.$password_err.' '.$confirm_password_err.' '.$email_err;
-        echo '<script>alert("'.$alert.'")</script>';
+        echo "<a href=index.php>$alert</a>";
+        //echo '<script>alert("'.$alert.'")</script>';
     }
 
     // Close connection
