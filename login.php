@@ -92,7 +92,7 @@ try {
     $result = $con->query($sql);
 
 
-    if ($result->num_rows > 0) {
+    if ($result->fetch(PDO::FETCH_NUM) > 1) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";

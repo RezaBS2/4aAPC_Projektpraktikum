@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$_SESSION["name"] = $name;
+$name = $_SESSION["name"];
 ?>
 
 <!DOCTYPE html>
@@ -87,8 +87,8 @@ try {
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-
-    $sqlSelectAll = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM benutzer';
+    $sqlSelectAll = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?';
+    //$sqlSelectAll = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM benutzer';
 
 
     $result = $con->query($sqlSelectAll);

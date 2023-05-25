@@ -66,15 +66,6 @@ try {
 
     $sql3 = 'commit';
 
-
-
-
-
-
-
-
-
-
     $con=null;
 
     echo "Success!";

@@ -232,10 +232,15 @@ $loggedIn = $_SESSION['logged_in'];
                   <!-- span>Sign Out</span -->
                     <span><input type="button" id="signout" name="signout" method="POST" title="Sign Out" action="
                     <?php
-                          $loggedIn = false;
-                          $_SESSION['logged_in'] = false;
-                          $_SESSION['username'] = "";
-                          header("Refresh:0");
+                        if($_SESSION['logged_in'])
+                        {
+                            $loggedIn = false;
+                            $_SESSION['logged_in'] = false;
+                            $_SESSION['username'] = "";
+                            header("Refresh: 1; url=index.php");
+                            //header("Refresh:0");
+                        }
+
                       //echo "<a href=index.php>Sign Out</a>";
                       ?>"></span>
 
