@@ -12,90 +12,87 @@ include "Sidebar.php";
 ?>
 
 <body>
-<div class="background-image"></div>
+  <div class="background-image"></div>
   <main>
-    <div class="container">
 
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.php" class="logo d-flex align-items-center w-auto">
-                  <div class="d-flex justify-content-center py-4">
-                    <div class="logo d-flex align-items-center">
-                      <img class="logo2" src="assets/img/logo.png" alt="">
-                      <span class="logoueb">SKIMP®</span>
+    <body>
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+              <div class="card to" style="border-radius: 1rem; border: 3px solid black;">
+                <div class="row g-0 ">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block" style="border-right: 2px solid black;">
+                    <div class="text-center">
+                      <img src="assets/img/logo.png" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; display: inline-block; vertical-align: middle;padding-top: 5%;" />
+                      <p style="padding-top: 5%; font-size: 40px; display: inline-block; vertical-align: middle;">SKIMP®</p>
+                      <br>
+                      <p style="padding-top: 5%; font-size: 35px; display: inline-block; vertical-align: middle;">Registrieren</p>
                     </div>
-                  </div><!-- End Logo -->
-                </a>
-              </div><!-- End Logo -->
-
-              <div class="card mb-3">
-
-                <div class="card-body">
-
-                  <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
                   </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-4 text-black">
+                      <form>
+                        <div class="d-flex align-items-center pb-0">
+                          <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
+                          <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
+                        </div>
 
-                  <form action="register.php" method="POST" class="row g-3 needs-validation" novalidate>
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
-                    </div>
+                        <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Erstelle einen Neuen Account:</h5>
 
-                    <div class="col-12">
-                      <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
-                    </div>
+                        <div class="form-outline mb-2 to">
+                          <label class="form-label logtx" for="form2Example17">Username:</label>
+                          <input type="text" id="form2Example17" placeholder="Max" class="form-control form-control-lg" required />
+                        </div>
 
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
-                      </div>
-                    </div>
 
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
+                        <div class="form-outline mb-2">
+                          <label class="form-label logtx" for="form2Example17">Deine Email:</label>
+                          <input type="email" id="form2Example17" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                        </div>
 
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                        <div class="invalid-feedback">You must agree before submitting.</div>
-                      </div>
+                        <div class="form-outline mb-2">
+                          <label class="form-label logtx" for="form2Example27">Passwort:</label>
+                          <input type="password" id="form2Example27" placeholder="Passwort" class="form-control form-control-lg" required />
+                        </div>
+
+                        <div class="form-outline mb-2">
+                          <label class="form-label logtx" for="form2Example27">Passwort Wiederholen:</label>
+                          <input type="password" id="form2Example27" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
+                        </div>
+
+                        <div class="pt-2 mb-4 text-center">
+                          <button class="btn btn-danger btn-lg btn-block" type="button">Account Erstellen</button>
+                        </div>
+                        <hr>
+                        <a class="pt-2 small text-muted">Du hast schon einen Account?</a>
+                        <br>
+                        <u>
+                          <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-login.php" class="registertxt">Anmelden</a></p>
+                        </u>
+
+                        <hr>
+
+                        <div class="pt-2 text-center">
+                          <div class="d-flex justify-content-between">
+                            <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
+                            <u><a href="about.php" class="small  registertxt">Fragen</a></u>
+                            <button class="btn btn-danger btn-md" onclick="history.back()">Zurück</button>
+                          </div>
+                        </div>
+
+
+                      </form>
+
                     </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="pages-login.php">Log in</a></p>
-                    </div>
-                  </form>
-                  <div class="col-2-8-2">
-                    <a href="index.php">
-                      <button class="btn btn-danger w-100" type="submit">Home</button>
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+        </div>
       </section>
-
-    </div>
-  </main><!-- End #main -->
+  </main>
   <?php
   include "footer.php";
   ?>

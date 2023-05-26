@@ -29,7 +29,7 @@ window.onload = function () {
   }, intervall);
 }
 
-window.onscroll = function() {
+window.onscroll = function () {
   scrollFunction();
 };
 
@@ -52,8 +52,8 @@ function topFunction() {
 
 var ratingInputs = document.querySelectorAll('.rating input');
 
-ratingInputs.forEach(function(input) {
-  input.addEventListener('change', function() {
+ratingInputs.forEach(function (input) {
+  input.addEventListener('change', function () {
     var rating = this.value;
     // Hier kannst du den Bewertungswert verwenden oder an einen Server senden
     console.log('Bewertung: ' + rating);
@@ -74,3 +74,31 @@ function countCharacters(textarea) {
   document.getElementById("remainingCharacters").textContent = "Noch " + remainingCharacters + " Zeichen übrig";
 }
 
+function searchbtn() {
+  if (select('.search-bar-toggle')) {
+    on('click', '.search-bar-toggle', function (e) {
+      select('.search-bar').classList.toggle('search-bar-show')
+    })
+  }
+}
+// Definition der select()-Funktion zur Auswahl von Elementen
+function select(selector) {
+  return document.querySelector(selector);
+}
+
+// Definition der on()-Funktion zur Registrierung von Ereignishandlern
+function on(event, selector, handler) {
+  document.addEventListener(event, function (e) {
+    const targetElement = e.target.closest(selector);
+    if (targetElement) {
+      handler(e, targetElement);
+    }
+  });
+}
+
+// Registrierung des Klickereignisses für den "Suche Starten"-Button
+on('click', '.btn1', function (e) {
+  if (select('.search-bar-toggle')) {
+    select('.search-bar').classList.toggle('search-bar-show');
+  }
+});

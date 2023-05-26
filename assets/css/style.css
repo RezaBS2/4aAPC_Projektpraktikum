@@ -8,7 +8,7 @@
 /*--------------------------------------------------------------
 # About
 /*--------------------------------------------------------------*/
-.c2{
+.c2 {
   border: 1px solid #000000;
 }
 
@@ -130,11 +130,11 @@
 }
 
 .team .member .member-info h3 {
-font-weight: 700;
-font-size: 48px;
-line-height: 60px;
-margin-bottom: 20px;
-text-transform: uppercase;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .team .member .member-info span {
@@ -154,6 +154,7 @@ text-transform: uppercase;
   opacity: 1;
   bottom: 15px;
 }
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -161,15 +162,18 @@ text-transform: uppercase;
   border-top: 3px solid #000000;
   border-left: 3px solid #000000;
   border-bottom: 3px solid #000000;
+  border-right: 3px solid #000000;
   padding: 30px;
   background: #fff;
   width: 100%;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
 }
+
 .contact .info2 {
   border-top: 3px solid #000000;
   border-left: 3px solid #000000;
   border-bottom: 3px solid #000000;
+  border-right: 3px solid #000000;
 }
 
 .contact .info i {
@@ -183,12 +187,12 @@ text-transform: uppercase;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  border: 2px solid #000000; 
+  border: 2px solid #000000;
   transition: all 0.3s ease-in-out;
 }
 
 
-.contact .info i:hover{
+.contact .info i:hover {
   font-size: 20px;
   color: #ffffff;
   float: left;
@@ -256,7 +260,8 @@ text-transform: uppercase;
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: #000000;;
+  background: #000000;
+  ;
   color: #fff;
 }
 
@@ -265,6 +270,7 @@ text-transform: uppercase;
   border-top: 3px solid #000000;
   border-bottom: 3px solid #000000;
   border-right: 3px solid #000000;
+  border-left: 3px solid #000000;
   padding: 30px;
   background: #fff;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -379,6 +385,15 @@ text-transform: uppercase;
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.logtx {
+  font-size: 18px;
+}
+
+.registertxt:hover {
+  color: #393f81;
+  text-decoration: underline;
+  color: rgb(0, 162, 255);
+}
 
 .geslog {
   position: absolute;
@@ -546,7 +561,7 @@ text-transform: uppercase;
 }
 
 .star {
-font-size: 46px;
+  font-size: 46px;
 }
 
 .star:hover {
@@ -758,7 +773,9 @@ font-size: 46px;
     -1px -1px 1px #ffffff;
 }
 
-
+.to {
+  margin-top: 2%;
+}
 
 .topi {
   margin-top: 3%;
@@ -777,6 +794,7 @@ font-size: 46px;
 .topi3 {
   margin-top: 5%;
 }
+
 .search-form input[type="text"]::placeholder {
   text-align: center;
   transition: text-align 0.5s ease;
@@ -966,10 +984,13 @@ h6 {
   scroll-behavior: smooth;
 }
 
-::selection {background: #000000; color: #ffffff;}
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
 
 body {
-  
+
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1014,6 +1035,12 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+@media (min-width: 1199px) {
+  .btn1.btn-get-started {
+    display: none;
+  }
+}
+
 #hero {
   width: 100%;
   height: 100%;
@@ -1021,7 +1048,7 @@ h6 {
   background: url("/assets/img/logo2.png") top center no-repeat;
   background-size: contain;
   background-position: center;
-  position:absolute;
+  position: absolute;
 }
 
 
@@ -1036,7 +1063,6 @@ h6 {
 }
 
 #hero h1 {
-  margin: 10%;
   font-size: 48px;
   font-weight: 700;
   color: #fff;
@@ -1058,22 +1084,23 @@ h6 {
 
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
+  letter-spacing: 2px;
   padding: 10px 30px;
   border-radius: 4px;
   transition: 0.5s;
-  margin-top: 30px;
-  color: #fff;
-  background: #e03a3c;
-  border: 2px solid #e03a3c;
+  margin-top: 40px;
+  color: #ffffff;
+  background: #000000;
+  border: 2px solid #ffffff;
+  padding-left: 20px;
 }
 
 #hero .btn-get-started:hover {
-  background: transparent;
-  border-color: #fff;
+  background: rgb(255, 255, 255);
+  border-color: #000000;
+  color: rgb(0, 0, 0);
 }
 
 @media (max-width: 768px) {
@@ -1100,24 +1127,6 @@ h6 {
 
 @media (min-width: 900px) {
   #hero h1 {
-    margin: 25%;
-    font-size: 48px;
-    font-weight: 700;
-    color: #fff;
-  }
-}
-
-@media (max-width: 1199px) {
-  #hero h1 {
-    margin: 25%;
-    font-size: 55px;
-    font-weight: 700;
-    color: #fff;
-  }
-}
-
-@media (min-width: 1200px) {
-  #hero h1 {
     margin-left: 36%;
     font-size: 75px;
     font-weight: 700;
@@ -1139,6 +1148,7 @@ h6 {
     margin-top: 10px;
     color: #fff;
   }
+
 }
 
 /*--------------------------------------------------------------
@@ -1438,7 +1448,7 @@ h6 {
 }
 
 .breadcrumb .active {
-  color: #51678f;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -1450,7 +1460,7 @@ h6 {
 .nav-tabs-bordered .nav-link {
   margin-bottom: -2px;
   border: none;
-  color: #2c384e;
+  color: #000000;
 }
 
 .nav-tabs-bordered .nav-link:hover,
@@ -1596,11 +1606,13 @@ h6 {
   }
 
   .header .search-bar-show {
-    top: 60px;
+    top: 80px;
     visibility: visible;
     opacity: 1;
+    border: 1px solid black;
   }
 }
+
 
 .header .search-form .bi-search {
   position: relative;
@@ -2012,7 +2024,7 @@ h6 {
 .sidebar-nav .nav-heading {
   font-size: 11px;
   text-transform: uppercase;
-  color: #899bbd;
+  color: #000000;
   font-weight: 600;
   margin: 10px 0 5px 15px;
 }
@@ -2041,7 +2053,7 @@ h6 {
 }
 
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  color: #000000;
   font-size: 25px;
 }
 
