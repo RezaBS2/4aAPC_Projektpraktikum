@@ -39,22 +39,22 @@ include "Sidebar.php";
 
 
                                         <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="form2Example17">Deine Email:</label>
-                                            <input type="email" id="form2Example17" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                                            <label class="form-label logtx" for="yourEmailReset">Deine Email:</label>
+                                            <input type="email" name="emailReset" id="yourEmailReset" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="form2Example27">Neues Passwort:</label>
-                                            <input type="password" id="form2Example27" placeholder="Passwort" class="form-control form-control-lg" required />
+                                            <label class="form-label logtx" for="yourPwdReset">Neues Passwort:</label>
+                                            <input type="password" name="passwordReset" id="yourPwdReset" placeholder="Passwort" class="form-control form-control-lg" required />
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="form2Example27">Neues Passwort Bestätigen:</label>
-                                            <input type="password" id="form2Example27" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
+                                            <label class="form-label logtx" for="yourPwdResetConfirm">Neues Passwort Bestätigen:</label>
+                                            <input type="password" name="passwordResetConfirm" id="yourPwdResetConfirm" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                                         </div>
 
                                         <div class="pt-2 mb-4 text-center">
-                                            <button class="btn btn-danger btn-lg btn-block" type="button">Zurücksetzen</button>
+                                            <button class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</button>
                                         </div>
                                         <hr>
                                         <div class="pt-2 text-center">

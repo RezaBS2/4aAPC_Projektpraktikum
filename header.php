@@ -1,7 +1,13 @@
 <?php
 // Start the session
-//session_start();
-$loggedIn = $_SESSION['logged_in'];
+try {
+    session_start();
+    $loggedIn = $_SESSION['logged_in'];
+}catch (Exception $ex)
+{
+
+}
+
 ?>
 
 <!DOCTYPE html>

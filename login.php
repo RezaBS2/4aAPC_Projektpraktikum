@@ -122,11 +122,11 @@ try {
             }
         }
         else{
-            echo "Inkorrektes Passwort!";
+            echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
         }
 
     } else {
-        echo "Dieser Benutzer existiert nicht!";
+        echo '<button onclick="history.back()">Dieser Benutzer existiert nicht!</button>';
     }
 }
 catch (Exception $eall)

@@ -22,7 +22,7 @@
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Ergebnis.php">
             <i class="bi bi-card-list"></i>
-            <span>Ergebnise</span>
+            <span>Ergebnisse</span>
           </a>
       </li>
       <!-- End Profile Page Nav -->
