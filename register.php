@@ -1,39 +1,84 @@
 <?php
+
+session_start();
+?>
+
+<?php
+require 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */
 
+/* Verbindung uzum Thomas sein Server
+$server = 'tom.m1nd.at:80';
+$user = 'bs-linz2';
+$pwd = 'bs-linz2';
+$db = 'skimp';
+*/
 
 //require_once "config.php";
 
-//DB-Verbinfdung
+/*/DB-Verbinfdungsdaten zum Testen
 $servername = 'localhost:3306';
 $db_username = 'root';
 $db_password = '';
 $db_name = 'projektpraktikum';
-//
+/*/
 
-$email = "";
+//Variablen für die Tabellen
+$email = $alert = "";
 $username = $password = $confirm_password = "";
-$confirm_password_err = "";
+$confirm_password_err = $username_err = $password_err = $email_err = "";
 
 // Processing form data when form is submitted
 //if($_SERVER["REQUEST_METHOD"] == "POST"){
 try {
+    /*
     $con = new PDO('mysql:host='.$servername.';dbname='.$db_name.';charset=utf8', $db_username, $db_password);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+*/
+    global $con;
+
+
+    // Validate email
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Please enter a valid email.";
+    } else {
+        $email = $_POST["email"];
+    }
+
+    $username = $_POST["username"];
+    $userAlreadyExists = false;
+
+    $queryCheckIfUserExists = 'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
+    $stmtCheckIfUserExists = $con-> prepare($queryCheckIfUserExists);
+    $stmtCheckIfUserExists->execute([trim($username)]);
+
+    $rcount = $stmtCheckIfUserExists->rowCount();
+//    $colCount = $stmtCheckIfUserExists->columnCount();
+    // echo "RCount: ".$rcount.'<br>';
+    if($rcount > 0)
+    {
+        $userAlreadyExists = true;
+    }
+
+
 
     // Validate username
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter a username.";
     } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))) {
         $username_err = "Username can only contain letters, numbers, and underscores.\nPlease do not use special characters in your username.";
+    } elseif ($userAlreadyExists) {
+        $username_err = "User already exists.";
     } else {
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        /*$sqlSelect = "SELECT id FROM users WHERE username = ?";
 
-        $sql->bind_param($username);
-        $username = $_POST["username"];
+        //$sql->bind_param($username);
+        $result = $con->query($sqlSelect);*/
+
+       // $username = $_POST["username"];
         /*
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -83,7 +128,7 @@ try {
     }
 
     // Check input errors before inserting in database
-    if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+    if (empty($username_err)  && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
 
@@ -94,17 +139,22 @@ try {
             (
                 ?,
                 ?,
-                MD5(?)
+                ?
             )');
 
-            $sqlInsert->execute([$username, $email, $passwort]);
+            $sqlInsert->execute([$username, $email, md5($password)]);
 
 
 
-            $remember = true;
+
+            $_SESSION['logged_in'] = true;
+            $_SESSION['username'] = $username;
+
+
             echo "<a href=index.php>Registrierung erfolgreich</a>";
 //            header("location: login.php");
         } catch (Exception $e) {
+            echo 'Error - Verbindung: '.$e->getCode().': '.$e->getMessage().'<br>'; // Nachher entfernen
             echo "Oops! Something went wrong. Please try again later.";
         }
 
@@ -128,6 +178,10 @@ try {
             // Close statement
             mysqli_stmt_close($stmt);
         }*/
+    } else {
+        $alert = $username_err.' '.$password_err.' '.$confirm_password_err.' '.$email_err;
+        echo "<a href=index.php>$alert</a>";
+        //echo '<script>alert("'.$alert.'")</script>';
     }
 
     // Close connection
@@ -138,7 +192,8 @@ try {
 catch (Exception $eall)
 {
     echo $eall->getCode().': '.$eall->getMessage().'<br>;';
-    echo "<br>Failure!<br>";
+    echo "<br>Failure while trying to register!<br>";
+    $con = null;
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 ?>

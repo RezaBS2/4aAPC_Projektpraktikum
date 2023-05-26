@@ -87,9 +87,8 @@ include "Sidebar.php";
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
-          </div>
+          </Sdiv>
         </div>
       </section>
   </main>

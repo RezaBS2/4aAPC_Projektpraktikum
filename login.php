@@ -1,11 +1,21 @@
+
 <?php
+
+session_start();
+require 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
- *
+ **/
+
+/* Verbindung uzum Thomas sein Server
+$server = 'tom.m1nd.at:80';
+$user = 'bs-linz2';
+$pwd = 'bs-linz2';
+$db = 'skimp';
+*/
 
 
-
-
+/*
 $str = "Mary Had 5 Little Lambs and She LOVED HTEMöüäöÖÖÄÜÚ So";
 //$str_converted = mb_convert_case($str, MB_CASE_LOWER, "UTF-8");
 $str_converted = strtolower($str);
@@ -42,11 +52,12 @@ if (!$result) {
 
 
 
-//w3schools
+/*/w3schools
 $servername = "localhost:3306";
 $db_username = "root";
 $db_password = "";
 $db_name = "projektpraktikum";
+*/
 
 $input_username = "";
 $input_password = "";
@@ -66,45 +77,53 @@ $temp_password = "";
 
 
 try {
-    $con = new PDO('mysql:host='.$servername.';dbname='.$db_name.';charset=utf8', $db_username, $db_password);
-    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    /*$con = new PDO('mysql:host='.$servername.';dbname='.$db_name.';charset=utf8', $db_username, $db_password);
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
 
+    global $con;
 
     $input_username = $_POST["username"];
     $input_password = $_POST["password"];
 
-    $sql = $con->prepare("SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?");
 
-    $sql->execute([$input_username]);
-
-    $result = $con->query($sql);
+   // $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
+   // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    if ($result->num_rows > 0) {
+    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
+    $sql = $con->prepare($stmt);
+    $sql->execute([trim($input_username)]); //Sichere Methode
+
+
+    $rcount = $sql->rowCount();
+
+
+    if ($rcount > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
+        while($row = $sql->fetch(PDO::FETCH_NUM)) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
-            $temp_username = $row["benutzer_username"];
-            $temp_password = $row["benutzer_passwort"];
+            $temp_username = $row[0];
+            $temp_password = $row[1];
         }
+        //echo 'temp password: '.$temp_password.'  input password: '.md5($input_password).'<br>';
         if ($temp_password == md5($input_password))
         {
-            $remember = true;
-            $_SESSION['logged in'] = true;
-            echo "<a href=index.php>Anmeldung erfolgreich</a>";
-
+            //$remember = true;
+            if($_SESSION['logged_in'] == false)
+            {
+                $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $input_username;
+                echo "<a href=index.php>Anmeldung erfolgreich</a>";
+            }
+            else
+            {
+                $_SESSION['username'] = $input_username;
+                echo "<a href=index.php>Anmeldung erfolgreich</a>";
+            }
         }
         else{
             echo "Inkorrektes Passwort!";
         }
-
-
-
-
-
-        //if($temp_password == )
-
-
 
     } else {
         echo "Dieser Benutzer existiert nicht!";
@@ -117,10 +136,5 @@ catch (Exception $eall)
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-//$conn->close();
 
-
-
-
-echo "test";
 ?>

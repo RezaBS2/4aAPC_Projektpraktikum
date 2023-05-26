@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+$name = $_SESSION["name"];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +38,12 @@ $db = 'projektpraktikum';
 
 
 
-/*/ Verbindung uzum Thomas sein Server
+/* Verbindung uzum Thomas sein Server
 $server = 'tom.m1nd.at:80';
 $user = 'bs-linz2';
 $pwd = 'bs-linz2';
 $db = 'skimp';
-/*/
+*/
 
 
 
@@ -82,8 +87,8 @@ try {
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-
-    $sqlSelectAll = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM benutzer';
+    $sqlSelectAll = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?';
+    //$sqlSelectAll = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM benutzer';
 
 
     $result = $con->query($sqlSelectAll);
