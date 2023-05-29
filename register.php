@@ -1,10 +1,9 @@
 <?php
 
 session_start();
-?>
+global $loggedIn;
 
-<?php
-require 'config.php';
+include 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */

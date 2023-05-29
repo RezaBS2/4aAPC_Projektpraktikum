@@ -2,6 +2,7 @@
 <?php
 
 session_start();
+global $loggedIn;
 require 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
