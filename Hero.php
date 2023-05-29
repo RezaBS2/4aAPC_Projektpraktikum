@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include "head.php"; ?>
-<?php include "header.php"; ?>
-<?php include "Sidebar.php"; ?>
 
 <body>
   <section id="hero" class="d-flex align-items-center">
@@ -13,12 +10,12 @@
           <h1 class="hero-title">SKIMP®</h1>
           <h3 class="typed hero-subtitle1"></h3>
           <h3 class="typed hero-subtitle2"></h3>
+          <h3> <button class="btn1 btn-get-started toggle-sidebar-btn" onclick="history.searchbtn()"><b>Suche Starten</b></button></h3> <!-- Hier wird der Button eingefügt -->
         </div>
       </div>
     </div>
   </section><!-- End Hero -->
 
-  <?php include "footer.php"; ?>
 
   <!-- Template Main JS File -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
@@ -34,7 +31,7 @@
     });
     const typedSubtitle2 = new Typed('.typed.hero-subtitle2', {
       strings: [
-        'Finden sie bei uns den besten Preis!',
+        'Finden sie bei uns die besten Preise!',
       ],
       loop: true,
       typeSpeed: 50,

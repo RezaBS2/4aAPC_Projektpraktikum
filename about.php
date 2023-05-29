@@ -100,7 +100,9 @@ include "Sidebar.php";
 
     <div class="section-title">
       <i>
-<u><h2 class="uber topi">Über SKIMP</h2></u>
+        <u>
+          <h2 class="uber topi">Über SKIMP</h2>
+        </u>
       </i>
     </div>
     <!-- ======= About Section ======= -->
@@ -109,7 +111,7 @@ include "Sidebar.php";
 
         <div class="row content">
           <div class="col-lg-6">
-          <h1>Test</h1>
+            <h1>Test</h1>
             <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
@@ -140,10 +142,10 @@ include "Sidebar.php";
         <u>
           <h2 class="uber topi" data-aos="zoom-in" data-aos-delay="100">Entwickler</h2>
         </u>
-        </i>
-        <p data-aos="zoom-in" data-aos-delay="100">
-          Das Entwickler Team Hinter SKIMP
-        </p>
+      </i>
+      <p data-aos="zoom-in" data-aos-delay="100">
+        Das Entwickler Team Hinter SKIMP
+      </p>
     </div>
 
     <!-- ======= Team Section ======= -->
@@ -151,15 +153,15 @@ include "Sidebar.php";
       <div class="container" data-aos="fade-up">
         <div class="row">
 
-        <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
+          <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="member-img">
-              <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                 </div>
               </div>
               <div class="member-info">
-              <h4>Kogseder  <br> Simon</h4>
+                <h4>Kogseder <br> Simon</h4>
                 <span>Frontend</span>
               </div>
             </div>
@@ -168,7 +170,7 @@ include "Sidebar.php";
           <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="member-img">
-              <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                 </div>
               </div>
@@ -182,12 +184,12 @@ include "Sidebar.php";
           <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="member-img">
-              <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                 </div>
               </div>
               <div class="member-info">
-              <h4>Vakilzadeh <br> Reza</h4>
+                <h4>Vakilzadeh <br> Reza</h4>
                 <span>Backend</span>
               </div>
             </div>
@@ -196,12 +198,12 @@ include "Sidebar.php";
           <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="member-img">
-              <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                 </div>
               </div>
               <div class="member-info">
-              <h4>Schweiger <br> Thomas</h4>
+                <h4>Schweiger <br> Thomas</h4>
                 <span>Datenbank</span>
               </div>
             </div>
@@ -210,12 +212,12 @@ include "Sidebar.php";
           <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
               <div class="member-img">
-              <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                 </div>
               </div>
               <div class="member-info">
-              <h4>Neumüller <br> Mike</h4>
+                <h4>Neumüller <br> Mike</h4>
                 <span>Datenbank</span>
               </div>
             </div>

@@ -7,7 +7,7 @@
       <li class="nav-item, topi">
         <div class="sidetrans">
           <a class="nav-link " href="index.php">
-            <i class="bi bi-grid"></i>
+            <i class="bi bi-house-fill"></i>
             <span>Starseite</span>
           </a>
       </li>
@@ -21,8 +21,8 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Ergebnis.php">
-            <i class="bi bi-card-list"></i>
-            <span>Ergebnisse</span>
+            <i class="bi bi-file-earmark-check-fill"></i>
+            <span>Ergebnise</span>
           </a>
       </li>
       <!-- End Profile Page Nav -->
@@ -34,7 +34,7 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="about.php">
-            <i class="bi bi-question-circle"></i>
+            <i class="bi bi-info-circle-fill"></i>
             <span>About US</span>
           </a>
       </li>
@@ -47,7 +47,7 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="contact.php">
-            <i class="bi bi-envelope"></i>
+            <i class="bi bi-chat-left-fill"></i>
             <span>Kontakt</span>
           </a>
       </li>
@@ -59,8 +59,8 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="pages-register.php" target="_self">
-            <i class="bi bi-card-list"></i>
-            <span>Register</span>
+            <i class="bi bi-person-fill-add"></i>
+            <span>Registrieren</span>
           </a>
       </li>
       <!-- End Register Page Nav -->
@@ -72,7 +72,7 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="pages-login.php">
-            <i class="bi bi-box-arrow-in-right"></i>
+            <i class="bi bi-person-fill-check"></i>
             <span>Login</span>
           </a>
         </div>
@@ -80,5 +80,15 @@
       <!-- End Login Page Nav -->
       <hr>
       </hr>
+      <!--  Pw Reset Page Nav -->
+      <li class="nav-item">
+        <div class="sidetrans">
+          <a class="nav-link collapsed" href="pages-pwreset.php" target="_self">
+            <i class="bi bi-person-fill-gear"></i>
+            <span>PW-Reset</span>
+          </a>
+      </li>
+      <!-- End Pw Reset Page Nav -->
     </ul>
+    <hr>
   </aside>

@@ -23,11 +23,8 @@ include "Sidebar.php";
 <?php
 include "Hero.php";
 ?>
-<hr class="hran">
-</hr>
 
 <body>
-
 </body>
 
 <main id="main" class="main">
@@ -42,7 +39,7 @@ include "footer.php";
   <div class="preloader">
     <img id="meinBild" class="preimg" src="assets\img\logo.png" alt="Logo">
     <div class="loader"></div>
-    <div class="corner-text">Version 1.0.7</div>
+    <div class="corner-text">Version 1.0.8</div>
   </div>
 </section>
 </body>
