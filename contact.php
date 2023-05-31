@@ -132,7 +132,10 @@ include "Sidebar.php";
     </div>
   </div>
 </section>
-
+<div class="topi"></div>
+<?php 
+include "footer2.php";
+?>
 <?php
 include "footer.php";
 ?>

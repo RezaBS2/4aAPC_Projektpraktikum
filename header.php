@@ -1,6 +1,6 @@
 <?php
 // Start the session
-//session_start();
+session_start();
 $loggedIn = $_SESSION['logged_in'];
 ?>
 
@@ -174,35 +174,37 @@ $loggedIn = $_SESSION['logged_in'];
           <li class="nav-item dropdown pe-3">
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <span class="d-none d-sm-block dropdown-toggle ps-2"><?php
-              try {
-                      if ($loggedIn){
+              <span class="d-none d-sm-block dropdown-toggle ps-2">
+              <?php
+            try {
+                   if ($loggedIn){
                           echo $_SESSION['username'];
-                      }
+                   }
                       else {
                           echo 'User';
-                      }
+                  
+                       }
                   } catch (Exception $e)
-                  {
-                      echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
+                 {
+                    echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
                   }
 			  ?></span>
             </a><!-- End Profile Iamge Icon -->
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="border: 2px solid black;">
               <li class="dropdown-header">
                 <h6><?php
-                    if ($loggedIn){echo $_SESSION['username'];}
+                   if ($loggedIn){echo $_SESSION['username'];}
                     else {echo 'User';}?>
                 </h6>
-                <span>Web Designer</span>
+                <span>Einstellungen</span>
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                  <i class="bi bi-person"></i>
-                  <span>My Profile</span>
+                <i class="bi bi-person-fill-check"></i>
+            <span>Login</span>
                 </a>
               </li>
               <li>
@@ -210,8 +212,8 @@ $loggedIn = $_SESSION['logged_in'];
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                  <i class="bi bi-gear"></i>
-                  <span>Account Settings</span>
+                <i class="bi bi-person-fill-add"></i>
+            <span>Registrieren</span>
                 </a>
               </li>
               <li>
@@ -219,8 +221,8 @@ $loggedIn = $_SESSION['logged_in'];
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                  <i class="bi bi-question-circle"></i>
-                  <span>Need Help?</span>
+                <i class="bi bi-person-fill-gear"></i>
+            <span>PW-Reset</span>
                 </a>
               </li>
               <li>
@@ -234,13 +236,13 @@ $loggedIn = $_SESSION['logged_in'];
                     <?php
                         echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
                         if($_SESSION['logged_in'])
-                        {
+                       {
                             $loggedIn = false;
                             $_SESSION['logged_in'] = false;
                             $_SESSION['username'] = "";
-                            header("Refresh: 1; url=index.php");
+                          header("Refresh: 1; url=index.php");
                             //header("Refresh:0");
-                        }
+                       }
 
                       //echo "<a href=index.php>Sign Out</a>";
                       ?>"></span>
