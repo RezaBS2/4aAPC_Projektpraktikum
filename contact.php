@@ -16,18 +16,18 @@ include "header.php"
 include "Sidebar.php";
 ?>
 
-
 <main id="main" class="main">
 </main>
 <div class="background-image"></div>
-<div class="section-title">
-  <i>
-    <u>
-      <h2 class="uber">Kontakt</h2>
-    </u>
-  </i>
-</div>
-<section class="section contact">
+
+<section class="section contact knt-section c21">
+  <div class="section-title">
+    <i>
+      <u>
+        <h2 class="uber">Kontakt</h2>
+      </u>
+    </i>
+  </div>
   <div class="container">
     <div class="row text-center justify-content-center align-items-center">
       <div class="col-sm-12">
@@ -48,8 +48,17 @@ include "Sidebar.php";
 
 </div>
 </div>
-<section id="contact" class="contact">
+
+<div class="spacebet2"></div>
+
+<section id="contact" class="contact knt-section c21">
   <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <u>
+        <h2 class="uber">Hilfe & Anfragen</h2>
+        <br>
+      </u>
+    </div>
     <div class="row">
       <div class="col-lg-6 d-flex align-items-stretch">
         <div class="info bordertb">
@@ -132,7 +141,10 @@ include "Sidebar.php";
     </div>
   </div>
 </section>
-
+<div class="topi"></div>
+<?php
+include "footer2.php";
+?>
 <?php
 include "footer.php";
 ?>

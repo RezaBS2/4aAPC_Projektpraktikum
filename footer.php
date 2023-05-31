@@ -1,5 +1,4 @@
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/chart.js/chart.umd.js"></script>

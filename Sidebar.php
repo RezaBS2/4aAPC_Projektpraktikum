@@ -54,41 +54,5 @@
       <!-- End Contact Page Nav -->
       <hr>
       </hr>
-      <!-- Register Page Nav -->
-
-      <li class="nav-item">
-        <div class="sidetrans">
-          <a class="nav-link collapsed" href="pages-register.php" target="_self">
-            <i class="bi bi-person-fill-add"></i>
-            <span>Registrieren</span>
-          </a>
-      </li>
-      <!-- End Register Page Nav -->
-
-      <hr>
-      </hr>
-
-      <!-- Login Page Nav -->
-      <li class="nav-item">
-        <div class="sidetrans">
-          <a class="nav-link collapsed" href="pages-login.php">
-            <i class="bi bi-person-fill-check"></i>
-            <span>Login</span>
-          </a>
-        </div>
-      </li>
-      <!-- End Login Page Nav -->
-      <hr>
-      </hr>
-      <!--  Pw Reset Page Nav -->
-      <li class="nav-item">
-        <div class="sidetrans">
-          <a class="nav-link collapsed" href="pages-pwreset.php" target="_self">
-            <i class="bi bi-person-fill-gear"></i>
-            <span>PW-Reset</span>
-          </a>
-      </li>
-      <!-- End Pw Reset Page Nav -->
     </ul>
-    <hr>
   </aside>
