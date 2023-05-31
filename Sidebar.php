@@ -55,5 +55,4 @@
       <hr>
       </hr>
     </ul>
-    <hr>
   </aside>

@@ -40,7 +40,7 @@ session_start();
       <div class="topi row">
         <div class="col-md-12 space">
           <a href="page1.php">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box " data-aos="fade-up" data-aos-delay="100">
               <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg">
               <h4>SAMSUNG S22</h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
@@ -93,7 +93,9 @@ session_start();
           </a>
         </div>
 </main><!-- End #main -->
-
+<?php
+include "footer2.php";
+?>
 <?php
 include "footer.php";
 ?>
