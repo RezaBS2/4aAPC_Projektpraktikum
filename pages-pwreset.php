@@ -29,7 +29,7 @@ include "Sidebar.php";
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-4 text-black">
-                                    <form>
+                                    <form  action="pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
                                         <div class="d-flex align-items-center pb-0">
                                             <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                                             <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
@@ -39,22 +39,22 @@ include "Sidebar.php";
 
 
                                         <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="form2Example17">Deine Email:</label>
-                                            <input type="email" id="form2Example17" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                                            <label class="form-label logtx" for="yourEmailReset">Deine Email:</label>
+                                            <input type="email" name="emailReset" id="yourEmailReset" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="form2Example27">Neues Passwort:</label>
-                                            <input type="password" id="form2Example27" placeholder="Passwort" class="form-control form-control-lg" required />
+                                            <label class="form-label logtx" for="yourPwdReset">Neues Passwort:</label>
+                                            <input type="password" name="passwordReset" id="yourPwdReset" placeholder="Passwort" class="form-control form-control-lg" required />
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="form2Example27">Neues Passwort Bestätigen:</label>
-                                            <input type="password" id="form2Example27" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
+                                            <label class="form-label logtx" for="yourPwdResetConfirm">Neues Passwort Bestätigen:</label>
+                                            <input type="password" name="passwordResetConfirm" id="yourPwdResetConfirm" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                                         </div>
 
                                         <div class="pt-2 mb-4 text-center">
-                                            <button class="btn btn-danger btn-lg btn-block" type="button">Zurücksetzen</button>
+                                            <button class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</button>
                                         </div>
                                         <hr>
                                         <div class="pt-2 text-center">

@@ -26,7 +26,7 @@ include "Sidebar.php";
 
       <div class="section-title">
         <i>
-          <h2 class="uber">Such Ergebnise</h2>
+          <h2 class="uber">Such Ergebnisse</h2>
         </i>
       </div>
 

@@ -1,10 +1,9 @@
 <?php
 
 session_start();
-?>
+global $loggedIn;
 
-<?php
-require 'config.php';
+include 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */
@@ -180,12 +179,12 @@ try {
         }*/
     } else {
         $alert = $username_err.' '.$password_err.' '.$confirm_password_err.' '.$email_err;
-        echo "<a href=index.php>$alert</a>";
-        //echo '<script>alert("'.$alert.'")</script>';
+        //echo "<a href=index.php>$alert</a>";
+        echo '<script onclick="history.back()">alert("'.$alert.'")</script>';
     }
 
     // Close connection
-    $con = null;
+    //$con = null;
     //mysqli_close($link);
 //}  //if-Bedingung: if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
@@ -193,7 +192,7 @@ catch (Exception $eall)
 {
     echo $eall->getCode().': '.$eall->getMessage().'<br>;';
     echo "<br>Failure while trying to register!<br>";
-    $con = null;
+    //$con = null;
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 ?>

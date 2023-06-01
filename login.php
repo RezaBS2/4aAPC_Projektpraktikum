@@ -2,6 +2,7 @@
 <?php
 
 session_start();
+global $loggedIn;
 require 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
@@ -122,11 +123,11 @@ try {
             }
         }
         else{
-            echo "Inkorrektes Passwort!";
+            echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
         }
 
     } else {
-        echo "Dieser Benutzer existiert nicht!";
+        echo '<button onclick="history.back()">Dieser Benutzer existiert nicht!</button>';
     }
 }
 catch (Exception $eall)
