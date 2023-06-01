@@ -42,18 +42,18 @@ include "Sidebar.php";
 
                         <div class="form-outline mb-2 to">
                           <label class="form-label logtx" for="form2Example17">Username:</label>
-                          <input type="text" id="form2Example17" placeholder="Max" class="form-control form-control-lg" required />
+                          <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                         </div>
 
 
                         <div class="form-outline mb-2">
                           <label class="form-label logtx" for="form2Example17">Deine Email:</label>
-                          <input type="email" id="form2Example17" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                          <input type="email" name="email" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
                         </div>
 
                         <div class="form-outline mb-2">
                           <label class="form-label logtx" for="form2Example27">Passwort:</label>
-                          <input type="password" id="form2Example27" placeholder="Passwort" class="form-control form-control-lg" required />
+                          <input type="password" name="password" id="yourPassword" placeholder="Passwort" class="form-control form-control-lg" required />
                         </div>
 
                         <div class="form-outline mb-2">
