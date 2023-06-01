@@ -40,12 +40,12 @@ include "Sidebar.php";
                       <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Melde dich mit deinem Account an:</h5>
 
                       <div class="form-outline mb-2 to">
-                        <label class="form-label logtx" for="form2Example17">username:</label>
+                        <label class="form-label logtx" for="yourUsername">Username:</label>
                         <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                       </div>
 
                       <div class="form-outline mb-2">
-                        <label class="form-label logtx" for="form2Example27">Passwort:</label>
+                        <label class="form-label logtx" for="yourPassword">Passwort:</label>
                         <input type="password" name="password" id="yourPassword" placeholder="Passwort" class="form-control form-control-lg" required />
                       </div>
 

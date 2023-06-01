@@ -49,7 +49,10 @@ try {
     $username = $_POST["username"];
     $userAlreadyExists = false;
 
+    //Statement für lokale DB
     $queryCheckIfUserExists = 'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
+    //Statement für Thomas' DB
+    //$queryCheckIfUserExists = 'SELECT user_id, username FROM skimp.user where username = ?';
     $stmtCheckIfUserExists = $con-> prepare($queryCheckIfUserExists);
     $stmtCheckIfUserExists->execute([trim($username)]);
 
@@ -117,10 +120,10 @@ try {
     }
 
     // Validate confirm password
-    if (empty(trim($_POST["confirm_password"]))) {
+    if (empty(trim($_POST["passwordConfirmation"]))) {
         $confirm_password_err = "Please confirm password.";
     } else {
-        $confirm_password = trim($_POST["confirm_password"]);
+        $confirm_password = trim($_POST["passwordConfirmation"]);
         if (empty($password_err) && ($password != $confirm_password)) {
             $confirm_password_err = "Password did not match.";
         }
@@ -133,17 +136,14 @@ try {
 
 
         try {
-            $sqlInsert = $con->prepare('INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort)
-            values
-            (
-                ?,
-                ?,
-                ?
-            )');
+            //Statement für lokale DB
+            $queryInsertNewUser = 'INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort) values(?,?,?)';
+            //Statement für Thomas' DB
+            //$queryInsertNewUser = 'INSERT INTO user (username, email, password) values(?,?,?)';
 
+
+            $sqlInsert = $con->prepare($queryInsertNewUser);
             $sqlInsert->execute([$username, $email, md5($password)]);
-
-
 
 
             $_SESSION['logged_in'] = true;

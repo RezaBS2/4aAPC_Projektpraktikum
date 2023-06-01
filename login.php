@@ -3,7 +3,7 @@
 
 session_start();
 global $loggedIn;
-require 'config.php';
+include 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
  **/
@@ -91,7 +91,8 @@ try {
    // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
+    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?"; // lolales statement
+    //$stmt = "SELECT username, password FROM skimp.user where username = ?"; //echtes statement für Thomas' Datenbank
     $sql = $con->prepare($stmt);
     $sql->execute([trim($input_username)]); //Sichere Methode
 
