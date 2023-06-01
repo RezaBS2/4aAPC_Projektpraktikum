@@ -32,66 +32,147 @@ session_start();
 
   <section id="services" class="services section-bg">
     <div class="container" data-aos="fade-up">
-      <div class="section-title">
+      <div class="section-title1">
         <i>
-          <h2 class="uber">Such Ergebnisse</h2>
+          <h2 class="uber2">Such Ergebnisse</h2>
         </i>
       </div>
-      <div class="topi row">
-        <div class="col-md-12 space">
-          <a href="page1.php">
-            <div class="icon-box " data-aos="fade-up" data-aos-delay="100">
-              <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg">
-              <h4>SAMSUNG S22</h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </a>
-        </div>
+      <div class="row">
         <div class="col-md-12">
-          <a href="page1.php">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
-              <h4>Lorem Ipsum</h4>
-              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-12, space">
-          <a href="page1.php">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/None_74b32542-34e3-44c7-a83a-3279055089bf.jpg">
-              <h4>Lorem Ipsum</h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-12, space">
-          <a href="page1.php">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg">
-              <h4>Lorem Ipsum</h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </a>
-        </div>
+
         <div class="col-md-12">
-          <a href="page1.php">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
-              <h4>Lorem Ipsum</h4>
-              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </a>
+  <a href="page1.php">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="image-and-text">
+        <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+        <div class="text-container">
+          <h4>Samsung</h4>
+          <p>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-half star1"></i>
+            <i class="bi bi-star star1"></i>
+            <i class="bi bi-star star1"></i>
+          </p>
+          <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
         </div>
-        <div class="col-md-12, space">
-          <a href="page1.php">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <img class="img-size" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/None_74b32542-34e3-44c7-a83a-3279055089bf.jpg">
-              <h4>Lorem Ipsum</h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </a>
+      </div>
+      <div class="right">
+        <img class="company-logo" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png" alt="Company Logo">
+        <div class="Pricetxt">999,99€</div>
+        <div class="heart1 bord"><i class="bi bi-heart-fill"></i></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="col-md-12">
+  <a href="page1.php">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="image-and-text">
+        <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+        <div class="text-container">
+          <h4>Samsung</h4>
+          <p>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-half star1"></i>
+            <i class="bi bi-star star1"></i>
+            <i class="bi bi-star star1"></i>
+          </p>
+          <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
         </div>
+      </div>
+      <div class="right">
+        <img class="company-logo" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png" alt="Company Logo">
+        <div class="Pricetxt">999,99€</div>
+        <div class="heart1 bord"><i class="bi bi-heart-fill"></i></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="col-md-12">
+  <a href="page1.php">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="image-and-text">
+        <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+        <div class="text-container">
+          <h4>Samsung</h4>
+          <p>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-half star1"></i>
+            <i class="bi bi-star star1"></i>
+            <i class="bi bi-star star1"></i>
+          </p>
+          <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+      </div>
+      <div class="right">
+        <img class="company-logo" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png" alt="Company Logo">
+        <div class="Pricetxt">999,99€</div>
+        <div class="heart1 bord"><i class="bi bi-heart-fill"></i></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="col-md-12">
+  <a href="page1.php">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="image-and-text">
+        <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+        <div class="text-container">
+          <h4>Samsung</h4>
+          <p>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-half star1"></i>
+            <i class="bi bi-star star1"></i>
+            <i class="bi bi-star star1"></i>
+          </p>
+          <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+      </div>
+      <div class="right">
+        <img class="company-logo" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png" alt="Company Logo">
+        <div class="Pricetxt">999,99€</div>
+        <div class="heart1 bord"><i class="bi bi-heart-fill"></i></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="col-md-12">
+  <a href="page1.php">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="image-and-text">
+        <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+        <div class="text-container">
+          <h4>Samsung</h4>
+          <p>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-fill star1"></i>
+            <i class="bi bi-star-half star1"></i>
+            <i class="bi bi-star star1"></i>
+            <i class="bi bi-star star1"></i>
+          </p>
+          <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+      </div>
+      <div class="right">
+        <img class="company-logo" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png" alt="Company Logo">
+        <div class="Pricetxt">999,99€</div>
+        <div class="heart1 bord"><i class="bi bi-heart-fill"></i></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+
+
 </main><!-- End #main -->
 <?php
 include "footer2.php";

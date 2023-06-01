@@ -11,6 +11,119 @@
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+.heart1.bord {
+  border: 4px solid black;
+  padding: 3px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.heart1.bord:hover {
+  border: 4px solid black;
+  padding: 3px;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.heart1.bord i {
+  vertical-align: middle;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+}
+
+.image-and-text {
+  display: flex;
+  align-items: center;
+}
+
+.text-container {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.Pricetxt {
+  color: #000000;
+  font-size: 30px;
+}
+
+.Pricetxt2 {
+  color: #000000;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.company-logo {
+  margin-left: 10px;
+  /* Füge etwas Abstand zwischen dem Logo und dem Text hinzu */
+  margin-top: 45px;
+  /* Setze den oberen Abstand für das Logo */
+  border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+  .company-logo {
+    max-width: 80%;
+    min-width: 30%;
+    height: 30%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .company-logo {
+    max-width: 80%;
+    min-width: 30%;
+    height: 30%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .company-logo {
+    max-width: 80%;
+    min-width: 30%;
+    height: 30%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .company-logo {
+    max-width: 70%;
+    height: 30%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 479px) {
+  .company-logo {
+    max-width: 100%;
+    min-width: 50%;
+    height: 50%;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .company-logo {
+    max-width: 55%;
+    height: 60%;
+    border-radius: 10px;
+    margin-top: 0px;
+  }
+}
+
 .size {
   font-family: Impact;
   font-size: 20px;
@@ -582,6 +695,19 @@
   margin-right: -5px;
 }
 
+.heart1 {
+  font-size: 28px;
+  color: rgb(241, 5, 5);
+  margin-right: -5px;
+}
+
+.heart1:hover {
+  font-size: 28px;
+  color: rgb(241, 5, 5);
+  margin-right: -5px;
+  text-shadow: rgb(255, 0, 0) 0px 0 14px;
+}
+
 .filtericon {
   font-size: 34px;
   padding-left: 5px;
@@ -638,13 +764,19 @@
 }
 
 .star {
-  font-size: 46px;
+  font-size: 20px;
 }
 
 .star:hover {
 
   text-shadow: rgb(255, 217, 0) 0px 0 6px;
 }
+
+.star1 {
+  font-size: 30px;
+  color: rgb(255, 217, 0);
+}
+
 
 .preloader {
   position: fixed;
@@ -803,6 +935,11 @@
   margin-bottom: 15px;
 }
 
+.section-title1 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
 .leer {
   position: absolute;
   right: 0px;
@@ -838,7 +975,22 @@
 .uber1 {
   text-align: center;
   color: black;
+}
 
+.uber2 {
+  font-family: Impact;
+  font-weight: 100;
+  text-decoration: underline;
+  font-size: 48px;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px 1px #ffffff,
+    1px -1px 1px #ffffff,
+    -1px 1px 1px #ffffff,
+    -1px -1px 1px #000000;
+  color: black;
+  margin-top: 2%;
+  margin-bottom: 4%;
 }
 
 .inf {
@@ -987,11 +1139,10 @@
   color: rgb(0, 0, 0);
 }
 
-.services .icon-box img {
-  float: left;
-  margin-top: -20px;
-  width: 100px;
-  height: 100px;
+
+
+.services .icon-box .img1 {
+  height: 115px;
   line-height: 0;
   border-radius: 10px;
 }
@@ -1007,8 +1158,8 @@
 
 .services .icon-box h4 {
   font-weight: 700px;
-  margin-bottom: 25px;
-  font-size: 30px;
+  margin-bottom: 17px;
+  font-size: 200%;
   font-weight: 900;
   color: #000000;
 }
@@ -1032,7 +1183,7 @@
 .services .icon-box p {
   color: #000000;
   line-height: 14px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /*Login Backgr*/
@@ -1245,8 +1396,8 @@ h6 {
 # Main
 --------------------------------------------------------------*/
 #main {
-  margin-top: 60px;
-  padding: 20px 30px;
+  margin-top: 65px;
+  padding: 12px 5px;
   transition: all 0.3s;
 }
 
