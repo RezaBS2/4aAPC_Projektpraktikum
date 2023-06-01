@@ -50,7 +50,7 @@
 
     <div class="me-md-auto text-center text-md-start">
       <div class="copyright">
-        <strong>All Rights Reserved SKIMP®</strong>
+        <strong>All Rights Reserved SKIMP®<br>Powered by:</strong>
       </div>
     </div>
     <div class="social-links text-center text-md-end pt-3 pt-md-0">
