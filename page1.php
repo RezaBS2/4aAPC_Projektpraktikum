@@ -18,6 +18,24 @@ include "header.php";
 <?php
 include "Sidebar.php";
 ?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailierter Ansicht</title>
+    <link rel="stylesheet" href="css/bpptstrap.min.css">
+    <script type="text/javascript" src="assets/js/googlemap.js"></script>
+    <style type="text/css">
+        .container {
+            height: 450px;
+        }
+        #googlemap {
+            width: 75%;
+            height: 100%;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
 
 <main id="main" class="main">
 
@@ -57,6 +75,9 @@ include "Sidebar.php";
             <hr>
           </div>
 
+          <div data-aos="fade-up" class="container">
+            <div id="googlemap"></div>
+          </div>
           <div data-aos="fade-up">
             <iframe class="map3 topi2" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12833.959136156158!2d14.3119882!3d48.2778077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477397da7180f8e9%3A0xd11a61d6a61f789e!2sBerufsschule%20Linz%202!5e1!3m2!1sde!2sdk!4v1684478755067!5m2!1sde!2sdk">
             </iframe>
@@ -74,5 +95,8 @@ include "footer2.php";
 include "footer.php";
 ?>
 </body>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap">
+        </script>
 
 </html>
