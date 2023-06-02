@@ -1,6 +1,6 @@
 /**cmedia
 * Template Name: NiceAdmin
-* Updated: Mar 09 2023 with Bootstrap v5.2.3
+* Updated: Mar 09 2023 with Bootstrap v5.2.3h
 * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
@@ -11,6 +11,68 @@
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+.img-fluid
+{
+  max-width: 95%;
+    height: auto;
+}
+.icon-box .image-and-text .text-container {
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.icon-box .right {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-container {
+  flex-grow: 1;
+}
+
+.text-container p {
+  margin-top: auto;
+}
+
+
+.icon-box .image-and-text .img1 {
+  width: 165px !important;
+  line-height: 0;
+  border-radius: 10px;
+}
+
+/*Media Queries für Bildgröße auf kleineren Geräten*/
+@media (min-width: 1199px) {
+  .icon-box .image-and-text .img1 {
+    width: 245px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .icon-box .image-and-text .img1 {
+    width: 210px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .icon-box .image-and-text .img1 {
+    width: 185px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .icon-box .image-and-text .img1 {
+    width: 100px !important;
+  }
+}
+
+.herst {
+  font-family: Impact;
+  color: #000000;
+  padding-bottom: 10px;
+}
+
 .heart1.bord {
   border: 4px solid black;
   padding: 3px;
@@ -69,7 +131,11 @@
   margin-top: 45px;
   /* Setze den oberen Abstand für das Logo */
   border-radius: 10px;
+
 }
+
+
+/*Media Start*/
 
 @media (max-width: 991px) {
   .company-logo {
@@ -87,11 +153,12 @@
     height: 30%;
     border-radius: 10px;
   }
+
 }
 
 @media (max-width: 1199px) {
   .company-logo {
-    max-width: 80%;
+    max-width: 55%;
     min-width: 30%;
     height: 30%;
     border-radius: 10px;
@@ -100,7 +167,7 @@
 
 @media (max-width: 767px) {
   .company-logo {
-    max-width: 70%;
+    max-width: 60%;
     height: 30%;
     border-radius: 10px;
   }
@@ -117,12 +184,14 @@
 
 @media (min-width: 1200px) {
   .company-logo {
-    max-width: 55%;
+    max-width: 38%;
     height: 60%;
     border-radius: 10px;
     margin-top: 0px;
   }
 }
+
+/*Media End*/
 
 .size {
   font-family: Impact;
@@ -1014,6 +1083,11 @@
   margin-bottom: 1%;
 }
 
+.spacebet3 {
+  margin-top: 9%;
+  margin-bottom: 9%;
+}
+
 .to {
   margin-top: 2%;
 }
@@ -1089,7 +1163,7 @@
 .services .icon-box {
 
   margin-bottom: 50px;
-  padding: 60px;
+  padding: 10px;
   border-radius: 8px;
   background: rgb(255, 255, 255);
   border: black;
@@ -1142,10 +1216,37 @@
 
 
 .services .icon-box .img1 {
-  height: 115px;
+  width: 165px;
   line-height: 0;
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+
+  .icon-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 1366px) {
+
+  .icon-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+@media (max-width: 982px) {
+
+  .icon-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
 
 .services .icon-box .img-size2 {
   float: left;
@@ -1164,6 +1265,16 @@
   color: #000000;
 }
 
+@media (min-width: 1200px) {
+  .services .icon-box h4 {
+    font-weight: 700px;
+    margin-bottom: 17px;
+    font-size: 225%;
+    font-weight: 900;
+    color: #000000;
+    width: 265px;
+  }
+}
 
 .services .icon-box h4 a {
   color: #000000;
@@ -1182,7 +1293,7 @@
 
 .services .icon-box p {
   color: #000000;
-  line-height: 14px;
+  line-height: 16px;
   font-size: 16px;
 }
 

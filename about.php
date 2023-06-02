@@ -27,7 +27,7 @@ include "Sidebar.php";
 
       <div class="d-md-flex post-entry-2 half">
         <a class="me-4 thumbnail">
-          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="height: 100%px; width:130%">
+          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="width:100%">
         </a>
         <div class="ps-md-5 mt-4 mt-md-0">
           <h2 class="mb-4 display-4">Entstehung von SKIMP®:</h2>
@@ -40,7 +40,7 @@ include "Sidebar.php";
 
       <div class="d-md-flex post-entry-2 half mt-5">
         <a class="me-4 thumbnail order-2">
-          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="height: 100%px; width:130%">
+          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="width:100%">
         </a>
         <div class="pe-md-5 mt-4 mt-md-0">
           <h2 class="mb-4 display-4">Unsere Mission:</h2>
@@ -58,7 +58,7 @@ include "Sidebar.php";
 
       <div class="d-md-flex post-entry-2 half">
         <a class="me-4 thumbnail">
-          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="height: 100%px; width:130%">
+          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="width:100%">
         </a>
         <div class="ps-md-5 mt-4 mt-md-0">
           <h2 class="mb-4 display-4">Wer wir sind:</h2>
@@ -73,10 +73,10 @@ include "Sidebar.php";
   </div>
 </section>
 
-<div class="spacebet"></div>
+<div class="spacebet3"></div>
 
 <section>
-  <div class="c0">
+  <div class="c0 c1">
     <div class="card ">
       <div class="section-title ">
         <i>
@@ -147,9 +147,9 @@ include "Sidebar.php";
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div class="accordion-item ">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" data-bs-target="#faqsTwo-5" type="button" data-bs-toggle="collapse">
+                <button class="accordion-button collapsed " data-bs-target="#faqsTwo-5" type="button" data-bs-toggle="collapse">
                   <i class="bi bi-arrow-right-circle-fill"></i>
                   <p class="size">&nbsp;&nbsp;Kann man SKIMP auf dem <br> &nbsp;&nbsp;Handy so wie auch auf dem Desktop aufrufen?</p>
                 </button>
@@ -167,7 +167,7 @@ include "Sidebar.php";
     </div>
     <section>
 
-      <div class="spacebet"></div>
+      <div class="spacebet3"></div>
 
       <!-- ======= Team Section =====
   == -->
