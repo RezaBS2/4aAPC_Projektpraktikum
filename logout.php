@@ -1,6 +1,9 @@
 <!-- input type="" id="signout" name="signout" method="POST" title="Sign Out" action="" -->
 <?php
-    session_start();
+    if(session_status() === PHP_SESSION_NONE)
+    {
+        session_start();
+    }
 //echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
     if($_SESSION['logged_in'])
     {

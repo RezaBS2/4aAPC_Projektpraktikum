@@ -1,8 +1,6 @@
 <?php
 // Start the session
 
-//session_start();
-
 
 include 'config.php';
 ?>
@@ -36,11 +34,11 @@ include "footer.php";
 
 <!-- Template Main JS File -->
 <section>
-  <div class="preloader">
-    <img id="meinBild" class="preimg" src="assets\img\logo.png" alt="Logo">
-    <div class="loader"></div>
-    <div class="corner-text">Version 1.0.9</div>
-  </div>
+    <div class="preloader">
+        <img id="meinBild" class="preimg" src="assets\img\logo.png" alt="Logo">
+        <div class="loader"></div>
+        <div class="corner-text">Version 1.0.9</div>
+    </div>
 </section>
 </body>
 

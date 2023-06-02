@@ -1,7 +1,15 @@
 <?php
 // Start the session
-session_start();
-$loggedIn = $_SESSION['logged_in'];
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+    if(isset($_SESSION['logged_in'])) {
+        $loggedIn = $_SESSION['logged_in'];
+    }
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -153,7 +161,7 @@ $loggedIn = $_SESSION['logged_in'];
           <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
           <span class="d-none d-sm-block dropdown-toggle ps-2">
             <?php
-            try {
+            /*try {
                  if ($loggedIn){
                       echo $_SESSION['username'];
                }
@@ -164,7 +172,7 @@ $loggedIn = $_SESSION['logged_in'];
                } catch (Exception $e)
               {
                   echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
-               }
+               }*/
             ?></span>
         </a><!-- End Profile Iamge Icon -->
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="border: 2px solid black;">

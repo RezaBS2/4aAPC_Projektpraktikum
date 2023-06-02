@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -78,10 +81,7 @@ include "Sidebar.php";
           <div data-aos="fade-up" class="container">
             <div id="googlemap"></div>
           </div>
-          <div data-aos="fade-up">
-            <iframe class="map3 topi2" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12833.959136156158!2d14.3119882!3d48.2778077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477397da7180f8e9%3A0xd11a61d6a61f789e!2sBerufsschule%20Linz%202!5e1!3m2!1sde!2sdk!4v1684478755067!5m2!1sde!2sdk">
-            </iframe>
-          </div>
+
 
           <div class="section error-404  d-flex flex-column align-items-center justify-content-center">
             <a class="btn" onclick="history.back()">Back to home</a>

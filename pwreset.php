@@ -8,7 +8,6 @@ try
 {
 
     global $con;
-
     
     $input_email = $_POST["emailReset"];
 

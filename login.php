@@ -1,7 +1,10 @@
 
 <?php
 
-session_start();
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
 global $loggedIn;
 include 'config.php';
 /*  Reza:
@@ -100,7 +103,7 @@ try {
     $rcount = $sql->rowCount();
 
 
-    if ($rcount > 0) {
+    if ($rcount > 0 && isset($_SESSION['logged_in'])) {
         // output data of each row
         while($row = $sql->fetch(PDO::FETCH_NUM)) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
