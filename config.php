@@ -23,24 +23,24 @@ else{
     echo "Connection successful!";
 }*/
 
-/* Verbindung uzum Thomas sein Server*/
+/* Verbindung uzum Thomas sein Server
 $server = 'tom.m1nd.at:80';
 $user = 'bs-linz2';
 $pwd = 'bs-linz2';
-$db = 'skimp';
+$db = 'skimp';*/
 
 
 
-/* Lokale Datenbank
+/* Lokale Datenbank*/
 $server = 'localhost:3306';
 $user = 'root';
 $pwd = '';
-$db = 'projektpraktikum';*/
+$db = 'projektpraktikum';
 
 
 
 try {
-    $con = new PDO('mysql:host='.$server.';dbname='.$db.';charset=utf8', $user,$pwd);
+    $con = new PDO('mysql:host='.$server.';dbname='.$db.';charset=utf8', $user, $pwd);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 

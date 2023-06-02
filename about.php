@@ -27,7 +27,7 @@ include "Sidebar.php";
 
       <div class="d-md-flex post-entry-2 half">
         <a class="me-4 thumbnail">
-          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="height: 100%px; width:130%">
+          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="width:130%">
         </a>
         <div class="ps-md-5 mt-4 mt-md-0">
           <h2 class="mb-4 display-4">Entstehung von SKIMP®:</h2>
@@ -40,7 +40,7 @@ include "Sidebar.php";
 
       <div class="d-md-flex post-entry-2 half mt-5">
         <a class="me-4 thumbnail order-2">
-          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="height: 100%px; width:130%">
+          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="width:130%">
         </a>
         <div class="pe-md-5 mt-4 mt-md-0">
           <h2 class="mb-4 display-4">Unsere Mission:</h2>
@@ -58,7 +58,7 @@ include "Sidebar.php";
 
       <div class="d-md-flex post-entry-2 half">
         <a class="me-4 thumbnail">
-          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="height: 100%px; width:130%">
+          <img src="assets/img/logo2.png" alt="" class="img-fluid" data-aos-delay="200" style="width:130%">
         </a>
         <div class="ps-md-5 mt-4 mt-md-0">
           <h2 class="mb-4 display-4">Wer wir sind:</h2>
@@ -165,7 +165,7 @@ include "Sidebar.php";
         </div>
       </div>
     </div>
-    <section>
+    </section>
 
       <div class="spacebet"></div>
 
