@@ -8,9 +8,13 @@ session_start();
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php include "head.php"; ?>
+
 <?php include "header.php"; ?>
+
 <?php include "Sidebar.php"; ?>
+
 <div class="background-image"></div>
+
 <main id="main" class="main">
   <!-- Dropdown Filter -->
   <div class="dropdown2 d-flex align-items-center justify-content-end">
@@ -41,7 +45,7 @@ session_start();
         <div class="col-md-12">
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
@@ -68,7 +72,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/None_74b32542-34e3-44c7-a83a-3279055089bf.jpg">
@@ -95,7 +99,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
@@ -122,7 +126,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/None_74b32542-34e3-44c7-a83a-3279055089bf.jpg">
@@ -149,7 +153,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
@@ -176,7 +180,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/None_74b32542-34e3-44c7-a83a-3279055089bf.jpg">
@@ -203,7 +207,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
@@ -230,7 +234,7 @@ session_start();
           </div>
 
           <div class="col-md-12">
-            <a href="page1.php">
+            <a href="work.php">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="image-and-text">
                   <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/None_74b32542-34e3-44c7-a83a-3279055089bf.jpg">
@@ -255,7 +259,6 @@ session_start();
               </div>
             </a>
           </div>
-
 </main><!-- End #main -->
 <?php
 include "footer2.php";

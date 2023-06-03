@@ -11,6 +11,7 @@
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+
 .img-fluid
 {
   max-width: 95%;
@@ -754,7 +755,7 @@
 }
 
 .likepic2 {
-  width: 50px;
+  width: 45px;
   margin-left: 1000px;
 }
 
@@ -792,18 +793,29 @@
   text-shadow: rgb(255, 0, 0) 0px 0 14px;
 }
 
-.heartkl {
+.heartkl{
   vertical-align: middle;
   font-size: 26px;
   color: rgb(241, 5, 5);
+
 }
+
 
 .heartkl2 {
   padding-top: 3px;
   font-size: 26px;
   color: rgb(241, 5, 5);
   display: inline-block;
-  padding-left: 230px;
+  padding-left: 170px;
+}
+
+.heartkl2:hover {
+  padding-top: 3px;
+  font-size: 26px;
+  color: rgb(241, 5, 5);
+  display: inline-block;
+  padding-left: 170px;
+  text-shadow: rgb(255, 0, 0) 0px 0 14px;
 }
 
 
@@ -1202,11 +1214,6 @@
 .vert-line .star {
   display: inline-block;
   vertical-align: middle;
-}
-
-
-.services .icon-box:hover {
-  background: rgb(234, 234, 234);
 }
 
 .services .icon-box:hover h4 {
@@ -2247,7 +2254,7 @@ h6 {
 }
 
 .header-nav .messages .message-item img {
-  margin: 0 20px 0 10px;
+  margin: 0 0px 0 0px;
   max-height: 40px;
 }
 
@@ -2265,7 +2272,8 @@ h6 {
 }
 
 .header-nav .messages .message-item:hover {
-  background-color: #f6f9ff;
+  background-color: #000000;
+  color: white;
 }
 
 .header-nav .profile {
