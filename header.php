@@ -1,5 +1,6 @@
 <?php
 // Start the session
+$loggedIn = false;
 if(session_status() === PHP_SESSION_NONE)
 {
     session_start();
@@ -161,7 +162,7 @@ if(session_status() === PHP_SESSION_NONE)
           <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
           <span class="d-none d-sm-block dropdown-toggle ps-2">
             <?php
-            /*try {
+            try {
                  if ($loggedIn){
                       echo $_SESSION['username'];
                }
@@ -172,7 +173,7 @@ if(session_status() === PHP_SESSION_NONE)
                } catch (Exception $e)
               {
                   echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
-               }*/
+               }
             ?></span>
         </a><!-- End Profile Iamge Icon -->
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="border: 2px solid black;">

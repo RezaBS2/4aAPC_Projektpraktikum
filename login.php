@@ -102,8 +102,8 @@ try {
 
     $rcount = $sql->rowCount();
 
-
-    if ($rcount > 0 && isset($_SESSION['logged_in'])) {
+//    if ($rcount > 0 && !isset($_SESSION['logged_in'])) {
+    if ($rcount > 0) {
         // output data of each row
         while($row = $sql->fetch(PDO::FETCH_NUM)) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
