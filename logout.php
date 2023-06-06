@@ -5,12 +5,13 @@
         session_start();
     }
 //echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
-    if($_SESSION['logged_in'])
+    if(isset($_SESSION['logged_in']))
     {
-        $loggedIn = false;
-        $_SESSION['logged_in'] = false;
+        //$loggedIn = false;
+        //$_SESSION['logged_in'] = false;
+        unset($_SESSION['logged_in']);
         $_SESSION['username'] = "";
-
+        unset($_SESSION['username']);
 
         session_destroy();
 

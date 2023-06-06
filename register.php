@@ -1,7 +1,11 @@
 <?php
 
-session_start();
-global $loggedIn;
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
+
+//global $loggedIn;
 
 include 'config.php';
 /*  Reza:
@@ -50,9 +54,9 @@ try {
     $userAlreadyExists = false;
 
     //Statement für lokale DB
-    $queryCheckIfUserExists = 'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
+    //$queryCheckIfUserExists = 'SELECT benutzer_id, benutzer_username FROM projektpraktikum.benutzer where benutzer_username = ?';
     //Statement für Thomas' DB
-    //$queryCheckIfUserExists = 'SELECT user_id, username FROM skimp.user where username = ?';
+    $queryCheckIfUserExists = 'SELECT user_id, username FROM skimp.user where username = ?';
     $stmtCheckIfUserExists = $con-> prepare($queryCheckIfUserExists);
     $stmtCheckIfUserExists->execute([trim($username)]);
 
@@ -137,9 +141,9 @@ try {
 
         try {
             //Statement für lokale DB
-            $queryInsertNewUser = 'INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort) values(?,?,?)';
+            //$queryInsertNewUser = 'INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort) values(?,?,?)';
             //Statement für Thomas' DB
-            //$queryInsertNewUser = 'INSERT INTO user (username, email, password) values(?,?,?)';
+            $queryInsertNewUser = 'INSERT INTO user (username, email, password) values(?,?,?)';
 
 
             $sqlInsert = $con->prepare($queryInsertNewUser);
@@ -178,9 +182,10 @@ try {
             mysqli_stmt_close($stmt);
         }*/
     } else {
-        $alert = $username_err.' '.$password_err.' '.$confirm_password_err.' '.$email_err;
+        $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err;
         //echo "<a href=index.php>$alert</a>";
-        echo '<script onclick="history.back()">alert("'.$alert.'")</script>';
+        echo '<script>alert("'.$alert.'")</script>';
+        echo '<button onclick="history.back()">Zurück!</button>';
     }
 
     // Close connection

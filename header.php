@@ -1,12 +1,12 @@
 <?php
 // Start the session
-$loggedIn = false;
+//$loggedIn = false;
 if(session_status() === PHP_SESSION_NONE)
 {
     session_start();
-    if(isset($_SESSION['logged_in'])) {
+    /*if(isset($_SESSION['logged_in'])) {
         $loggedIn = $_SESSION['logged_in'];
-    }
+    }*/
 
 }
 
@@ -163,7 +163,7 @@ if(session_status() === PHP_SESSION_NONE)
           <span class="d-none d-sm-block dropdown-toggle ps-2">
             <?php
             try {
-                 if ($loggedIn){
+                 if (isset($_SESSION['logged_in'])){
                       echo $_SESSION['username'];
                }
                    else {
@@ -188,7 +188,13 @@ if(session_status() === PHP_SESSION_NONE)
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li>
+            <?php
+
+            if(!isset($_SESSION['logged_in']))
+            {
+                ?>
+
+                      <li>
             <a class="dropdown-item d-flex align-items-center" href="pages-login.php">
               <i class="bi bi-person-fill-check"></i>
               <span>Login</span>
@@ -196,6 +202,7 @@ if(session_status() === PHP_SESSION_NONE)
           </li>
           <li>
             <hr class="dropdown-divider">
+
           </li>
           <li>
             <a class="dropdown-item d-flex align-items-center" href="pages-register.php">
@@ -205,6 +212,10 @@ if(session_status() === PHP_SESSION_NONE)
           </li>
           <li>
             <hr class="dropdown-divider">
+              <?php
+            }
+            ?>
+
           </li>
           <li>
             <a class="dropdown-item d-flex align-items-center" href="pages-pwreset.php">

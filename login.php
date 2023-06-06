@@ -94,8 +94,8 @@ try {
    // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?"; // lolales statement
-    //$stmt = "SELECT username, password FROM skimp.user where username = ?"; //echtes statement für Thomas' Datenbank
+    //$stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?"; // lolales statement
+    $stmt = "SELECT username, password FROM skimp.user where username = ?"; //echtes statement für Thomas' Datenbank
     $sql = $con->prepare($stmt);
     $sql->execute([trim($input_username)]); //Sichere Methode
 
@@ -114,7 +114,7 @@ try {
         if ($temp_password == md5($input_password))
         {
             //$remember = true;
-            if($_SESSION['logged_in'] == false)
+            if(!isset($_SESSION['logged_in']))
             {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $input_username;
