@@ -61,6 +61,24 @@ include "Sidebar.php";
                           <input type="password"  name="passwordConfirmation" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                         </div>
 
+                        <div class="form-outline mb-2">
+                          <label class="form-label logtx" for="question">Sicherheistfrage:</label>
+                          <?php
+                              include "functions.php";
+
+                              $queryS = 'SELECT ques_id, question FROM ques';
+                              $name = "question";
+                              makeSelectFromSelect($queryS, $name);
+
+                          ?>
+                        </div>
+
+                        <div class="form-outline mb-2">
+                          <label class="form-label logtx" for="answer">Antwort:</label>
+                          <input type="text"  name="answer" id="yourAnswer" placeholder="z.B. Wien" class="form-control form-control-lg" required />
+                        </div>
+
+
                         <div class="pt-2 mb-4 text-center">
                           <button class="btn btn-danger btn-lg btn-block" type="submit">Account Erstellen</button>
                         </div>

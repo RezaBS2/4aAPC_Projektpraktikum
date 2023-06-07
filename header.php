@@ -188,13 +188,7 @@ if(session_status() === PHP_SESSION_NONE)
           <li>
             <hr class="dropdown-divider">
           </li>
-            <?php
-
-            if(!isset($_SESSION['logged_in']))
-            {
-                ?>
-
-                      <li>
+            <li>
             <a class="dropdown-item d-flex align-items-center" href="pages-login.php">
               <i class="bi bi-person-fill-check"></i>
               <span>Login</span>
@@ -212,9 +206,6 @@ if(session_status() === PHP_SESSION_NONE)
           </li>
           <li>
             <hr class="dropdown-divider">
-              <?php
-            }
-            ?>
 
           </li>
           <li>

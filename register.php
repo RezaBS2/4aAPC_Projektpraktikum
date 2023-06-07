@@ -31,7 +31,8 @@ $db_name = 'projektpraktikum';
 //Variablen für die Tabellen
 $email = $alert = "";
 $username = $password = $confirm_password = "";
-$confirm_password_err = $username_err = $password_err = $email_err = "";
+$confirm_password_err = $username_err = $password_err = $email_err = $answer_err = "";
+$question = $answer = $qid = "";
 
 // Processing form data when form is submitted
 //if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -48,6 +49,13 @@ try {
         $email_err = "Please enter a valid email.";
     } else {
         $email = $_POST["email"];
+    }
+
+    if (empty(trim($_POST["answer"]))) {
+        $answer_err = "Please enter an answer.";
+    } else {
+        $question = $_POST["question"];
+        $qid = $_POST["answer"];
     }
 
     $username = $_POST["username"];
@@ -134,7 +142,7 @@ try {
     }
 
     // Check input errors before inserting in database
-    if (empty($username_err)  && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
+    if (empty($username_err)  && empty($email_err) && empty($password_err) && empty($confirm_password_err) && empty($answer_err)) {
 
         // Prepare an insert statement
 
@@ -143,14 +151,26 @@ try {
             //Statement für lokale DB
             //$queryInsertNewUser = 'INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort) values(?,?,?)';
             //Statement für Thomas' DB
-            $queryInsertNewUser = 'INSERT INTO user (username, email, password) values(?,?,?)';
 
 
+            $querySelectQ = 'SELECT question FROM ques NATURAL JOIN skimp.user where user.ques_id = ?';
+            $sqlS = $con->prepare($querySelectQ);
+            $sqlS->execute([$qid]);
+            $answer =
+
+
+
+
+
+            $queryInsertNewUser = 'INSERT INTO user (username, email, password, answer, ques_id) values(?,?,?,?,?)';
             $sqlInsert = $con->prepare($queryInsertNewUser);
-            $sqlInsert->execute([$username, $email, md5($password)]);
+            $sqlInsert->execute([$username, $email, md5($password), $question, $answer]);
 
 
-            $_SESSION['logged_in'] = true;
+            if (!isset($_SESSION['logged_in'])){
+                $_SESSION['logged_in'] = true;
+            }
+
             $_SESSION['username'] = $username;
 
 
@@ -182,7 +202,7 @@ try {
             mysqli_stmt_close($stmt);
         }*/
     } else {
-        $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err;
+        $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err.'\n'.$answer_err;
         //echo "<a href=index.php>$alert</a>";
         echo '<script>alert("'.$alert.'")</script>';
         echo '<button onclick="history.back()">Zurück!</button>';
