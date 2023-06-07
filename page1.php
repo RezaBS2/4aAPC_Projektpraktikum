@@ -68,7 +68,11 @@ session_start();
               </div>
               <section class="section profile">
 
-                <!---Detail Start--->
+          <div data-aos="fade-up" class="container">
+            <div id="googlemap"></div>
+          </div>
+        </div>
+
 
                 <div class="row">
                   <div class="col-xl-12">
@@ -143,14 +147,12 @@ session_start();
   </section>
 
 </main><!-- End #main -->
-<?php
-include "footer2.php";
-?>
-<?php
-include "footer.php";
-?>
 
-<!-- Template Main JS File -->
+
 </body>
 
 </html>
+
+<?php
+include "footer2.php";
+?>
