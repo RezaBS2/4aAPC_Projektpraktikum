@@ -13,7 +13,27 @@ session_start();
 
 <?php include "Sidebar.php"; ?>
 
-<div class="background-image"></div>
+<?php
+include "Sidebar.php";
+?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailierter Ansicht</title>
+    <link rel="stylesheet" href="css/bpptstrap.min.css">
+    <script type="text/javascript" src="assets/js/googlemap.js"></script>
+    <style type="text/css"> 
+        .container {
+            height: 450px;
+        }
+        #googlemap {
+            width: 75%;
+            height: 100%;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
 
 <main id="main" class="main">
   <!-- Dropdown Filter -->
@@ -48,100 +68,39 @@ session_start();
       </div>
       <div class="row">
         <div class="col-md-12">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <img class="img-size2" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg">
+            <div class="text-justify">
+              <span class="vert-line"></span>
+              <h4>SAMSUNG S22
+                <br><br><br>
+                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+                </p>
+              </h4>
+            </div>
+            <img class="geslog" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png">
+            <div class="hrd star">
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+            </div>
 
-          <div class="col-md-12">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="image-and-text">
-                <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
-                <div class="text-container">
-                  <h4>iPhone 12 Pro</h4>
-                  <h5 class="herst">APPLE</h5>
-                  <p>
-                    <i class="bi bi-star-fill star1"></i>
-                    <i class="bi bi-star-fill star1"></i>
-                    <i class="bi bi-star-fill star1"></i>
-                    <i class="bi bi-star-half star1"></i>
-                    <i class="bi bi-star star1"></i>
-                  </p>
-                  <p>"Der angeführte Preis ist ohne Gewähr"</p>
-                </div>
-              </div>
-              <section class="section profile">
+            <br>
+            <br>
+            <br>
+            <hr>
+          </div>
 
-                <!---Detail Start--->
+          <div data-aos="fade-up" class="container">
+            <div id="googlemap"></div>
+          </div>
 
-                <div class="row">
-                  <div class="col-xl-12">
-                    <div class="card">
-                      <div class="card-body pt-3">
-                        <!-- Bordered Tabs -->
-                        <ul class="nav nav-tabs nav-tabs-bordered">
-
-                          <li class="nav-item">
-                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#test1">Overview</button>
-                          </li>
-
-                          <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#test2">Settings</button>
-                          </li>
-
-                          <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#test3">Change </button>
-                          </li>
-
-                          <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#test4">Other </button>
-                          </li>
-
-                          <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#test5">Else </button>
-                          </li>
-
-                          <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#test6">Try </button>
-                          </li>
-
-                        </ul>
-                        <div class="tab-content pt-2">
-
-                          <div class="tab-pane fade show active" id="test1">
-                            <p>Test1</p>
-                          </div>
-
-                          <div class="tab-pane fade" id="test2">
-                            <p>Testt</p>
-                          </div>
-
-                          <div class="tab-pane fade" id="test3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">s</label>
-                            <p>Testttt</p>
-                          </div>
-
-
-                          <div class="tab-pane fade" id="test4">
-                            <p>Testt</p>
-                          </div>
-
-                          <div class="tab-pane fade" id="test5">
-                            <p>Testdt</p>
-                          </div>
-
-                          <div class="tab-pane fade" id="test6">
-                            <p>Tesstt</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div><!-- End Bordered Tabs -->
-<br><br><br><br>
+          <div class="section error-404  d-flex flex-column align-items-center justify-content-center">
+            <a class="btn" onclick="history.back()">Back to home</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
 </main><!-- End #main -->
 <?php
 include "footer2.php";
@@ -152,5 +111,8 @@ include "footer.php";
 
 <!-- Template Main JS File -->
 </body>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap">
+        </script>
 
 </html>
