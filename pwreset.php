@@ -1,14 +1,17 @@
 <?php
 
-session_start();
-global $loggedIn;
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+
+}
+
 include 'config.php';
 
 try 
 {
 
     global $con;
-
     
     $input_email = $_POST["emailReset"];
 

@@ -1,6 +1,9 @@
 <?php
-// Start the session
-session_start();
+
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +26,7 @@ include "Sidebar.php";
     <title>Detailierter Ansicht</title>
     <link rel="stylesheet" href="css/bpptstrap.min.css">
     <script type="text/javascript" src="assets/js/googlemap.js"></script>
-    <style type="text/css"> 
+    <style type="text/css">
         .container {
             height: 450px;
         }
@@ -96,6 +99,7 @@ include "Sidebar.php";
           <div data-aos="fade-up" class="container">
             <div id="googlemap"></div>
           </div>
+
 
           <div class="section error-404  d-flex flex-column align-items-center justify-content-center">
             <a class="btn" onclick="history.back()">Back to home</a>

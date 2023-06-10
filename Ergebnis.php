@@ -1,6 +1,9 @@
 <?php
 // Start the session
-session_start();
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@ session_start();
     <div class="container" data-aos="fade-up">
       <div class="section-title1">
         <i>
-          <h2 class="uber2">Such Ergebnisse</h2>
+          <h2 class="uber">Suchergebnisse</h2>
         </i>
       </div>
       <div class="row">

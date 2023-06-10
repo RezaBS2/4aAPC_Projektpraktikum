@@ -31,7 +31,7 @@ include "Sidebar.php";
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-4 text-black">
-                    <form>
+                    <form action="login.php" method="POST" class="row g-3 needs-validation" novalidate>
                       <div class="d-flex align-items-center pb-0">
                         <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                         <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
@@ -50,7 +50,7 @@ include "Sidebar.php";
                       </div>
 
                       <div class="pt-2 mb-4 text-center">
-                        <button class="btn btn-danger btn-lg btn-block" type="button">Einloggen</button>
+                        <button class="btn btn-danger btn-lg btn-block" type="submit">Einloggen</button>
                       </div>
 
 

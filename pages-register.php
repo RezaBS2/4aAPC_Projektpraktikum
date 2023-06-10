@@ -41,7 +41,7 @@ include "Sidebar.php";
                         <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Erstelle einen Neuen Account:</h5>
 
                         <div class="form-outline mb-2 to">
-                          <label class="form-label logtx" for="form2Example17">Username:</label>
+                          <label class="form-label logtx" for="yourUsername">Username:</label>
                           <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                         </div>
 
@@ -58,11 +58,11 @@ include "Sidebar.php";
 
                         <div class="form-outline mb-2">
                           <label class="form-label logtx" for="yourPasswordConfirmation">Passwort Wiederholen:</label>
-                          <input type="password" name="confirm_password" class="form-control" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
+                          <input type="password"  name="passwordConfirmation" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                         </div>
 
                         <div class="pt-2 mb-4 text-center">
-                          <button class="btn btn-danger btn-lg btn-block" type="button">Account Erstellen</button>
+                          <button class="btn btn-danger btn-lg btn-block" type="submit">Account Erstellen</button>
                         </div>
                         <hr>
                         <a class="pt-2 small text-muted">Du hast schon einen Account?</a>
