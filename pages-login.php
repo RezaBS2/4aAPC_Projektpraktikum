@@ -8,6 +8,7 @@ include "head.php";
 include "header.php";
 ?>
 <?php
+
 include "Sidebar.php";
 ?>
 
@@ -30,7 +31,7 @@ include "Sidebar.php";
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div class="card-body p-4 p-lg-4 text-black">
+                  <div class="card-body  text-black">
                     <form>
                       <div class="d-flex align-items-center pb-0">
                         <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
@@ -60,7 +61,7 @@ include "Sidebar.php";
                           <a class="pt-2 small text-muted">Passwort Vergessen?</a>
                           <u>
                             <div class="d-flex justify-content-center">
-                              <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-pwreset.php" class="registertxt">Zurücksetzen</a></p>
+                              <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-pwreset2.php" class="registertxt">Zurücksetzen</a></p>
                           </u>
                         </div>
                       </div>

@@ -63,4 +63,25 @@
     <label for="star1"></label>
   </div>
 </body>
+<div id="googlemap"></div>
+
+<script>
+  function initMap() {
+    var linz = {lat: 48.3069, lng: 14.2858};
+    var currentLocation = {lat: 48.3030284, lng: 14.2876725};
+    var map = new google.maps.Map(document.getElementById('googlemap'), {
+      zoom: 15,
+      center: linz
+    });
+
+    new google.maps.Marker({
+      position: currentLocation,
+      map: map,
+      title: "Location Name"
+    });
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap" async defer></script>
+
 </html>

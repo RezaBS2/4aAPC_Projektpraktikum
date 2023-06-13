@@ -227,3 +227,14 @@
   }
 
 })();
+
+var detailsBtn = document.getElementById('detailsBtn');
+var contactSection = document.getElementById('contact1');
+
+detailsBtn.addEventListener('click', function() {
+  if (contactSection.style.display === 'none') {
+    contactSection.style.display = 'block';
+  } else {
+    contactSection.style.display = 'none';
+  }
+});
