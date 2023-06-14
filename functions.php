@@ -7,5 +7,3 @@ function makeStatement($query, $executeArray = NULL)
     $stmt->execute($executeArray);
     return $stmt;
 }
-
-?>

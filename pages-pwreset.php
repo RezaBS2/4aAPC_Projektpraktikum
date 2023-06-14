@@ -29,19 +29,13 @@ include "Sidebar.php";
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-4 text-black">
-                                    <form  action="pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
+                                    <form action="pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
                                         <div class="d-flex align-items-center pb-0">
                                             <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                                             <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
                                         </div>
 
                                         <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Setze hier dein Passwort Zurück:</h5>
-
-
-                                        <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="yourEmailReset">Deine Email:</label>
-                                            <input type="email" name="emailReset" id="yourEmailReset" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
-                                        </div>
 
                                         <div class="form-outline mb-2">
                                             <label class="form-label logtx" for="yourPwdReset">Neues Passwort:</label>
@@ -53,13 +47,13 @@ include "Sidebar.php";
                                             <input type="password" name="passwordResetConfirm" id="yourPwdResetConfirm" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                                         </div>
 
-                                        <div class="pt-2 mb-4 text-center">
+                                        <div class=" mb-2 text-center">
                                             <button class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</button>
                                         </div>
                                         <hr>
-                                        <div class="pt-2 text-center">
+                                        <div class=" text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a class="pt-2 small text-muted">Zurück zur Anmeldung</a>
+                                                <a class=" small text-muted">Zurück zur Anmeldung</a>
                                                 <u>
                                             </div>
                                             <div class="d-flex justify-content-center">
@@ -70,7 +64,7 @@ include "Sidebar.php";
 
                                         <hr>
 
-                                        <div class="pt-2 text-center">
+                                        <div class=" text-center">
                                             <div class="d-flex justify-content-between">
                                                 <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
                                                 <u><a href="about.php" class="small  registertxt">Fragen</a></u>

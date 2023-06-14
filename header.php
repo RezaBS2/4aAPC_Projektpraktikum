@@ -196,7 +196,7 @@
                   <hr class="dropdown-divider">
                 </li>
                 <li>
-                  <a class="dropdown-item d-flex align-items-center" href="pages-pwreset.php">
+                  <a class="dropdown-item d-flex align-items-center" href="pages-pwreset2.php">
                     <i class="bi bi-person-fill-gear"></i>
                     <span>PW-Reset</span>
                   </a>
