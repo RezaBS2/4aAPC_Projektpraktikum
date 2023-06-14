@@ -176,8 +176,25 @@ session_start();
           </div>
     </section>
 
-    <!--- Ende Reihe 1 -->
+    <section id="contact" class="contact topi5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="info bordertb">
+              <u>
+                <h2 class="ubermini">SHOPS:</h2>
+                <a class="shop-txt2">Shops in deiner Nähe</a>
+                <br>
+              </u> 
+             <div data-aos="fade-up" class="map2">
 
+            <div id="googlemap">
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
 
     <!---  Reihe 2 -->
     <section id="contact" class="contact topi5">
@@ -449,10 +466,9 @@ include "footer.php";
 ?>
 
 
+
+
+<!-- Template Main JS File -->
 </body>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
 </html>
-
-<?php
-include "footer2.php";
-?>
