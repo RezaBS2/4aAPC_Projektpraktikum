@@ -77,7 +77,7 @@ $temp_password = "";
 //}
 //else{
 //    echo "<br>Mysqli connection successful!<br>";
-    //$sql = "SELECT id, firstname, lastname FROM MyGuests";
+//$sql = "SELECT id, firstname, lastname FROM MyGuests";
 
 
 try {
@@ -90,8 +90,8 @@ try {
     $input_password = $_POST["password"];
 
 
-   // $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
-   // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
+    // $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
+    // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
     //$stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?"; // lolales statement
@@ -105,38 +105,31 @@ try {
 //    if ($rcount > 0 && !isset($_SESSION['logged_in'])) {
     if ($rcount > 0) {
         // output data of each row
-        while($row = $sql->fetch(PDO::FETCH_NUM)) {
+        while ($row = $sql->fetch(PDO::FETCH_NUM)) {
             //echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - E-Mail: " . $row["benutzer_email"]. "<br>";
             $temp_username = $row[0];
             $temp_password = $row[1];
         }
         //echo 'temp password: '.$temp_password.'  input password: '.md5($input_password).'<br>';
-        if ($temp_password == md5($input_password))
-        {
+        if ($temp_password == md5($input_password)) {
             //$remember = true;
             if(!isset($_SESSION['logged_in']))
             {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $input_username;
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
-            }
-            else
-            {
+            } else {
                 $_SESSION['username'] = $input_username;
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
             }
-        }
-        else{
+        } else {
             echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
         }
-
     } else {
         echo '<button onclick="history.back()">Dieser Benutzer existiert nicht!</button>';
     }
-}
-catch (Exception $eall)
-{
-    echo $eall->getCode().': '.$eall->getMessage().'<br>;';
+} catch (Exception $eall) {
+    echo $eall->getCode() . ': ' . $eall->getMessage() . '<br>;';
     echo "<br>Failure!<br>";
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }

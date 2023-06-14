@@ -27,6 +27,3 @@ catch (Exception $e)
 {
 
 }
-
-
-?>
