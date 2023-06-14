@@ -58,7 +58,7 @@ include "Sidebar.php";
 
                         <div class="form-outline mb-2">
                           <label class="form-label logtx" for="yourPasswordConfirmation">Passwort Wiederholen:</label>
-                          <input type="password"  name="passwordConfirmation" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
+                          <input type="password" name="confirm_password" class="form-control" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                         </div>
 
                         <div class="form-outline mb-2">
