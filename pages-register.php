@@ -32,7 +32,7 @@ include "Sidebar.php";
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-4 text-black">
-                      <form  action="register.php" method="POST" class="row g-2 needs-validation" novalidate>
+                      <form action="register.php" method="POST" class="row g-2 needs-validation" novalidate>
                         <div class="d-flex align-items-center pb-0">
                           <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                           <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
@@ -87,9 +87,9 @@ include "Sidebar.php";
                     </div>
                   </div>
                 </div>
+              </div>
+              </Sdiv>
             </div>
-          </Sdiv>
-        </div>
       </section>
   </main>
   <?php

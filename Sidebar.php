@@ -41,18 +41,18 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="contact.php">
-          <i class="bi bi-envelope-fill"></i>
+            <i class="bi bi-envelope-fill"></i>
             <span>Kontakt</span>
           </a>
       </li>
 
       <hr>
 
-      
+
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="about.php#faq">
-          <i class="bi bi-question-circle-fill"></i>
+            <i class="bi bi-question-circle-fill"></i>
             <span>FAQ</span>
           </a>
       </li>
@@ -63,16 +63,16 @@
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Impress.php">
-          <i class="bi bi-chat-left-fill"></i>
+            <i class="bi bi-chat-left-fill"></i>
             <span>Impressum</span>
           </a>
       </li>
-<hr>
+      <hr>
 
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Impress.php#daten">
-          <i class="bi bi-folder-fill"></i>
+            <i class="bi bi-folder-fill"></i>
             <span>Datenschutz</span>
           </a>
       </li>

@@ -103,10 +103,10 @@ include "Sidebar.php";
                   </form>
 
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-      </div>
-      </div>
     </section>
 </main>
 

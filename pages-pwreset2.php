@@ -49,41 +49,42 @@ include "Sidebar.php";
                                         </div>
 
                                         <a href="pages-pwreset.php">
-                                        <div class=" mb-2 text-center">
-                                            <button class="btn btn-danger btn-lg btn-block">Weiter</button></a>
-                                        </div>
-                                        
-                                        <hr>
-                                        <div class=" text-center">
-                                            <div class="d-flex justify-content-center">
-                                                <a class=" small text-muted">Zurück zur Anmeldung</a>
-                                                <u>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-login.php" class="registertxt">Anmelden</a></p>
-                                                </u>
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class=" text-center">
-                                            <div class="d-flex justify-content-between">
-                                                <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
-                                                <u><a href="about.php" class="small  registertxt">Fragen</a></u>
-                                                <button class="btn btn-danger btn-md" onclick="history.back()">Zurück</button>
-                                            </div>
-                                        </div>
-
-
-                                    </form>
-
+                                            <div class=" mb-2 text-center">
+                                                <button class="btn btn-danger btn-lg btn-block">Weiter</button>
+                                        </a>
                                 </div>
+
+                                <hr>
+                                <div class=" text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <a class=" small text-muted">Zurück zur Anmeldung</a>
+                                        <u>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-login.php" class="registertxt">Anmelden</a></p>
+                                        </u>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class=" text-center">
+                                    <div class="d-flex justify-content-between">
+                                        <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
+                                        <u><a href="about.php" class="small  registertxt">Fragen</a></u>
+                                        <button class="btn btn-danger btn-md" onclick="history.back()">Zurück</button>
+                                    </div>
+                                </div>
+
+
+                                </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <?php

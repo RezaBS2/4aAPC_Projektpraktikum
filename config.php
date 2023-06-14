@@ -39,11 +39,11 @@ $pwd = '';
 $db = 'projektpraktikum';
 
 try {
-    $con = new PDO('mysql:host='.$server.';dbname='.$db.';charset=utf8', $user,$pwd);
+    $con = new PDO('mysql:host=' . $server . ';dbname=' . $db . ';charset=utf8', $user, $pwd);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-/*
+    /*
     $sql = 'SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM benutzer';
 
 
@@ -62,7 +62,7 @@ try {
         echo "0 results";
     }*/
     //$con->close();
-/*
+    /*
     $sql2 =  $con->prepare('INSERT INTO projektpraktikum.benutzer (benutzer_username, benutzer_email, benutzer_passwort)
 	values
     (
@@ -77,13 +77,12 @@ try {
 
     echo "Success!";
 */
-}
-catch (Exception $e){
-    echo 'Error - Verbindung: '.$e->getCode().': '.$e->getMessage().'<br>';
+} catch (Exception $e) {
+    echo 'Error - Verbindung: ' . $e->getCode() . ': ' . $e->getMessage() . '<br>';
     /*echo $e->getCode().': '.$e->getMessage().'<br>;';
     echo "<br>Failure!<br>";
     die("ERROR: Could not connect. " . mysqli_connect_error());*/
-
 }
 ?>
+
 </html>

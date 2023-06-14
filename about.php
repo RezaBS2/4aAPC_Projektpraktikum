@@ -167,7 +167,7 @@ include "Sidebar.php";
 
 <div class="spacebet3"></div>
 
-<section >
+<section>
   <div class="c0 c1">
     <div class="card ">
       <div class="section-title ">
@@ -274,7 +274,7 @@ include "Sidebar.php";
     </div>
     <section>
 
-    
+
 
       <!-- Template Main JS File -->
       </body>

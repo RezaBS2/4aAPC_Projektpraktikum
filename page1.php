@@ -40,7 +40,7 @@ session_start();
                     <i class="bi bi-star star1"></i>
                   </p>
                   <hr style="color: black;">
-                  <p>Für mehr Datails auf den Button Drücken</p>
+                  <p>Für mehr Details auf den Button Drücken</p>
                   <hr style="color: black;">
                   <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
                 </div>
@@ -439,8 +439,8 @@ session_start();
                   </div>
                 </div>
               </section>
-              
-                      <!--- Ende Reihe 3 -->
+
+              <!--- Ende Reihe 3 -->
 </main>
 
 <button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>
