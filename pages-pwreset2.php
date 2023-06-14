@@ -29,16 +29,16 @@ include "Sidebar.php";
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-4 text-black">
-                                    <form action="pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
+                                    <form action="pages-pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
                                         <div class="d-flex align-items-center pb-0">
                                             <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                                             <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
                                         </div>
 
-                                        <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Gib hier dein Username und Email ein um dein Passwort Zurück zu Setzten</h5>
+                                        <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Gib hier deinen Usernamen und Email ein um dein Passwort Zurückzusetzen</h5>
 
                                         <div class="form-outline  to">
-                                            <label class="form-label logtx" for="form2Example17">Username:</label>
+                                            <label class="form-label logtx" for="yourUsername">Username:</label>
                                             <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                                         </div>
 

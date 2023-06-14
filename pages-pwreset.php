@@ -2,6 +2,13 @@
 <html lang="en">
 
 <?php
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
+include 'config.php';
+?>
+<?php
 include "head.php";
 ?>
 <?php
@@ -10,6 +17,7 @@ include "header.php";
 <?php
 include "Sidebar.php";
 ?>
+
 <div class="background-image"></div>
 
 <body>
@@ -26,23 +34,16 @@ include "Sidebar.php";
                                 <br>
                                 <p style="padding-top: 5%; font-size: 35px; display: inline-block; vertical-align: middle;">Passwort<br>Zurücksetzen</p>
                             </div>
-<<<<<<< HEAD
                         </div>
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-4 text-black">
-                                <form  action="pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
+                                <form method="POST" class="row g-3 needs-validation" novalidate>
                                     <div class="d-flex align-items-center pb-0">
                                         <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                                         <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
                                     </div>
 
                                     <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Setze hier dein Passwort Zurück:</h5>
-
-
-                                    <div class="form-outline mb-2">
-                                        <label class="form-label logtx" for="yourEmailReset">Deine Email:</label>
-                                        <input type="email" name="emailReset" id="yourEmailReset" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
-                                    </div>
 
                                     <div class="form-outline mb-2">
                                         <label class="form-label logtx" for="yourPwdReset">Neues Passwort:</label>
@@ -54,13 +55,13 @@ include "Sidebar.php";
                                         <input type="password" name="passwordResetConfirm" id="yourPwdResetConfirm" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                                     </div>
 
-                                    <div class="pt-2 mb-4 text-center">
-                                        <button class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</button>
+                                    <div class=" mb-2 text-center">
+                                        <input name="ResetConfirmation" class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</input>
                                     </div>
                                     <hr>
-                                    <div class="pt-2 text-center">
+                                    <div class=" text-center">
                                         <div class="d-flex justify-content-center">
-                                            <a class="pt-2 small text-muted">Zurück zur Anmeldung</a>
+                                            <a class=" small text-muted">Zurück zur Anmeldung</a>
                                             <u>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -71,58 +72,53 @@ include "Sidebar.php";
 
                                     <hr>
 
-                                    <div class="pt-2 text-center">
+                                    <div class=" text-center">
                                         <div class="d-flex justify-content-between">
                                             <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
                                             <u><a href="about.php" class="small  registertxt">Fragen</a></u>
                                             <button class="btn btn-danger btn-md" onclick="history.back()">Zurück</button>
-=======
-                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                                <div class="card-body p-4 p-lg-4 text-black">
-                                    <form action="pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
-                                        <div class="d-flex align-items-center pb-0">
-                                            <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
-                                            <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
-                                        </div>
-
-                                        <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Setze hier dein Passwort Zurück:</h5>
-
-                                        <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="yourPwdReset">Neues Passwort:</label>
-                                            <input type="password" name="passwordReset" id="yourPwdReset" placeholder="Passwort" class="form-control form-control-lg" required />
-                                        </div>
-
-                                        <div class="form-outline mb-2">
-                                            <label class="form-label logtx" for="yourPwdResetConfirm">Neues Passwort Bestätigen:</label>
-                                            <input type="password" name="passwordResetConfirm" id="yourPwdResetConfirm" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
-                                        </div>
-
-                                        <div class=" mb-2 text-center">
-                                            <button class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</button>
-                                        </div>
-                                        <hr>
-                                        <div class=" text-center">
-                                            <div class="d-flex justify-content-center">
-                                                <a class=" small text-muted">Zurück zur Anmeldung</a>
-                                                <u>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-login.php" class="registertxt">Anmelden</a></p>
-                                                </u>
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class=" text-center">
-                                            <div class="d-flex justify-content-between">
-                                                <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
-                                                <u><a href="about.php" class="small  registertxt">Fragen</a></u>
-                                                <button class="btn btn-danger btn-md" onclick="history.back()">Zurück</button>
-                                            </div>
->>>>>>> master
                                         </div>
                                     </div>
+                                    <?php
+                                        global $con;
+                                        if (isset($_POST['ResetConfirmation'])){
+
+                                            $yourUsername = $_POST["username"];
+                                            $input_email = $_POST["emailReset"];
+                                            $input_newpw = $_POST["passwordReset"];
+                                            $input_newpwconfirm = $_POST["passwordResetConfirm"];
+
+
+                                            $querySelectid = 'Select user_id from skimp.user WHERE username = ? AND email = ?';
+
+
+
+                                            if($input_newpw == $input_newpwconfirm)
+                                            {
+                                                try
+                                                {
+                                                    $queryPWReset = 'UPDATE skimp.user SET password = ? WHERE user_id = ?';
+                                                    $sqlPWReset = $con->prepare($queryPWReset);
+                                                    $sqlPWReset->execute([md5($input_newpw), $your]);
+                                                }
+                                                catch (Exception $e)
+                                                {
+                                                    echo 'Error - Verbindung: ' . $e->getCode() . ': ' . $e->getMessage() . '<br>';
+                                                }
+                                            }
+                                            else
+                                            {
+                                                $alert = "Passwörter stimmen nicht überein";
+                                                //echo "<a href=index.php>$alert</a>";
+                                                echo '<script>alert("'.$alert.'")</script>';
+                                                echo '<button onclick="history.back()">Zurück!</button>';
+                                            }
+
+
+                                        }
+
+
+                                    ?>
 
 
                                 </form>

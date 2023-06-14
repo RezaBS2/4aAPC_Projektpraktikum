@@ -214,10 +214,10 @@ if(session_status() === PHP_SESSION_NONE)
                   <hr class="dropdown-divider">
                 </li>
                 <li>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
+                  <a class="dropdown-item d-flex align-items-center" href="logout.php">
                     <i class="bi bi-person-fill-dash"></i>
                     <span>Sign Out</span>
-                    <span><input type="button" id="signout" name="signout" method="POST" title="Sign Out" action="
+                    <span>
                     <?php
                     #       echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
                     #       if($_SESSION['logged_in'])
@@ -230,7 +230,7 @@ if(session_status() === PHP_SESSION_NONE)
                     #      }
 
                     //echo "<a href=index.php>Sign Out</a>";
-                    ?>"></span>
+                    ?></span>
 
                   </a>
                 </li>

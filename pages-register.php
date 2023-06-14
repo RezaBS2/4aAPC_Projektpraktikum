@@ -62,7 +62,7 @@ include "Sidebar.php";
                         </div>
 
                         <div class=" mb-2 text-center">
-                          <button class="btn btn-danger btn-lg btn-block" type="button">Account Erstellen</button>
+                          <input class="btn btn-danger btn-lg btn-block" type="submit" value="Account Erstellen"></input>
                         </div>
                         <hr>
                         <a class=" small text-muted">Du hast schon einen Account?</a>
