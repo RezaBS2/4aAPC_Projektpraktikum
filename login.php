@@ -91,7 +91,7 @@ try {
    // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
+    $stmt = "SELECT username, password FROM skimp.user where username = ?";
     $sql = $con->prepare($stmt);
     $sql->execute([trim($input_username)]); //Sichere Methode
 
