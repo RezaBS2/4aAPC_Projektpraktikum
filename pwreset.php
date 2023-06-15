@@ -1,14 +1,16 @@
 <?php
 
-session_start();
-global $loggedIn;
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
+
 include 'config.php';
+
 
 try 
 {
-
     global $con;
-
     
     $input_email = $_POST["emailReset"];
 
@@ -17,13 +19,12 @@ try
     $input_newpwconfirm = $_POST["passwordResetConfirm"];
 
 
-
+    $queryPWReset = 'UPDATE skimp.user SET password = ? WHERE username = 1';
+    //$sqlPWReset = $con->prepare($queryInsertNewUser);
+    //$sqlPWReset->execute([$username, $email, md5($password)]);
 
 }
 catch (Exception $e)
 {
 
 }
-
-
-?>

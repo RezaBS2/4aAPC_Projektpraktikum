@@ -11,7 +11,7 @@ include "header.php"
 include "Sidebar.php";
 ?>
 <div class="background-image"></div>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <!-- ======= About Section ======= -->
 <section class="about-section c21">
   <div class="container" data-aos="fade-up">
@@ -72,6 +72,98 @@ include "Sidebar.php";
     </div>
   </div>
 </section>
+
+<div class="spacebet3"></div>
+
+<!-- ======= Team Section =====
+== -->
+<section id="team" class="team-section c21 team section-bg">
+  <div class="uber1 section-title">
+    <i>
+      <u>
+        <h2 class="uber ">Entwickler</h2>
+      </u>
+    </i>
+    <p>
+      Das Entwickler Team Hinter SKIMP
+    </p>
+  </div>
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+
+      <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-img">
+            <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+            <div class="social">
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Kogseder <br> Simon</h4>
+            <span>Frontend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-img">
+            <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+            <div class="social">
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Nagy <br> Keve</h4>
+            <span>Backend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-img">
+            <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+            <div class="social">
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Vakilzadeh <br> Reza</h4>
+            <span>Backend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-img">
+            <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+            <div class="social">
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Schweiger <br> Thomas</h4>
+            <span>Datenbank</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="300">
+          <div class="member-img">
+            <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
+            <div class="social">
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Neumüller <br> Mike</h4>
+            <span>Datenbank</span>
+          </div>
+        </div>
+      </div>
+      <div id="faq"></div>
+    </div>
+  </div>
+</section><!-- End Team Section -->
 
 <div class="spacebet3"></div>
 
@@ -161,103 +253,28 @@ include "Sidebar.php";
               </div>
             </div>
 
+            <div class="accordion-item ">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed " data-bs-target="#faqsTwo-6" type="button" data-bs-toggle="collapse">
+                  <i class="bi bi-arrow-right-circle-fill"></i>
+                  <p class="size">&nbsp;&nbsp;Kann man sein <br> &nbsp;&nbsp;Passwort Zurücksetzen bei SKIMP?</p>
+                </button>
+              </h2>
+              <div id="faqsTwo-6" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                <div class="accordion-body">
+                  Ganz Einfach. <br> Geh beim Anmelden oder auf der Website auf Passwort Zurücksetzen. Hier musst du dich dann mit deinem Username und deiner E-Mail<br>
+                  Authentifizieren um es Zurücksetzen zu können. Stimmt deine Mail und dein Username Überein kannst du nun dein Passwort neu Anlegen :).
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-    <section>
+    </section>
 
-      <div class="spacebet3"></div>
 
-      <!-- ======= Team Section =====
-  == -->
-      <section id="team" class="team-section c21 team section-bg">
-        <div class="uber1 section-title">
-          <i>
-            <u>
-              <h2 class="uber ">Entwickler</h2>
-            </u>
-          </i>
-          <p>
-            Das Entwickler Team Hinter SKIMP
-          </p>
-        </div>
-        <div class="container" data-aos="fade-up">
-          <div class="row">
-
-            <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
-              <div class="member" data-aos="fade-up" data-aos-delay="200">
-                <div class="member-img">
-                  <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
-                  <div class="social">
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Kogseder <br> Simon</h4>
-                  <span>Frontend</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
-              <div class="member" data-aos="fade-up" data-aos-delay="200">
-                <div class="member-img">
-                  <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
-                  <div class="social">
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Nagy <br> Keve</h4>
-                  <span>Backend</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
-              <div class="member" data-aos="fade-up" data-aos-delay="200">
-                <div class="member-img">
-                  <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
-                  <div class="social">
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Vakilzadeh <br> Reza</h4>
-                  <span>Backend</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
-              <div class="member" data-aos="fade-up" data-aos-delay="200">
-                <div class="member-img">
-                  <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
-                  <div class="social">
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Schweiger <br> Thomas</h4>
-                  <span>Datenbank</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-5 col-md-4 col-xl-3 d-flex align-items-stretch">
-              <div class="member" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                  <img src="forms/team/team-3.jpg" class="img-fluid" alt="">
-                  <div class="social">
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Neumüller <br> Mike</h4>
-                  <span>Datenbank</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section><!-- End Team Section -->
 
       <!-- Template Main JS File -->
       </body>

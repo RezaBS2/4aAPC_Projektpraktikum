@@ -20,11 +20,12 @@
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Links:</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.php">Start</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.php">Startseite</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="about.php">About us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="contact.php">Kontakt</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="contact.php">Hilfe</a></li>
-
+            <li><i class="bx bx-chevron-right"></i> <a href="about.php#faq">FAQ</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="Impress.php">Impressum</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="Impress.php#daten">Datenschutz</a></li>
           </ul>
         </div>
 
@@ -33,7 +34,7 @@
           <ul>
             <li><i class="bx bx-chevron-right"></i> <a href="pages-login.php">Login</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="pages-register.php">Registrieren</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="pages-pwreset.php">Passwort Zurücksetzen</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="pages-pwreset2.php">Passwort Zurücksetzen</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="#">Log Out</a></li>
           </ul>
         </div>

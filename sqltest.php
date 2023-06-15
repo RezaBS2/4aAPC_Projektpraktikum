@@ -73,7 +73,7 @@ $passwort = "123pass";
 
 
 $input_username = "usern";
-$input_passwort ="123pass";
+$input_passwort = "123pass";
 //
 
 
@@ -83,7 +83,7 @@ $isLoggedIn = FALSE;
 
 
 try {
-    $con = new PDO('mysql:host='.$server.';dbname='.$db.';charset=utf8', $user,$pwd);
+    $con = new PDO('mysql:host=' . $server . ';dbname=' . $db . ';charset=utf8', $user, $pwd);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
@@ -96,9 +96,9 @@ try {
 
     //if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch()) {
-        echo "id: " . $row["benutzer_id"]. " - Name: " . $row["benutzer_username"]. " - EMail: " . $row["benutzer_email"]. "<br>";
-        echo "Passwort: " . $row["benutzer_passwort"]."<br>";
+    while ($row = $result->fetch()) {
+        echo "id: " . $row["benutzer_id"] . " - Name: " . $row["benutzer_username"] . " - EMail: " . $row["benutzer_email"] . "<br>";
+        echo "Passwort: " . $row["benutzer_passwort"] . "<br>";
     }
     /*} else {
         echo "0 results";
@@ -123,23 +123,17 @@ try {
     $sqlSelectUsername =  $con->prepare('SELECT benutzer_username, benutzer_passwort FROM benutzer WHERE benutzer_username = ?');
     $sqlSelectUsername->execute([$username]);
     try {
-        while($row = $result->fetch()) {
+        while ($row = $result->fetch()) {
             $input_username = $row["benutzer_username"];
             $input_passwort = $row["benutzer_passwort"];
         }
-        if($input_passwort == $passwort)
-        {
+        if ($input_passwort == $passwort) {
             $isLoggedIn = TRUE;
             echo '<a href="index.php">main</a>';
         }
-
-
-
-    }
-    catch (Exception $e){
-       // echo $e->getCode().': '.$e->getMessage().'<br>;';
+    } catch (Exception $e) {
+        // echo $e->getCode().': '.$e->getMessage().'<br>;';
         echo "<br>Username does not exist!<br>";
-
     }
 
 
@@ -151,16 +145,14 @@ try {
 
 
 
-    $con=null;
+    $con = null;
 
     echo "Success!";
-
-}
-catch (Exception $e){
-    echo $e->getCode().': '.$e->getMessage().'<br>;';
+} catch (Exception $e) {
+    echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
     echo "<br>Failure!<br>";
     die("ERROR: Could not connect. " . mysqli_connect_error());
-
 }
 ?>
+
 </html>
