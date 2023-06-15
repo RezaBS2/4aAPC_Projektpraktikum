@@ -154,18 +154,80 @@ if(session_status() === PHP_SESSION_NONE)
 
             <!-- End Heart Icon --->
 
-      <!-- Profil Drop Down --->
-      <li class="nav-item dropdown pe-3">
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <span class="d-none d-sm-block dropdown-toggle ps-2">
-            <?php
-            try {
-                 if (isset($_SESSION['logged_in'])){
-                      echo $_SESSION['username'];
-               }
-                   else {
-                       echo 'User';
+            <!-- Profil Drop Down --->
+            <li class="nav-item dropdown pe-3">
+              <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                <span class="d-none d-sm-block dropdown-toggle ps-2">
+                  <?php
+                  #try {
+                  #     if ($loggedIn){
+                  #          echo $_SESSION['username'];
+                  #   }
+                  #       else {
+                  #           echo 'User';
+                  #   
+                  #        }
+                  #   } catch (Exception $e)
+                  #  {
+                  #      echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
+                  #   }
+                  ?></span>
+              </a><!-- End Profile Iamge Icon -->
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="border: 2px solid black;">
+                <li class="dropdown-header">
+                  <h6><?php
+                      #    if ($loggedIn){echo $_SESSION['username'];}
+                      #    else {echo 'User';}
+                      ?>
+                  </h6>
+                  <U> <span>Einstellungen</span></u>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="pages-login.php">
+                    <i class="bi bi-person-fill-check"></i>
+                    <span>Login</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="pages-register.php">
+                    <i class="bi bi-person-fill-add"></i>
+                    <span>Registrieren</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="pages-pwreset2.php">
+                    <i class="bi bi-person-fill-gear"></i>
+                    <span>PW-Reset</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#">
+                    <i class="bi bi-person-fill-dash"></i>
+                    <span>Sign Out</span>
+                    <span><input type="button" id="signout" name="signout" method="POST" title="Sign Out" action="
+                    <?php
+                    #       echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
+                    #       if($_SESSION['logged_in'])
+                    #      {
+                    #          $loggedIn = false;
+                    #           $_SESSION['logged_in'] = false;
+                    #           $_SESSION['username'] = "";
+                    #         header("Refresh: 1; url=index.php");
+                    //header("Refresh:0");
+                    #      }
 
                     }
                } catch (Exception $e)
