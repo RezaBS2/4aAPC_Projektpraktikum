@@ -1,3 +1,11 @@
+<?php
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,18 +47,19 @@ include "Sidebar.php";
 
                                         <div class="form-outline  to">
                                             <label class="form-label logtx" for="yourUsername">Username:</label>
-                                            <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
+                                            <input type="text" name="usernameReset" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                                         </div>
 
 
                                         <div class="form-outline ">
                                             <label class="form-label logtx" for="yourEmail">Deine Email:</label>
-                                            <input type="email" name="email" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                                            <input type="email" name="emailReset" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
                                         </div>
 
                                         <a href="pages-pwreset.php">
                                             <div class=" mb-2 text-center">
-                                                <button class="btn btn-danger btn-lg btn-block">Weiter</button>
+                                                <!--button class="btn btn-danger btn-lg btn-block">Weiter</button-->
+                                                <input name="ResetCheck" class="btn btn-danger btn-lg btn-block" type="submit" value="Weiter">
                                         </a>
                                 </div>
 
@@ -78,6 +87,18 @@ include "Sidebar.php";
 
 
                                 </form>
+
+                                <?php
+                                    if(!isset($_SESSION['usernameResetSession']))
+                                    {
+                                        $_SESSION['usernameResetSession'] = $_POST['usernameReset'];
+                                    }
+                                    if(!isset($_SESSION['emailResetSession']))
+                                    {
+                                        $_SESSION['emailResetSession'] = $_POST['emailReset'];
+                                    }
+                                ?>
+
 
                             </div>
                         </div>
