@@ -1,9 +1,6 @@
 <?php
-
-if(session_status() === PHP_SESSION_NONE)
-{
-    session_start();
-}
+// Start the session
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -56,28 +53,6 @@ if(session_status() === PHP_SESSION_NONE)
               </div>
 
             </div>
-            <img class="geslog" src="https://www.pado-shopping.at/wp-content/uploads/2020/09/media-markt_logo-1.png">
-            <div class="hrd star">
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-            </div>
-
-            <br>
-            <br>
-            <br>
-            <hr>
-          </div>
-
-          <div data-aos="fade-up" class="container">
-            <div id="googlemap"></div>
-          </div>
-
-
-          <div class="section error-404  d-flex flex-column align-items-center justify-content-center">
-            <a class="btn" onclick="history.back()">Back to home</a>
           </div>
         </div>
       </div>
