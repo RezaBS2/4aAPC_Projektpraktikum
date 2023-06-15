@@ -56,7 +56,7 @@ include "Sidebar.php";
                                     </div>
 
                                     <div class=" mb-2 text-center">
-                                        <input name="ResetConfirmation" class="btn btn-danger btn-lg btn-block" type="submit">Zurücksetzen</input>
+                                        <input name="ResetConfirmation" class="btn btn-danger btn-lg btn-block" type="submit" value="Zurücksetzen">
                                     </div>
                                     <hr>
                                     <div class=" text-center">
@@ -82,44 +82,56 @@ include "Sidebar.php";
                                     <?php
                                         global $con;
                                         if (isset($_POST['ResetConfirmation'])){
-
-                                            $yourUsername = $_POST["username"];
-                                            $input_email = $_POST["emailReset"];
-                                            $input_newpw = $_POST["passwordReset"];
-                                            $input_newpwconfirm = $_POST["passwordResetConfirm"];
-
-
-                                            $querySelectid = 'Select user_id from skimp.user WHERE username = ? AND email = ?';
-
-
-
-                                            if($input_newpw == $input_newpwconfirm)
+                                            try
                                             {
-                                                try
+                                                $input_username = $_POST["username"];
+                                                $input_email = $_POST["emailReset"];
+                                                $input_newpw = $_POST["passwordReset"];
+                                                $input_newpwconfirm = $_POST["passwordResetConfirm"];
+
+                                                $idOfUser = 0;
+
+                                                $querySelectid = 'Select user_id from skimp.user WHERE username = ? AND email = ?';
+                                                $sqlSelectid = $con->prepare($querySelectid);
+                                                $sqlSelectid->execute([$input_username, $input_email]);
+
+                                                while($row1 = $sqlSelectid->fetch(PDO::FETCH_NUM))
                                                 {
-                                                    $queryPWReset = 'UPDATE skimp.user SET password = ? WHERE user_id = ?';
-                                                    $sqlPWReset = $con->prepare($queryPWReset);
-                                                    $sqlPWReset->execute([md5($input_newpw), $your]);
+                                                    $idOfUser = $row1[0];
                                                 }
-                                                catch (Exception $e)
+
+                                                if($input_newpw == $input_newpwconfirm)
                                                 {
-                                                    echo 'Error - Verbindung: ' . $e->getCode() . ': ' . $e->getMessage() . '<br>';
+                                                    try
+                                                    {
+                                                        $queryPWReset = 'UPDATE skimp.user SET password = ? WHERE user_id = ?';
+                                                        $sqlPWReset = $con->prepare($queryPWReset);
+                                                        $sqlPWReset->execute([md5($input_newpw), $idOfUser]);
+
+                                                        $alertChangedPW = "Passwort erfolgreich verändert";
+                                                        //echo "<a href=index.php>$alert</a>";
+                                                        echo '<script>alert("'.$alertChangedPW.'")</script>';
+
+                                                    }
+                                                    catch (Exception $e)
+                                                    {
+                                                        echo 'Error - Verbindung: ' . $e->getCode() . ': ' . $e->getMessage() . '<br>';
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    $alert = "Passwörter stimmen nicht überein";
+                                                    //echo "<a href=index.php>$alert</a>";
+                                                    echo '<script>alert("'.$alert.'")</script>';
+                                                    echo '<button onclick="history.back(-2)">Zurück!</button>';
                                                 }
                                             }
-                                            else
+                                            catch (Exception $ex)
                                             {
-                                                $alert = "Passwörter stimmen nicht überein";
-                                                //echo "<a href=index.php>$alert</a>";
-                                                echo '<script>alert("'.$alert.'")</script>';
-                                                echo '<button onclick="history.back()">Zurück!</button>';
+                                                echo 'Error - Verbindung: ' . $ex->getCode() . ': ' . $ex->getMessage() . '<br>';
                                             }
-
-
                                         }
-
-
                                     ?>
-
 
                                 </form>
 
