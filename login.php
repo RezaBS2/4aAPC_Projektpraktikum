@@ -109,7 +109,8 @@ try {
         //echo 'temp password: '.$temp_password.'  input password: '.md5($input_password).'<br>';
         if ($temp_password == md5($input_password)) {
             //$remember = true;
-            if ($_SESSION['logged_in'] == false) {
+            if(!isset($_SESSION['logged_in']))
+            {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $input_username;
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
