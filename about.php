@@ -272,7 +272,7 @@ include "Sidebar.php";
         </div>
       </div>
     </div>
-    <section>
+    </section>
 
 
 

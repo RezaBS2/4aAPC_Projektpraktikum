@@ -1,6 +1,6 @@
 <?php
 // Start the session
-session_start();
+//session_start();
 ?>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <!DOCTYPE html>

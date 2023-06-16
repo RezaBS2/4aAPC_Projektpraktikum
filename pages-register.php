@@ -41,7 +41,7 @@ include "Sidebar.php";
                         <h5 class="fw-normal mb-1 pb-1 to" style="letter-spacing: 1px;">Erstelle einen Neuen Account:</h5>
 
                         <div class="form-outline  to">
-                          <label class="form-label logtx" for="form2Example17">Username:</label>
+                          <label class="form-label logtx" for="yourUsername">Username:</label>
                           <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                         </div>
 
@@ -62,7 +62,7 @@ include "Sidebar.php";
                         </div>
 
                         <div class=" mb-2 text-center">
-                          <button class="btn btn-danger btn-lg btn-block" type="button">Account Erstellen</button>
+                          <input class="btn btn-danger btn-lg btn-block" type="submit" value="Account Erstellen"></input>
                         </div>
                         <hr>
                         <a class=" small text-muted">Du hast schon einen Account?</a>

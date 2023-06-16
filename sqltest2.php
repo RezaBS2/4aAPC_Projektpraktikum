@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
+/*
 $server = 'localhost:3306';
 $user = 'root';
 $pwd = '';
@@ -67,8 +67,12 @@ try {
 } catch (Exception $e) {
     echo $eall->getCode() . ': ' . $eall->getMessage() . '<br>;';
     echo "<br>Failure!<br>";
-}
+}*/
+$franz = md5("franz");
+$hubby = md5("hubby");
+$testtest = md5("testtest");
 
+ echo $franz.'<br>'.$hubby.'<br>'.$testtest;
 
 ?>
 

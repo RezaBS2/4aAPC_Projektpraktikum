@@ -23,20 +23,21 @@ else{
     echo "Connection successful!";
 }*/
 
-/* Verbindung uzum Thomas sein Server
+/* Verbindung uzum Thomas sein Server */
 $server = 'tom.m1nd.at:80';
 $user = 'bs-linz2';
 $pwd = 'bs-linz2';
 $db = 'skimp';
-*/
 
 
-//$server = 'localhost:3307';
+
+/* Lokale Datenbank
 $server = 'localhost:3306';
 $user = 'root';
 $pwd = '';
-//$db = 'information_schema';
 $db = 'projektpraktikum';
+*/
+
 
 try {
     $con = new PDO('mysql:host=' . $server . ';dbname=' . $db . ';charset=utf8', $user, $pwd);

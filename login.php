@@ -3,7 +3,7 @@
 
 session_start();
 global $loggedIn;
-require 'config.php';
+include 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
  **/
@@ -91,7 +91,7 @@ try {
     // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
+    $stmt = "SELECT username, password FROM skimp.user where username = ?";
     $sql = $con->prepare($stmt);
     $sql->execute([trim($input_username)]); //Sichere Methode
 
@@ -109,7 +109,8 @@ try {
         //echo 'temp password: '.$temp_password.'  input password: '.md5($input_password).'<br>';
         if ($temp_password == md5($input_password)) {
             //$remember = true;
-            if ($_SESSION['logged_in'] == false) {
+            if(!isset($_SESSION['logged_in']))
+            {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $input_username;
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
