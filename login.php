@@ -86,8 +86,8 @@ try {
 
     global $con;
 
-    $input_username = $_POST["username"];
-    $input_password = $_POST["password"];
+    $input_username = trim($_POST["username"]);
+    $input_password = trim($_POST["password"]);
 
 
     // $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";

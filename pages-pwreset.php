@@ -106,8 +106,8 @@ include "Sidebar.php";
                                                 //if(isset())
                                                 //if (isset($_POST['ResetCheck']))
                                                 //{
-                                                $input_username = $_POST["username1"];
-                                                $input_email = $_POST["email1"];
+                                                $input_username = trim($_POST["username1"]);
+                                                $input_email = trim($_POST["email1"]);
                                                 //}
 
                                                 //$input_username = $_SESSION['usernameResetSession'];
@@ -162,6 +162,7 @@ include "Sidebar.php";
                                                     };*/
                                                     $alert = "Inkorrekter (oder nicht zusammengehörender) Username und/oder Passwort";
                                                     echo '<script>alert("'.$alert.'")</script>';
+                                                    //echo '<a href="page1.php">';
                                                     //header("Location: http://localhost:63342/Projektpraktikum/index.php");
                                                     //echo '<button onclick="history.back(-2)">Zurück!</button>';
                                                 }
