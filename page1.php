@@ -30,6 +30,11 @@ session_start();
               <div class="image-and-text">
                 <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
                 <div class="text-container">
+                    <!-- Anfang Reza Anteil -->
+                    <?php
+
+                    ?>
+                    <!-- -->
                   <h4>iPhone 12 Pro</h4>
                   <h5 class="herst">APPLE</h5>
                   <p>
