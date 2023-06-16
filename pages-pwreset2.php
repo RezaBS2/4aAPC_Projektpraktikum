@@ -37,6 +37,10 @@ include "Sidebar.php";
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-4 text-black">
+
+                                    <!-- ?php
+                                        print_r($_POST);
+                                    ? -->
                                     <form action="pages-pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
                                         <div class="d-flex align-items-center pb-0">
                                             <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
@@ -62,7 +66,8 @@ include "Sidebar.php";
                                                 <input name="ResetCheck" class="btn btn-danger btn-lg btn-block" type="submit" value="Weiter">
                                         </a>
                                 </div>
-
+                                </form method="POST" class="row g-3 needs-validation">
+                                <form
                                 <hr>
                                 <div class=" text-center">
                                     <div class="d-flex justify-content-center">
@@ -89,6 +94,7 @@ include "Sidebar.php";
                                 </form>
 
                                 <?php
+                                /*
                                     if(!isset($_SESSION['usernameResetSession']))
                                     {
                                         $_SESSION['usernameResetSession'] = $_POST['usernameReset'];
@@ -96,7 +102,7 @@ include "Sidebar.php";
                                     if(!isset($_SESSION['emailResetSession']))
                                     {
                                         $_SESSION['emailResetSession'] = $_POST['emailReset'];
-                                    }
+                                    }*/
                                 ?>
 
 

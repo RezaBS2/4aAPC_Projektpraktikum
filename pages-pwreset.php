@@ -18,6 +18,13 @@ include "header.php";
 include "Sidebar.php";
 ?>
 
+<?php
+/*if (isset($_POST['ResetCheck'])){
+    include "pages-pwreset2.php";
+}*/
+//if (!isset($_POST['ResetConfirmation'])){
+?>
+
 <div class="background-image"></div>
 
 <body>
@@ -56,6 +63,13 @@ include "Sidebar.php";
                                     </div>
 
                                     <div class=" mb-2 text-center">
+                                        <?php
+                                        if (isset($_POST['ResetCheck'])){
+                                            echo '<input type="hidden" name="email1" value="'.$_POST['emailReset'].'">';
+                                            echo '<input type="hidden" name="username1" value="'.$_POST['usernameReset'].'">';
+                                        }
+
+                                        ?>
                                         <input name="ResetConfirmation" class="btn btn-danger btn-lg btn-block" type="submit" value="Zurücksetzen">
                                     </div>
                                     <hr>
@@ -81,7 +95,8 @@ include "Sidebar.php";
                                     </div>
                                     <?php
                                         global $con;
-                                        if (isset($_POST['ResetConfirmation'])){
+                                    /*} else */
+                                    if (isset($_POST['ResetConfirmation'])){
                                             try
                                             {
                                                 $input_username = "";
@@ -89,19 +104,16 @@ include "Sidebar.php";
                                                 $input_newpw = "";
                                                 $input_newpwconfirm = "";
                                                 //if(isset())
-                                                /*if (isset($_POST['ResetCheck']))
-                                                {
-                                                    $input_username = $_POST["usernameReset"];
-                                                    $input_email = $_POST["emailReset"];
-                                                }*/
-                                                $input_username = $_SESSION['usernameResetSession'];
-                                                $input_email = $_SESSION['emailResetSession'];
+                                                //if (isset($_POST['ResetCheck']))
+                                                //{
+                                                $input_username = $_POST["username1"];
+                                                $input_email = $_POST["email1"];
+                                                //}
 
-                                                $input_newpw = $_POST['passwordReset'];
-                                                $input_newpwconfirm = $_POST['passwordResetConfirm'];
-
-                                                echo '<script>alert("Username:'.$_POST["usernameReset"].' Email:'.$_SESSION['emailResetSession'].' PW:'.$input_newpw.'")</script>';
-                                                echo ''.$input_username.' '.$input_email;
+                                                //$input_username = $_SESSION['usernameResetSession'];
+                                                //$input_email = $_SESSION['emailResetSession'];
+                                                //echo '<script>alert("Username:'.$_POST["username1"].'  '.print_r($_POST).' Email:'.$_POST['email1'].' PW:'.$input_newpw.'")</script>';
+                                                //echo ''.$input_username.' '.$input_email;
 
                                                 $idOfUser = 0;
 
@@ -112,14 +124,16 @@ include "Sidebar.php";
                                                 $rc = $sqlSelectid->rowCount();
                                                 echo '<script>alert("'.$input_username.' '.$input_email.' '.$rc.'")</script>';
 
+
                                                 while($row1 = $sqlSelectid->fetch(PDO::FETCH_NUM))
                                                 {
                                                     $idOfUser = $row1[0];
-                                                    echo '<script>alert("'.$row1[0].'")</script>';
-                                                    echo '<script>alert("'.$idOfUser.'")</script>';
                                                 }
 
-                                                if($input_newpw == $input_newpwconfirm)
+                                                $input_newpw = $_POST['passwordReset'];
+                                                $input_newpwconfirm = $_POST['passwordResetConfirm'];
+
+                                                if($input_newpw == $input_newpwconfirm && $rc > 0)
                                                 {
                                                     try
                                                     {
@@ -138,12 +152,32 @@ include "Sidebar.php";
                                                         echo 'Error - Verbindung: ' . $e->getCode() . ': ' . $e->getMessage() . '<br>';
                                                     }
                                                 }
-                                                else
+                                                elseif ($rc == 0)
+                                                {
+                                                    /*if (window.confirm('Ok to Confirm, Cancel to Stay here'))
+                                                    {
+                                                        window.open('index.php');
+
+                                                        //a.click();
+                                                    };*/
+                                                    $alert = "Inkorrekter (oder nicht zusammengehörender) Username und/oder Passwort";
+                                                    echo '<script>alert("'.$alert.'")</script>';
+                                                    //header("Location: http://localhost:63342/Projektpraktikum/index.php");
+                                                    //echo '<button onclick="history.back(-2)">Zurück!</button>';
+                                                }
+                                                elseif ($input_newpw != $input_newpwconfirm)
                                                 {
                                                     $alert = "Passwörter stimmen nicht überein";
                                                     //echo "<a href=index.php>$alert</a>";
                                                     echo '<script>alert("'.$alert.'")</script>';
-                                                    echo '<button onclick="history.back(-2)">Zurück!</button>';
+                                                    //echo '<button onclick="history.back(-2)">Zurück!</button>';
+                                                }
+                                                else
+                                                {
+                                                    $alert = "Fehler beim Zurücksetzen des Passwortes";
+                                                    //echo "<a href=index.php>$alert</a>";
+                                                    echo '<script>alert("'.$alert.'")</script>';
+                                                    //echo '<button onclick="history.back(-2)">Zurück!</button>';
                                                 }
                                             }
                                             catch (Exception $ex)
