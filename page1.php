@@ -1,6 +1,16 @@
 <?php
 // Start the session
-session_start();
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
+//
+
+echo '<script>alert("Thing:'.$_SESSION['nameArticle1'].'")</script>';
+
+
+//echo '<script>alert("Hidden:'.$_POST['thidden'].'")</script>';
+//
 ?>
 
 <!DOCTYPE html>

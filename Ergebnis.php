@@ -62,8 +62,20 @@ if(session_status() === PHP_SESSION_NONE)
                                       function () { alert('Hi'); };
                               });
                           </script -->
+                          
                           <?php
-                            echo '<script>alert("Thing:'.$_POST["article1"].'  '.$_POST.'")</script>';
+                          
+                          //echo '<input type="hidden" name="thidden" value="TestHidden">';
+                          //echo '<input type="hidden" name="username1" value="'.$_POST['usernameReset'].'">';
+                          //echo '<script>alert("Hidden:'.$_POST['thidden'].'")</script>';
+
+
+
+                          $vari ='nameArticle1';
+                          //$_SESSION['nameArticle1'] = "test";
+                          $_SESSION[$vari] = "test";
+                            echo '<script>alert("Thing:'.$_SESSION[$vari].'")</script>';
+                            //echo '<script>alert("Thing:'.$_POST["article1"].'  '.$_POST.'")</script>';
                            //echo 'document.getElementById("article1")';
                           ?>
                           <!-- Ende Reza Anteil -->
