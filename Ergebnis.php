@@ -73,6 +73,9 @@ if(session_status() === PHP_SESSION_NONE)
 
                           $vari ='nameArticle1';
                           //$_SESSION['nameArticle1'] = "test";
+                          $_SESSION['f']=5;
+                          $numR=
+
                           $_SESSION[$vari] = "test";
                             echo '<script>alert("Thing:'.$_SESSION[$vari].'")</script>';
                             //echo '<script>alert("Thing:'.$_POST["article1"].'  '.$_POST.'")</script>';
