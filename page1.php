@@ -5,10 +5,7 @@ if(session_status() === PHP_SESSION_NONE)
     session_start();
 }
 //
-
-echo '<script>alert("Thing:'.$_SESSION['nameArticle1'].'")</script>';
-
-
+//echo '<script>alert("Thing:'.$_SESSION['nameArticle1'].'")</script>';
 //echo '<script>alert("Hidden:'.$_POST['thidden'].'")</script>';
 //
 ?>
@@ -221,22 +218,30 @@ echo '<script>alert("Thing:'.$_SESSION['nameArticle1'].'")</script>';
         <div class="row">
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="info bordertb">
-              <u>
-                <h2 class="ubermini2">Bewertung Abgeben:</h2>
-                <br>
-              </u>
-              <div class="col-lg-12">
-                <fieldset class="rating2">
-                  <input type="radio" id="star1" name="rating2" value="1"><label class="stsz" for="star1" title="Sehr schlecht">
-                    <input type="radio" id="star2" name="rating2" value="2"><label class="stsz" for="star2" title="Schlecht">
-                      <input type="radio" id="star3" name="rating2" value="3"><label class="stsz" for="star3" title="Durchschnittlich">
-                        <input type="radio" id="star4" name="rating2" value="4"><label class="stsz" for="star4" title="Gut">
-                          <input type="radio" id="star5" name="rating2" value="5"><label class="stsz" for="star5" title="Hervorragend">
-                </fieldset>
-              </div>
-              <div class="text-center"> <!-- Hinzugefügt: Ein Container für die Ausrichtung -->
-                <button class="btf btn btn-danger">Absenden</button>
-              </div>
+              <form method="POST">
+                  <u>
+                    <h2 class="ubermini2">Bewertung Abgeben:</h2>
+                    <br>
+                  </u>
+                  <div class="col-lg-12">
+                    <fieldset class="rating2">
+                      <input type="radio" id="star1" name="rating2" value="1"><label class="stsz" for="star1" title="Sehr schlecht">
+                        <input type="radio" id="star2" name="rating2" value="2"><label class="stsz" for="star2" title="Schlecht">
+                          <input type="radio" id="star3" name="rating2" value="3"><label class="stsz" for="star3" title="Durchschnittlich">
+                            <input type="radio" id="star4" name="rating2" value="4"><label class="stsz" for="star4" title="Gut">
+                              <input type="radio" id="star5" name="rating2" value="5"><label class="stsz" for="star5" title="Hervorragend">
+                    </fieldset>
+                  </div>
+                  <div class="text-center"> <!-- Hinzugefügt: Ein Container für die Ausrichtung -->
+                      <?php
+                          if (isset($_SESSION['logged_in'])){
+                              echo '<button class="btf btn btn-danger">Absenden</button>';
+                          } else {
+                              echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                          }
+                      ?>
+
+                  </div>
               </form>
             </div>
           </div>
