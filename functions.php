@@ -36,15 +36,55 @@ function return_user_id($username)//, $executeArray = NULL)
     {
         foreach ($row as $r)
         {
-            $user_id = $r;
+            $user_id = $r[0];
         }
     }
 
     return $user_id;
 }
 
+
+
+// SELECT  prod_id FROM prod
+function return_prod_id($product)//, $executeArray = NULL)
+{
+    global $con;
+    $prod_id = "";
+
+    $query = 'SELECT prod_id from prod WHERE product = ?';
+    $stmt = $con->prepare($query);
+    $stmt->execute([$product]);
+
+    while ($row = $stmt->fetch(PDO::FETCH_NUM))
+    {
+        $prod_id = $row[0];
+    }
+    return $prod_id;
+}
+
+
+// SELECT  comp_id FROM prod
+function return_comp_id($company)//, $executeArray = NULL)
+{
+    global $con;
+    $comp_id = "";
+
+    $query = 'SELECT comp_id from comp WHERE company = ?';
+    $stmt = $con->prepare($query);
+    $stmt->execute([$company]);
+
+    while ($row = $stmt->fetch(PDO::FETCH_NUM))
+    {
+        $comp_id = $row[0];
+    }
+    return $comp_id;
+}
+
+
+
+
 // prod_comp_id erhalten
-function returnprod_comp_id($prod_id, $comp_id)//, $executeArray = NULL)
+function return_prod_comp_id($prod_id, $comp_id)//, $executeArray = NULL)
 {
     global $con;
     $prod_comp_id = "";
@@ -57,12 +97,16 @@ function returnprod_comp_id($prod_id, $comp_id)//, $executeArray = NULL)
     {
         foreach ($row as $r)
         {
-            $prod_comp_id = $r;
+            $prod_comp_id = $r[0];
         }
     }
 
     return $prod_comp_id;
 }
+
+
+
+
 
 // Bewertung
 // Bewertung hinzufügen

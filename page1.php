@@ -58,9 +58,19 @@ if(session_status() === PHP_SESSION_NONE)
                 </div>
               </div>
               <div class="right">
-                <img class="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Media_Markt_logo.svg/2560px-Media_Markt_logo.svg.png" alt="Company Logo">
-                <div class="Pricetxt">999,99€</div>
-                <div class="heart1 bord"><i class="bi bi-heart-fill"></i>
+                  <form method="POST" name="formfav">
+                      <img class="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Media_Markt_logo.svg/2560px-Media_Markt_logo.svg.png" alt="Company Logo">
+                      <div class="Pricetxt">999,99€</div>
+                      <div class="heart1 bord"><i class="bi bi-heart-fill"></i>
+                          <input class="heart1 bord" type="submit" name="fav" value="♥">
+                          <?php
+                            if(isset($_POST['fav'])){
+                                include 'save-product.php';
+                            }
+                          ?>
+                  </form>
+
+
                 </div>
               </div>
 
@@ -68,8 +78,8 @@ if(session_status() === PHP_SESSION_NONE)
           </div>
         </div>
       </div>
-    </div>
 
+    </section>
     <section id="contact1" class="contact" style="display: none;">
       <div class="container" data-aos="fade-up">
         <div class="row">
@@ -178,9 +188,8 @@ if(session_status() === PHP_SESSION_NONE)
                               <br>
                               <br>
                               <br>
+                            </ul>
                           </a>
-                          </ul>
-
                         </form>
                       </div>
                     </div>
@@ -235,7 +244,11 @@ if(session_status() === PHP_SESSION_NONE)
                   <div class="text-center"> <!-- Hinzugefügt: Ein Container für die Ausrichtung -->
                       <?php
                           if (isset($_SESSION['logged_in'])){
-                              echo '<button class="btf btn btn-danger">Absenden</button>';
+                              //echo '<button class="btf btn btn-danger">Absenden</button>';
+                              echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden">Absenden</input>';
+                                if (isset($_POST['bewertungAbsenden'])){
+                                    include 'rate-product.php';
+                                }
                           } else {
                               echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
                           }
