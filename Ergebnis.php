@@ -54,34 +54,7 @@ if(session_status() === PHP_SESSION_NONE)
                       <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
                       <div class="text-container">
                         <h4 name="article1" id="article1" value="iPhone 12 Pro">iPhone 12 Pro</h4>
-                          <!-- Anfang Reza Anteil -->
-                          <!-- input type ="hidden" value="" -->
-                          <!-- script type="text/javascript">
-                              $(function(){ // I use jQuery in this example
-                                  document.getElementById('article1').onclick =
-                                      function () { alert('Hi'); };
-                              });
-                          </script -->
-                          
-                          <?php
-                          
-                          //echo '<input type="hidden" name="thidden" value="TestHidden">';
-                          //echo '<input type="hidden" name="username1" value="'.$_POST['usernameReset'].'">';
-                          //echo '<script>alert("Hidden:'.$_POST['thidden'].'")</script>';
 
-
-
-                          $vari ='nameArticle1';
-                          //$_SESSION['nameArticle1'] = "test";
-                          $_SESSION['f']=5;
-                          $numR=
-
-                          $_SESSION[$vari] = "test";
-                            echo '<script>alert("Thing:'.$_SESSION[$vari].'")</script>';
-                            //echo '<script>alert("Thing:'.$_POST["article1"].'  '.$_POST.'")</script>';
-                           //echo 'document.getElementById("article1")';
-                          ?>
-                          <!-- Ende Reza Anteil -->
                         <h5 class="herst">APPLE</h5>
                         <p>
                           <i class="bi bi-star-fill star1"></i>
