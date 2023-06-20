@@ -60,7 +60,7 @@ if(session_status() === PHP_SESSION_NONE)
         </div>
       </div>
     </div>
-
+  </section>
     <section id="contact1" class="contact" style="display: none;">
       <div class="container" data-aos="fade-up">
         <div class="row">
@@ -131,26 +131,27 @@ if(session_status() === PHP_SESSION_NONE)
                       <div class="tab-pane fade Besonderheit " id="Besonderheit">
                         <h5 class="card-title">Besonderheiten:</h5>
                         <form>
-                          <div class="row">
-                            <div class="col-lg-6">
-                              <ul>
-                                <li>A14 Bionic Chip </li>
-                                <li>Schutz vor Wasser und Staub IP68 klassifiziert</li>
-                                <li>Face ID </li>
-                                <li>Betriebs­system IOS </li>
-                              </ul>
-                            </div>
-                            <div class="col-lg-6">
-                              <ul>
-                                <li>Kapazität 128 GB, 256 GB oder 512 GB </li>
-                                <li>Super Retina XDR Display</li>
-                                <li>12 MP Pro Kamerasystem mit Ultraweitwinkel-, Weitwinkel- und Teleobjektiv</li>
-                                <li>MagSafe</li>
-                              </ul>
-                            </div>
-                          </div>
-                          <br> <br> <br>
-                          </a>
+                            <a>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <ul>
+                                    <li>A14 Bionic Chip </li>
+                                    <li>Schutz vor Wasser und Staub IP68 klassifiziert</li>
+                                    <li>Face ID </li>
+                                    <li>Betriebs­system IOS </li>
+                                  </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                  <ul>
+                                    <li>Kapazität 128 GB, 256 GB oder 512 GB </li>
+                                    <li>Super Retina XDR Display</li>
+                                    <li>12 MP Pro Kamerasystem mit Ultraweitwinkel-, Weitwinkel- und Teleobjektiv</li>
+                                    <li>MagSafe</li>
+                                  </ul>
+                                </div>
+                              </div>
+                                <br> <br> <br>
+                            </a>
                         </form>
                       </div>
 
