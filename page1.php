@@ -67,6 +67,8 @@ if(session_status() === PHP_SESSION_NONE)
                           </i>
                           <?php
                             if(isset($_POST['fav'])){
+                                echo '<input type="hidden" name="companyname1" value="Mediamarkt Pluscity"';                           
+                                echo '<input type="hidden" name="productname1" value="iPhone 13 Pro"'; 
                                 include 'save-product.php';
                             }
                           ?>
