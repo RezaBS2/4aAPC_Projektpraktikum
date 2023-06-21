@@ -6,15 +6,15 @@ if(session_status() === PHP_SESSION_NONE)
     session_start();
 }
 
-$cn = $_POST['companyname2']; //companyname
 
+$cn = $_POST['companyname1']; //companyname
 
 $comp_id = return_comp_id($cn); //comp_id
 
 echo '<script>alert("companyname: '.$cn.'   comp_id: '.$comp_id.'")</script>';
 
 
-$pn = $_POST['productname2']; // productname
+$pn = $_POST['productname1'];
 
 $prod_id = return_prod_id($pn);
 
@@ -48,18 +48,24 @@ if($rcount == 0)
     }
     catch (Exception $eInsertFail)
     {
-        echo $eInsertFail->getCode() . ': ' . $eInsertFail->getMessage() . '<br>';
+        echo $eInsertFail->getCode() . ': ' . $eInsertFail->getMessage() . '<br>;';
     }
 }
 
-try {
-    saveRating($bewertung, $user_id, $prod_comp_id);
-}
-catch (Exception $eRate)
-{
-    echo $eRate->getCode() . ': ' . $eRate->getMessage() . '<br>';
-}
+$remember = returnFavouriteStatus($user_id, $prod_comp_id);
+echo '<script>alert("$remember: '.$remember.'")</script>';
 
+if ($remember == NULL)
+{
+    saveAsFavourite($user_id, $prod_comp_id);
+    echo '<script>alert("Artikel zu Favoriten hinzugefügt")</script>';
+}
+else if($remember != NULL)
+{
+    deleteFromFavourite($user_id, $prod_comp_id);
+    echo '<script>alert("Artikel von Favoriten entfernt")</script>';
+
+}
 
 
 ?>

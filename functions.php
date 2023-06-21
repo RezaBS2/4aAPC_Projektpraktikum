@@ -95,10 +95,9 @@ function return_prod_comp_id($prod_id, $comp_id)//, $executeArray = NULL)
 
     while ($row = $stmt->fetch(PDO::FETCH_NUM))
     {
-        foreach ($row as $r)
-        {
-            $prod_comp_id = $r[0];
-        }
+
+            $prod_comp_id = $row[0];
+
     }
 
     return $prod_comp_id;
@@ -130,7 +129,7 @@ function saveAsFavourite($user_id, $prod_comp_id)//, $executeArray = NULL)
     global $con;
 
     $query = 'UPDATE user_prod_comp
-    SET remember = 1
+    SET remember = \'t\'
     WHERE user_id = ? AND prod_comp_id = ?';
     $stmt = $con->prepare($query);
     $stmt->execute([$user_id, $prod_comp_id]);
@@ -142,19 +141,41 @@ function deleteFromFavourite($user_id, $prod_comp_id)//, $executeArray = NULL)
 {
     global $con;
     $query = 'UPDATE user_prod_comp
-    SET remember = 0
+    SET remember = NULL
     WHERE user_id = ? AND prod_comp_id = ?';
     $stmt = $con->prepare($query);
     $stmt->execute([$user_id, $prod_comp_id]);
 }
+
+// check Favoutite status
+function returnFavouriteStatus($user_id, $prod_comp_id)//, $executeArray = NULL)
+{
+    global $con;
+    $remember = 0;
+
+
+    $query = 'SELECT remember 
+    FROM user_prod_comp
+    WHERE user_id = ? AND prod_comp_id = ?';
+    $stmt = $con->prepare($query);
+    $stmt->execute([$user_id, $prod_comp_id]);
+
+    while ($row = $stmt->fetch(PDO::FETCH_NUM))
+    {
+        $remember = $row[0];
+    }
+    return $remember;
+
+}
+
 
 
 //Insert in user_prod_comp ausführen falls kein Eintrag vorhanden ist
 function insertInto_user_prod_comp($user_id, $prod_comp_id)//, $executeArray = NULL)
 {
     global $con;
-    $stmt = 'INSERT INTO user_prod_comp(user_prod_comp_id , prod_comp_id, user_id, bewertung, remember) 
-				VALUES (DEFAULT, ? , ?, NULL, NULL)';
+    $stmt = 'INSERT INTO user_prod_comp(prod_comp_id, user_id, bewertung, remember) 
+				VALUES (? , ?, NULL, NULL)';
     $sql = $con->prepare($stmt);
 
     $sql->execute([$prod_comp_id, $user_id]);
@@ -165,14 +186,45 @@ function insertInto_user_prod_comp($user_id, $prod_comp_id)//, $executeArray = N
 function getRowCountFrom_user_prod_comp($user_id, $prod_comp_id)//, $executeArray = NULL)
 {
     global $con;
+
+    $remPr = "";
+
     $stmt = 'SELECT user_prod_comp_id FROM user_prod_comp WHERE user_id = ? AND prod_comp_id = ?';
     $sql = $con->prepare($stmt);
     $sql->execute([$user_id, $prod_comp_id]);
 
-    $rowCount = $sql->rowCount();
+    while ($row = $stmt->fetch(PDO::FETCH_NUM))
+    {
+        $remPr = $row[3];
+    }
 
-    return $rowCount;
+    return $remPr;
 }
+
+
+//Merkliste
+function getRememberedItemsForUser($user_id)//, $executeArray = NULL)
+{
+    global $con;
+    $stmt =     'SELECT p.price, u.username, c.company, pro.product, p.date FROM price p
+                INNER JOIN prod_comp pc ON pc.prod_comp_id=p.prod_comp_id
+                INNER JOIN comp c ON c.comp_id=pc.comp_id
+                INNER JOIN prod pro ON pro.prod_id=pc.prod_id
+                INNER JOIN user_prod_comp upc ON upc.prod_comp_id=pc.prod_comp_id
+                INNER JOIN USER u ON u.user_id=upc.user_id
+                WHERE date = (
+                SELECT MAX(date) FROM price
+                WHERE	prod_comp_id=p.prod_comp_id)
+                AND upc.remember = "t"
+                AND u.user_id = ?';
+    $sql = $con->prepare($stmt);
+    $sql->execute([$user_id]);
+
+
+
+
+}
+
 
 
 

@@ -161,7 +161,7 @@ if(session_status() === PHP_SESSION_NONE)
                 <span class="d-none d-sm-block dropdown-toggle ps-2">
                   <?php
                   try {
-                       if (isset($_SESSION['logged_in'])){
+                       if (isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true){
                             echo $_SESSION['username'];
                       }
                          else {

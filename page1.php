@@ -57,7 +57,10 @@ if(session_status() === PHP_SESSION_NONE)
                   <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
                 </div>
               </div>
-                <form method="POST" name="formfav">
+                <form method="POST">
+                    <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
+                    <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
+
                     <div class="right">
 
                       <!--img class="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Media_Markt_logo.svg/2560px-Media_Markt_logo.svg.png" alt="Company Logo">
@@ -66,17 +69,18 @@ if(session_status() === PHP_SESSION_NONE)
                           <!--i class="bi bi-heart-fill"-->
                           <i>
                           <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
-                              <input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">
+                              <?php
+                              //$_SESSION['logged_in'] = 0;
+                              if (isset($_SESSION['logged_in']))
+                                  {
+                                      //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
+                                      echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
+                                      if(isset($_POST['fav'])){
+                                          include 'fave-product.php';
+                                      }
+                                  }
+                                  ?>
                           </i>
-                          <?php
-                            if(isset($_POST['fav'])){
-                                echo '<input type="hidden" name="companyname1" value="Mediamarkt Pluscity"';                           
-                                echo '<input type="hidden" name="productname1" value="iPhone 13 Pro"'; 
-                                include 'save-product.php';
-                            }
-                          ?>
-
-
 
                       </div>
 
@@ -236,6 +240,8 @@ if(session_status() === PHP_SESSION_NONE)
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="info bordertb">
               <form method="POST">
+                  <input type="hidden" name="companyname2" value="Mediamarkt Pluscity">
+                  <input type="hidden" name="productname2" value="iPhone 13 Pro">
                   <u>
                     <h2 class="ubermini2">Bewertung Abgeben:</h2>
                     <br>
@@ -255,6 +261,8 @@ if(session_status() === PHP_SESSION_NONE)
                               //echo '<button class="btf btn btn-danger">Absenden</button>';
                               echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden">Absenden</input>';
                                 if (isset($_POST['bewertungAbsenden'])){
+                                    //echo '<input type="hidden" name="companyname2" value="Mediamarkt Pluscity">';
+                                    //echo '<input type="hidden" name="productname2" value="iPhone 13 Pro">';
                                     include 'rate-product.php';
                                 }
                           } else {
