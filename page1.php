@@ -57,25 +57,29 @@ if(session_status() === PHP_SESSION_NONE)
                   <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
                 </div>
               </div>
-              <div class="right">
-                  <form method="POST" name="formfav">
+                <form method="POST" name="formfav">
+                    <div class="right">
+
                       <!--img class="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Media_Markt_logo.svg/2560px-Media_Markt_logo.svg.png" alt="Company Logo">
                       <div class="Pricetxt">999,99€</div-->
-                      <div><i class="bi bi-heart-fill">
+                      <div class="heart1">
+                          <!--i class="bi bi-heart-fill"-->
+                          <i>
                           <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
-                              <input class="heart1 bord" type="submit" name="fav">
+                              <input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">
                           </i>
                           <?php
                             if(isset($_POST['fav'])){
                                 include 'save-product.php';
                             }
                           ?>
-                  </form>
 
 
-                </div>
-              </div>
 
+                      </div>
+
+                    </div>
+                </form>
             </div>
           </div>
         </div>
