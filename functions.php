@@ -34,10 +34,9 @@ function return_user_id($username)//, $executeArray = NULL)
 
     while ($row = $stmt->fetch(PDO::FETCH_NUM))
     {
-        foreach ($row as $r)
-        {
-            $user_id = $r[0];
-        }
+
+        $user_id = $row[0];
+
     }
 
     return $user_id;
@@ -187,26 +186,30 @@ function getRowCountFrom_user_prod_comp($user_id, $prod_comp_id)//, $executeArra
 {
     global $con;
 
-    $remPr = "";
+    $rCount = 0;
 
     $stmt = 'SELECT user_prod_comp_id FROM user_prod_comp WHERE user_id = ? AND prod_comp_id = ?';
     $sql = $con->prepare($stmt);
     $sql->execute([$user_id, $prod_comp_id]);
 
-    while ($row = $stmt->fetch(PDO::FETCH_NUM))
-    {
-        $remPr = $row[3];
-    }
 
-    return $remPr;
+    $rCount = $sql->rowCount();
+
+
+    return $rCount;
 }
 
 
 //Merkliste
-function getRememberedItemsForUser($user_id)//, $executeArray = NULL)
+function getRememberedItemsForUserToList($user_id, $imageSource = NULL)//, $executeArray = NULL)
 {
     global $con;
-    $stmt =     'SELECT p.price, u.username, c.company, pro.product, p.date FROM price p
+
+    //$remPr = "";
+
+    //$stmtML = 'SELECT user_id FROM skimp.USER WHERE user_id = ?';
+
+    $stmtML =     'SELECT pro.product, p.price, u.username, c.company, p.date FROM price p
                 INNER JOIN prod_comp pc ON pc.prod_comp_id=p.prod_comp_id
                 INNER JOIN comp c ON c.comp_id=pc.comp_id
                 INNER JOIN prod pro ON pro.prod_id=pc.prod_id
@@ -217,11 +220,51 @@ function getRememberedItemsForUser($user_id)//, $executeArray = NULL)
                 WHERE	prod_comp_id=p.prod_comp_id)
                 AND upc.remember = "t"
                 AND u.user_id = ?';
-    $sql = $con->prepare($stmt);
-    $sql->execute([$user_id]);
+    $sqlML = $con->prepare($stmtML);
+    $sqlML->execute([$user_id]);
+
+    //echo '<script>alert("Statement: '.$stmtML.'")</script>';
+    //echo '<script>alert("Row Count: '.$sqlML->rowCount().'")</script>';
+    //echo '"Statement: '.$stmtML.'"';
+    //echo '<script>alert("User_id: '.$user_id.'")</script>';
+    //echo '"User_id: '.$user_id.'"';
+
+/*while ($rowML = $sqlML->fetch(PDO::FETCH_NUM))
+{
+    echo '<script>alert("Schleife")</script>';
+    $remPr = $rowML[0];
+}
+return 1;*/
+
+
+    while ($rowML = $sqlML->fetch(PDO::FETCH_NUM))
+    {
+        $remPr = $rowML[0];
+        try
+        {
+            echo '<hr class="dropdown-divider">
+                <li class="message-item">
+                  <img class="likepic likepic2" src="'.$imageSource.'">
+                  <b> '.$remPr.'</b>
+                  <div class="message-content">
+                    <b>
+                      <h3 class="message-title"></h3>
+                      <i class="heartkl2 i bi-heart-fill"></i>
+                    </b>
+                  </div>
+                </li>
+                </hr>';
 
 
 
+        } catch (Exception $e)
+        {
+            echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
+        }
+
+    }
+
+    //return $remPr;
 
 }
 

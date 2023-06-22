@@ -11,20 +11,20 @@ $cn = $_POST['companyname1']; //companyname
 
 $comp_id = return_comp_id($cn); //comp_id
 
-echo '<script>alert("companyname: '.$cn.'   comp_id: '.$comp_id.'")</script>';
+//echo '<script>alert("companyname: '.$cn.'   comp_id: '.$comp_id.'")</script>';
 
 
 $pn = $_POST['productname1'];
 
 $prod_id = return_prod_id($pn);
 
-echo '<script>alert("productname: '.$pn.'   prod_id: '.$prod_id.'")</script>';
+//echo '<script>alert("productname: '.$pn.'   prod_id: '.$prod_id.'")</script>';
 
 
 
 $prod_comp_id = return_prod_comp_id($prod_id, $comp_id); // prod_comp_id !!!
 
-echo '<script>alert("prod_comp_id:'.$prod_comp_id.'")</script>';
+//echo '<script>alert("prod_comp_id: '.$prod_comp_id.'")</script>';
 
 
 
@@ -32,19 +32,19 @@ $un = $_SESSION['username'];
 
 $user_id = return_user_id($un);         // user_id !!!
 
-echo '<script>alert("username: '.$un.'   user_id: '.$user_id.'")</script>';
+//echo '<script>alert("username: '.$un.'   user_id: '.$user_id.'")</script>';
 
 
 
 $rcount = getRowCountFrom_user_prod_comp($user_id, $prod_comp_id);
 
-echo '<script>alert("$rcount: '.$rcount.'")</script>';
+//echo '<script>alert("$rcount: '.$rcount.'")</script>';
 
 if($rcount == 0)
 {
     try {
         insertInto_user_prod_comp($user_id, $prod_comp_id);
-        echo '<script>alert("insertInto_user_prod_comp durchgeführt")</script>';
+        //      echo '<script>alert("insertInto_user_prod_comp durchgeführt")</script>';
     }
     catch (Exception $eInsertFail)
     {
@@ -53,7 +53,7 @@ if($rcount == 0)
 }
 
 $remember = returnFavouriteStatus($user_id, $prod_comp_id);
-echo '<script>alert("$remember: '.$remember.'")</script>';
+//echo '<script>alert("$remember: '.$remember.'")</script>';
 
 if ($remember == NULL)
 {

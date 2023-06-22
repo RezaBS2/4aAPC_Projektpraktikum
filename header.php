@@ -3,12 +3,13 @@
 //$loggedIn = false;
 if(session_status() === PHP_SESSION_NONE)
 {
-    session_start();
+//    session_start();
     /*if(isset($_SESSION['logged_in'])) {
         $loggedIn = $_SESSION['logged_in'];
     }*/
 
 }
+
 
 
 ?>
@@ -60,11 +61,54 @@ if(session_status() === PHP_SESSION_NONE)
                     <i class="heartkl i bi-heart-fill"></i>
                   </div>
                 </li>
+                <!-- Anfang Favoritenlisteninhalt  -->
 
-                <hr class="dropdown-divider">
+                  <!-- Anfang Reza Anteil -->
+                  <form method="POST">
+
+                      <!-- Input für den Source-Pfad des Bildes
+                      <input type="hidden" name="imgsrc" value="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg">
+                      -->
+                  </form>
+                      <?php
+                      try {
+                          include 'functions.php';
+                          include 'config.php';
+                          if(isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true)
+                          {
+                              //echo '<script>alert("Nach include vor return_user_id")</script>';
+                              $user_id = return_user_id($_SESSION['username']);
+                              //echo '<script>alert("Nach return_user_id: '.$user_id.' und vor getRememberedItemsForUserToList")</script>';
+
+                              $imgs="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg";
+                             //$imgs = $_POST['imgsrc'];
+                              /* $imgs = preg_replace(
+                                  "~[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]~",
+                                  "<a href=\"\\0\">\\0</a>",
+                                  $imgs);*/
+                              //echo '<script>alert("Image: '.$imgs.'")</script>';
+                              getRememberedItemsForUserToList($user_id, $imgs);
+                              //echo '<script>alert("Nach getRememberedItemsForUserToList")</script>';
+
+                          }
+                      }
+                      catch (Exception $favex)
+                      {
+                          echo $favex->getCode() . ': ' . $favex->getMessage() . '<br>;';
+                      }
+
+                      ?>
+
+
+
+
+
+                  <!-- Ende Reza Anteil -->
+
+                <!--hr class="dropdown-divider">
                 <li class="message-item">
                   <img class="likepic likepic2" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg">
-                  <b> Test</b>
+                  <b> TestErgebnis1</b>
                   <div class="message-content">
                     <b>
                       <h3 class="message-title"></h3>
@@ -147,8 +191,8 @@ if(session_status() === PHP_SESSION_NONE)
                       <h3 class="message-title"></h3>
                       <i class="heartkl2 i bi-heart-fill"></i>
                   </div>
-                </li>
-
+                </li-->
+                  <!-- Ende Favoritenliste  -->
               </ul>
             </li><!-- End Messages Nav -->
 

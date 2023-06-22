@@ -241,7 +241,7 @@ if(session_status() === PHP_SESSION_NONE)
             <div class="info bordertb">
               <form method="POST">
                   <input type="hidden" name="companyname2" value="Mediamarkt Pluscity">
-                  <input type="hidden" name="productname2" value="iPhone 13 Pro">
+                  <input type="hidden" name="productname2" value="iPhone 13 Pro Max">
                   <u>
                     <h2 class="ubermini2">Bewertung Abgeben:</h2>
                     <br>
@@ -259,7 +259,7 @@ if(session_status() === PHP_SESSION_NONE)
                       <?php
                           if (isset($_SESSION['logged_in'])){
                               //echo '<button class="btf btn btn-danger">Absenden</button>';
-                              echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden">Absenden</input>';
+                              echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden" value="Absenden">';
                                 if (isset($_POST['bewertungAbsenden'])){
                                     //echo '<input type="hidden" name="companyname2" value="Mediamarkt Pluscity">';
                                     //echo '<input type="hidden" name="productname2" value="iPhone 13 Pro">';
