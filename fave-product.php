@@ -7,14 +7,16 @@ if(session_status() === PHP_SESSION_NONE)
 }
 
 
-$cn = $_POST['companyname1']; //companyname
+//$cn = $_POST['companyname1']; //companyname
+$cn = $_SESSION['currentcompany'];
 
 $comp_id = return_comp_id($cn); //comp_id
 
 //echo '<script>alert("companyname: '.$cn.'   comp_id: '.$comp_id.'")</script>';
 
 
-$pn = $_POST['productname1'];
+//$pn = $_POST['productname1'];
+$pn = $_SESSION['currentproduct'];
 
 $prod_id = return_prod_id($pn);
 
