@@ -326,7 +326,7 @@ function returnRatings($avgnodec, $avgonedec)
         }
         if($i < 5){
             for ($i; $i < 5; $i++) {
-                echo '<script>alert("$i: '.$i.'")</script>';
+                //echo '<script>alert("$i: '.$i.'")</script>';
                 echo '<i class="bi bi-star star1"></i>';
             }
         }
