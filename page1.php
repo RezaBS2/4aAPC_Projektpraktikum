@@ -38,19 +38,48 @@ if(session_status() === PHP_SESSION_NONE)
                 <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
                 <div class="text-container">
                     <!-- Anfang Reza Anteil -->
-                    <?php
 
-                    ?>
                     <!-- -->
                   <h4>iPhone 12 Pro</h4>
                   <h5 class="herst">APPLE</h5>
+                    <!-- Bewerttungsanzeige mit Sternen -->
                   <p>
-                    <i class="bi bi-star-fill star1"></i>
+                      <?php
+
+                          try
+                          {
+                              $cn = $_SESSION['currentcompany'];
+                              //$cn = "Mediamarkt Pluscity";
+                              $comp_id = return_comp_id($cn); //comp_id
+
+                              $pn = $_SESSION['currentproduct'];
+                              //$pn = "iPhone 13 Pro Max";
+                              $prod_id = return_prod_id($pn);
+
+                              $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
+
+                              $avgnodec = returnAVGnoDecimals($prod_comp_id);
+                              $avgonedec = returnAVGoneDecimal($prod_comp_id);
+                              echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
+
+                              returnRatings($avgnodec, $avgonedec);
+                          }
+                          catch (Exception $exce)
+                          {
+                              echo $exce->getCode() . ': ' . $exce->getMessage() . '<br>;';
+                          }
+
+
+
+                      ?>
+
+                    <!--i class="bi bi-star-fill star1"></i>
                     <i class="bi bi-star-fill star1"></i>
                     <i class="bi bi-star-fill star1"></i>
                     <i class="bi bi-star-half star1"></i>
-                    <i class="bi bi-star star1"></i>
+                    <i class="bi bi-star star1"></i-->
                   </p>
+                    <!-- Ende der Bewerttungsanzeige mit Sternen -->
                   <hr style="color: black;">
                   <p>Für mehr Details auf den Button Drücken</p>
                   <hr style="color: black;">

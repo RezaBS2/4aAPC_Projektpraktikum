@@ -271,6 +271,89 @@ return 1;*/
 
 
 
+function returnAVGnoDecimals($prod_comp_id)//, $executeArray = NULL)
+{
+    //SELECT CAST(AVG(bewertung) AS DECIMAL(10,0)) FROM skimp.user_prod_comp WHERE prod_comp_id = 4517
+    global $con;
+    $avg = 0;
+
+    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,0)) FROM skimp.user_prod_comp WHERE prod_comp_id = ?';
+    $sql = $con->prepare($stmt);
+    $sql->execute([$prod_comp_id]);
+
+    while ($row = $sql->fetch(PDO::FETCH_NUM))
+    {
+        $avg = $row[0];
+    }
+    return $avg;
+}
+
+function returnAVGoneDecimal($prod_comp_id)//, $executeArray = NULL)
+{
+    global $con;
+    $avg = 0;
+
+    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,1)) FROM skimp.user_prod_comp WHERE prod_comp_id = ?';
+    $sql = $con->prepare($stmt);
+    $sql->execute([$prod_comp_id]);
+
+    while ($row = $sql->fetch(PDO::FETCH_NUM))
+    {
+        $avg = $row[0];
+    }
+    return $avg;
+}
+
+
+function returnRatings($avgnodec, $avgonedec)
+{
+    //global $con;
+    $i = 0;
+
+    /*$avgnodec = returnAVGnoDecimals($prod_comp_id);
+    $avgonedec = returnAVGoneDecimal($prod_comp_id);*/
+
+    if($avgnodec >= 1)
+    {
+        for ($x = 1; $x <= $avgnodec; $x++) {
+            echo '<i class="bi bi-star-fill star1"></i>';
+            $i++;
+        }
+        if ($avgnodec < $avgonedec)
+        {
+            echo '<i class="bi bi-star-half star1"></i>';
+            $i++;
+        }
+        if($i < 5){
+            for ($i; $i < 5; $i++) {
+                echo '<script>alert("$i: '.$i.'")</script>';
+                echo '<i class="bi bi-star star1"></i>';
+            }
+        }
+    }
+    else if ($avgonedec >= 0){
+        echo '<i class="bi bi-star-half star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+    }
+    else {
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+        echo '<i class="bi bi-star star1"></i>';
+    }
+
+}
+
+
+
+
+
+
+
 
 
 function makeTableWithGivenArray($query, $executeArray = NULL)
