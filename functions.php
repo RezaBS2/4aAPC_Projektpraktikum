@@ -331,7 +331,7 @@ function returnRatings($avgnodec, $avgonedec)
             }
         }
     }
-    else if ($avgonedec >= 0){
+    else if ($avgonedec > 0){
         echo '<i class="bi bi-star-half star1"></i>';
         echo '<i class="bi bi-star star1"></i>';
         echo '<i class="bi bi-star star1"></i>';
