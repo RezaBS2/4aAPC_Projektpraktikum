@@ -60,7 +60,7 @@ if(session_status() === PHP_SESSION_NONE)
 
                               $avgnodec = returnAVGnoDecimals($prod_comp_id);
                               $avgonedec = returnAVGoneDecimal($prod_comp_id);
-                              echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
+
 
                               returnRatings($avgnodec, $avgonedec);
                           }
