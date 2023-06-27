@@ -475,9 +475,6 @@ include "footer2.php";
 include "footer.php";
 ?>
 
-
-
-
 <!-- Template Main JS File -->
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
