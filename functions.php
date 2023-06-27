@@ -527,12 +527,15 @@ function makeTableWithGivenArray($query, $executeArray = NULL)
                 echo '</tr>';
             }
             echo '</table>';
+            return 1;
         } else {
             echo '</table><br><h5>Keine Ergebnisse vorhanden</h5><br>';
+            return 0;
         }
     } catch (Exception $e) {
         echo '</td></tr></table>';
         echo $e->getCode().': '.$e->getMessage().'<br>;';
+        return -1;
     }
 
 }

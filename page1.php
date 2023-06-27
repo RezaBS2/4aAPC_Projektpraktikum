@@ -446,15 +446,22 @@ if(session_status() === PHP_SESSION_NONE)
 
                                             <?php
                                             //makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
-                                            makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
+                                            $t = makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
+
+                                            if($t == 1)
+                                            {
+                                                echo '                                            
+                                                <div>
+                                                    <a class="nav-link" href="diagramm3.php">
+                                                        <i class="btn btn-primary center" >
+                                                        <span>Als Diagramm anzeigen</span></i>
+                                                    </a>
+                                                </div>';
+
+                                            }
+
 
                                             ?>
-                                            <div>
-                                                <a class="nav-link" href="diagramm3.php">
-                                                    <i class="btn btn-primary center" >
-                                                    <span>Als Diagramm anzeigen</span></i>
-                                                </a>
-                                            </div>
 
 
                                         </div>
