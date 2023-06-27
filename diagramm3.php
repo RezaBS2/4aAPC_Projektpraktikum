@@ -30,15 +30,15 @@ $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
     array("y" => 20, "label" => "26.06.2023"),
     array("y" => 5, "label" => "27.06.2023")
 );*/
-//$dataPoints = returnValuesDiagrammInArray($prod_comp_id, date("Y-m-d"));
-$dataPoints = returnValuesDiagrammInArray(4517, "2026-06-06");
+$dataPoints = returnValuesDiagrammInArray($prod_comp_id, date("Y-m-d"));
+//$dataPoints = returnValuesDiagrammInArray(4517, "2026-06-06");
 
 if ($dataPoints == -1)
 {
     $dataPoints = 0;
 }
 
-$max = returnMaxPriceForprod_comp_id(4517);
+//$max = returnMaxPriceForprod_comp_id(4517);
 $max = returnMaxPriceForprod_comp_id($prod_comp_id);
 
 ?>
