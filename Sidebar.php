@@ -8,7 +8,7 @@
         <div class="sidetrans">
           <a class="nav-link " href="index.php">
             <i class="bi bi-house-fill"></i>
-            <span>Starseite</span>
+            <span>Startseite</span>
           </a>
       </li>
       <!-- End Dashboard Nav -->

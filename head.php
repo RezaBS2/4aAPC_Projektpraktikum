@@ -36,4 +36,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>

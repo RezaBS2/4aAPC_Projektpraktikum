@@ -130,10 +130,10 @@ include "Sidebar.php";
                                                     $idOfUser = $row1[0];
                                                 }
 
-                                                $input_newpw = $_POST['passwordReset'];
-                                                $input_newpwconfirm = $_POST['passwordResetConfirm'];
+                                                $input_newpw = trim($_POST['passwordReset']);
+                                                $input_newpwconfirm = trim($_POST['passwordResetConfirm']);
 
-                                                if($input_newpw == $input_newpwconfirm && $rc > 0)
+                                                if($input_newpw == $input_newpwconfirm && $rc > 0 && !empty($input_newpw) && strlen($input_newpw) >= 6)
                                                 {
                                                     try
                                                     {
@@ -169,6 +169,13 @@ include "Sidebar.php";
                                                 elseif ($input_newpw != $input_newpwconfirm)
                                                 {
                                                     $alert = "Passwörter stimmen nicht überein";
+                                                    //echo "<a href=index.php>$alert</a>";
+                                                    echo '<script>alert("'.$alert.'")</script>';
+                                                    //echo '<button onclick="history.back(-2)">Zurück!</button>';
+                                                }
+                                                elseif ($strlen($input_newpw) < 6)
+                                                {
+                                                    $alert = "Passworter zu kurz";
                                                     //echo "<a href=index.php>$alert</a>";
                                                     echo '<script>alert("'.$alert.'")</script>';
                                                     //echo '<button onclick="history.back(-2)">Zurück!</button>';
