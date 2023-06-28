@@ -52,12 +52,17 @@ if(session_status() === PHP_SESSION_NONE)
 
                                         try
                                         {
-                                            $cn = $_SESSION['currentcompany'];
+                                            //$cn = $_SESSION['currentcompany'];
+                                            $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];       //companyname
                                             //$cn = "Mediamarkt Pluscity";
                                             $comp_id = return_comp_id($cn); //comp_id
+                                            
+                                            //$pn = $_SESSION['currentproduct'];
+                                            $pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];       //productname
+                                            
 
-                                            $pn = $_SESSION['currentproduct'];
                                             //$pn = "iPhone 13 Pro Max";
+                                            
                                             $prod_id = return_prod_id($pn);
 
                                             $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
