@@ -1,11 +1,3 @@
-<?php
-if(session_status() === PHP_SESSION_NONE)
-{
-    session_start();
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,10 +29,6 @@ include "Sidebar.php";
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-4 text-black">
-
-                                    <!-- ?php
-                                        print_r($_POST);
-                                    ? -->
                                     <form action="pages-pwreset.php" method="POST" class="row g-3 needs-validation" novalidate>
                                         <div class="d-flex align-items-center pb-0">
                                             <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
@@ -51,23 +39,21 @@ include "Sidebar.php";
 
                                         <div class="form-outline  to">
                                             <label class="form-label logtx" for="yourUsername">Username:</label>
-                                            <input type="text" name="usernameReset" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
+                                            <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                                         </div>
 
 
                                         <div class="form-outline ">
                                             <label class="form-label logtx" for="yourEmail">Deine Email:</label>
-                                            <input type="email" name="emailReset" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                                            <input type="email" name="email" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
                                         </div>
 
                                         <a href="pages-pwreset.php">
                                             <div class=" mb-2 text-center">
-                                                <!--button class="btn btn-danger btn-lg btn-block">Weiter</button-->
-                                                <input name="ResetCheck" class="btn btn-danger btn-lg btn-block" type="submit" value="Weiter">
+                                                <button class="btn btn-danger btn-lg btn-block">Weiter</button>
                                         </a>
                                 </div>
-                                </form method="POST" class="row g-3 needs-validation">
-                                
+
                                 <hr>
                                 <div class=" text-center">
                                     <div class="d-flex justify-content-center">
@@ -92,19 +78,6 @@ include "Sidebar.php";
 
 
                                 </form>
-
-                                <?php
-                                /*
-                                    if(!isset($_SESSION['usernameResetSession']))
-                                    {
-                                        $_SESSION['usernameResetSession'] = $_POST['usernameReset'];
-                                    }
-                                    if(!isset($_SESSION['emailResetSession']))
-                                    {
-                                        $_SESSION['emailResetSession'] = $_POST['emailReset'];
-                                    }*/
-                                ?>
-
 
                             </div>
                         </div>

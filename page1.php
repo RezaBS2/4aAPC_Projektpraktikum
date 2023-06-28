@@ -1,6 +1,10 @@
 <?php
 // Start the session
+if(session_status() === PHP_SESSION_NONE)
+{
 session_start();
+}
+//
 ?>
 
 <!DOCTYPE html>
@@ -189,10 +193,10 @@ session_start();
                 <h2 class="ubermini">SHOPS:</h2>
                 <a class="shop-txt2">Shops in deiner Nähe</a>
                 <br>
-              </u>
-              <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
-             <!-- <iframe class="map2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2655.3018917329855!2d14.30941327695637!3d48.27780767125938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477397da7180f8e9%3A0xd11a61d6a61f789e!2sBerufsschule%20Linz%202!5e0!3m2!1sde!2sat!4v1686748282448!5m2!1sde!2sat"></iframe>
-             --> </form>
+              </u> 
+             <div data-aos="fade-up" class="map2">
+
+            <div id="googlemap">
             </div>
           </div>
         </div>
@@ -469,7 +473,10 @@ include "footer2.php";
 include "footer.php";
 ?>
 
+
+
+
 <!-- Template Main JS File -->
 </body>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
 </html>

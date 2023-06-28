@@ -16,7 +16,7 @@
       <hr>
 
       <!-- Profile Page Nav -
-            <li class="nav-heading">Pages</li>-->
+            <li class="nav-heading">Pages</li>
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Ergebnis.php">
@@ -24,7 +24,7 @@
             <span>Ergebnisse</span>
           </a>
       </li>
-      <!-- End Profile Page Nav -->
+      End Profile Page Nav -->
 
       <hr>
 
