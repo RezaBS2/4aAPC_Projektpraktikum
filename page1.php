@@ -2,11 +2,8 @@
 // Start the session
 if(session_status() === PHP_SESSION_NONE)
 {
-    session_start();
+session_start();
 }
-//
-//echo '<script>alert("Thing:'.$_SESSION['nameArticle1'].'")</script>';
-//echo '<script>alert("Hidden:'.$_POST['thidden'].'")</script>';
 //
 ?>
 
@@ -485,7 +482,10 @@ include "footer2.php";
 include "footer.php";
 ?>
 
-<!-- Template Main JS File -->
 
+
+
+<!-- Template Main JS File -->
+</body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
 </html>

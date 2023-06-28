@@ -1,27 +1,15 @@
-<?php
-// Start the session
-//session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <?php
 
-/* Verbindung uzum Thomas sein Server */
+/* Verbindung zum Thomas sein Server */
 $server = 'tom.m1nd.at:80';
 $user = 'bs-linz2';
 $pwd = 'bs-linz2';
 $db = 'skimp';
-
-
-
-/* Lokale Datenbank
-$server = 'localhost:3306';
-$user = 'root';
-$pwd = '';
-$db = 'projektpraktikum';
-*/
 
 
 try {

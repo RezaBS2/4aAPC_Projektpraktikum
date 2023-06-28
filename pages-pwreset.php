@@ -18,13 +18,6 @@ include "header.php";
 include "Sidebar.php";
 ?>
 
-<?php
-/*if (isset($_POST['ResetCheck'])){
-    include "pages-pwreset2.php";
-}*/
-//if (!isset($_POST['ResetConfirmation'])){
-?>
-
 <div class="background-image"></div>
 
 <body>
@@ -63,13 +56,6 @@ include "Sidebar.php";
                                     </div>
 
                                     <div class=" mb-2 text-center">
-                                        <?php
-                                        if (isset($_POST['ResetCheck'])){
-                                            echo '<input type="hidden" name="email1" value="'.$_POST['emailReset'].'">';
-                                            echo '<input type="hidden" name="username1" value="'.$_POST['usernameReset'].'">';
-                                        }
-
-                                        ?>
                                         <input name="ResetConfirmation" class="btn btn-danger btn-lg btn-block" type="submit" value="Zurücksetzen">
                                     </div>
                                     <hr>
@@ -90,40 +76,24 @@ include "Sidebar.php";
                                         <div class="d-flex justify-content-between">
                                             <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
                                             <u><a href="about.php" class="small  registertxt">Fragen</a></u>
-                                            <button class="btn btn-danger btn-md" onclick="history.back(-2)">Zurück</button>
+                                            <button class="btn btn-danger btn-md" onclick="history.back()">Zurück</button>
                                         </div>
                                     </div>
                                     <?php
                                         global $con;
-                                    /*} else */
-                                    if (isset($_POST['ResetConfirmation'])){
+                                        if (isset($_POST['ResetConfirmation'])){
                                             try
                                             {
-                                                $input_username = "";
-                                                $input_email = "";
-                                                $input_newpw = "";
-                                                $input_newpwconfirm = "";
-                                                //if(isset())
-                                                //if (isset($_POST['ResetCheck']))
-                                                //{
-                                                $input_username = trim($_POST["username1"]);
-                                                $input_email = trim($_POST["email1"]);
-                                                //}
-
-                                                //$input_username = $_SESSION['usernameResetSession'];
-                                                //$input_email = $_SESSION['emailResetSession'];
-                                                //echo '<script>alert("Username:'.$_POST["username1"].'  '.print_r($_POST).' Email:'.$_POST['email1'].' PW:'.$input_newpw.'")</script>';
-                                                //echo ''.$input_username.' '.$input_email;
+                                                $input_username = $_POST["username"];
+                                                $input_email = $_POST["emailReset"];
+                                                $input_newpw = $_POST["passwordReset"];
+                                                $input_newpwconfirm = $_POST["passwordResetConfirm"];
 
                                                 $idOfUser = 0;
 
-                                                $querySelectid = 'Select user_id from user WHERE username = ? AND email = ?';
+                                                $querySelectid = 'Select user_id from skimp.user WHERE username = ? AND email = ?';
                                                 $sqlSelectid = $con->prepare($querySelectid);
-                                                $sqlSelectid->execute([trim($input_username), trim($input_email)]);
-
-                                                $rc = $sqlSelectid->rowCount();
-                                                echo '<script>alert("'.$input_username.' '.$input_email.' '.$rc.'")</script>';
-
+                                                $sqlSelectid->execute([$input_username, $input_email]);
 
                                                 while($row1 = $sqlSelectid->fetch(PDO::FETCH_NUM))
                                                 {
@@ -141,7 +111,6 @@ include "Sidebar.php";
                                                         $sqlPWReset = $con->prepare($queryPWReset);
                                                         $sqlPWReset->execute([md5($input_newpw), $idOfUser]);
 
-                                                        //unset($_POST['ResetConfirmation']);
                                                         $alertChangedPW = "Passwort erfolgreich verändert";
                                                         //echo "<a href=index.php>$alert</a>";
                                                         echo '<script>alert("'.$alertChangedPW.'")</script>';

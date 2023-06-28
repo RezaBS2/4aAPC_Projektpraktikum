@@ -1,13 +1,6 @@
 <?php
-// Start the session
-//$loggedIn = false;
-if(session_status() === PHP_SESSION_NONE)
-{
-//    session_start();
-    /*if(isset($_SESSION['logged_in'])) {
-        $loggedIn = $_SESSION['logged_in'];
-    }*/
-
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
 }
 
 
@@ -30,13 +23,85 @@ if(session_status() === PHP_SESSION_NONE)
       <div id="header" class="search-bar">
         <form class="search-form d-flex" method="POST" action="#">
           <input checked type="text" name="query" placeholder="Search" title="Enter search keyword">
-          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+          <button type="submit" title="Search" onclick="send()"><i class="bi bi-search"></i></button>
         </form>
       </div><!-- End Search Bar -->
     </div>
+
+
+    <?php
+
+
+
+    if (isset($_GET['filter'])) {
+      $filter = $_GET['filter'];
+    } else {
+      $filter = 3;
+    }
+
+    if (isset($_POST['query'])) {
+
+      echo '<script>alert("' . $filter . '")</script>';
+
+
+      $sql = 'SELECT p.price, c.company, pro.product FROM price p
+      INNER JOIN prod_comp pc ON pc.prod_comp_id=p.prod_comp_id
+      INNER JOIN comp c ON c.comp_id=pc.comp_id
+      INNER JOIN prod pro ON pro.prod_id=pc.prod_id
+      INNER JOIN cat ca ON pro.cat_id = ca.cat_id
+      WHERE date = (
+          SELECT MAX(date) FROM price
+          WHERE    prod_comp_id=p.prod_comp_id)
+          and LOWER(ca.categorie) like LOWER(\'%' . $_POST['query'] . '%\')
+      order by ' . $filter . ';';
+
+      $result = $_SESSION['DBConnection']->query($sql);
+
+      $result->execute();
+
+      unset($_POST['query']);
+
+      $results_arr = array(array());
+
+
+          while($row = $result->fetch(PDO::FETCH_ASSOC))
+          {  
+
+            $tmp_arr =array($row["product"], $row["company"], $row["price"]);
+
+            array_push($results_arr, $tmp_arr);
+    
+          }
+
+
+          $_SESSION['SearchResults'] = $results_arr;
+    }
+
+    ?>
+
+
     <div class="leer">
       <div class="d-flex align-items-center justify-content-end toggle-icon-container">
         <i class="bi bi-list toggle-sidebar-btn"></i>
+
+        <div class="dropdown2 d-flex align-items-center justify-content-end">
+          <button class="btn dropdown-toggle" type="button" id="optionsDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: 3px solid black; background-color:white;">
+            <i class="filtericon bi bi-sort-down-alt"></i>
+          </button>
+          <div class="dropdown-menu" style="border: 2px solid black; text-align: center;">
+            <option class="textfilter" selected disabled><b>Filtern Nach:</b></option>
+            <hr>
+            <a class="dropdown-item textfilter" href='?filter="1"'>Preis Aufsteigend</a>
+            <hr>
+            <a class="dropdown-item textfilter" href='?filter="1 desc"'>Preis Absteigend</a>
+            <hr>
+            <a class="dropdown-item textfilter" href='?filter="3"'>Namen</a>
+            <hr>
+            <a class="dropdown-item textfilter" href='?filter="2"'>Verkäufer</a>
+            <hr>
+          </div>
+        </div>
+
 
         <nav class="header-nav ms-4">
           <ul class="d-flex align-items-center">
@@ -262,19 +327,19 @@ if(session_status() === PHP_SESSION_NONE)
                     <i class="bi bi-person-fill-dash"></i>
                     <span>Sign Out</span>
                     <span>
-                    <?php
-                    #       echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
-                    #       if($_SESSION['logged_in'])
-                    #      {
-                    #          $loggedIn = false;
-                    #           $_SESSION['logged_in'] = false;
-                    #           $_SESSION['username'] = "";
-                    #         header("Refresh: 1; url=index.php");
-                    //header("Refresh:0");
-                    #      }
+                      <!--<?php
+                          #       echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
+                          #       if($_SESSION['logged_in'])
+                          #      {
+                          #          $loggedIn = false;
+                          #           $_SESSION['logged_in'] = false;
+                          #           $_SESSION['username'] = "";
+                          #         header("Refresh: 1; url=index.php");
+                          //header("Refresh:0");
+                          #      }
 
-                    //echo "<a href=index.php>Sign Out</a>";
-                    ?></span>
+                          //echo "<a href=index.php>Sign Out</a>";
+                          ?>--></span>
 
                   </a>
                 </li>
