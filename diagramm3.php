@@ -9,11 +9,13 @@ if(session_status() === PHP_SESSION_NONE)
 }
 
 /**/
-$cn = $_SESSION['currentcompany'];
+//$cn = $_SESSION['currentcompany'];
+$cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];
 //$cn = "Mediamarkt Pluscity";
 $comp_id = return_comp_id($cn); //comp_id
 
-$pn = $_SESSION['currentproduct'];
+//$pn = $_SESSION['currentproduct'];
+$pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];
 //$pn = "iPhone 13 Pro Max";
 $prod_id = return_prod_id($pn);
 
@@ -44,9 +46,10 @@ $max = returnMaxPriceForprod_comp_id($prod_comp_id);
 ?>
     <!DOCTYPE HTML>
     <html>
-
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
+
         var maxPHP = "<?php echo $max; ?>";
         var maxPHPplus = "<?php echo $max + $max/10; ?>";
         window.onload = function () {
@@ -102,6 +105,7 @@ $max = returnMaxPriceForprod_comp_id($prod_comp_id);
 
 
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <br>
     <br>
     <div>
         <a class="nav-link " href="page1.php">

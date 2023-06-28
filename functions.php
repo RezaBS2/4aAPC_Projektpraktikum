@@ -28,7 +28,7 @@ function return_user_id($username)//, $executeArray = NULL)
     global $con;
     $user_id = "";
 
-    $query = 'SELECT user_id FROM skimp.user WHERE username = ?';
+    $query = 'SELECT user_id FROM user WHERE username = ?';
     $stmt = $con->prepare($query);
     $stmt->execute([$username]);
 
@@ -277,7 +277,7 @@ function returnAVGnoDecimals($prod_comp_id)//, $executeArray = NULL)
     global $con;
     $avg = 0;
 
-    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,0)) FROM skimp.user_prod_comp WHERE prod_comp_id = ?';
+    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,0)) FROM user_prod_comp WHERE prod_comp_id = ?';
     $sql = $con->prepare($stmt);
     $sql->execute([$prod_comp_id]);
 
@@ -293,7 +293,7 @@ function returnAVGoneDecimal($prod_comp_id)//, $executeArray = NULL)
     global $con;
     $avg = 0;
 
-    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,1)) FROM skimp.user_prod_comp WHERE prod_comp_id = ?';
+    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,1)) FROM user_prod_comp WHERE prod_comp_id = ?';
     $sql = $con->prepare($stmt);
     $sql->execute([$prod_comp_id]);
 
@@ -359,7 +359,7 @@ function returnValuesDiagramm($prod_comp_id, $date)
 
         $stmt =     'SELECT price
                             FROM 
-                                skimp.price p 
+                                price p 
                                     NATURAL JOIN 
                                 prod_comp pc 
                             WHERE 
@@ -395,7 +395,6 @@ function returnValuesDiagramm($prod_comp_id, $date)
 function returnValuesDiagrammArray($prod_comp_id, $date)
 {
     try{
-       // include 'config.php';
         global $con;
         $val = [];
         $c = 0;
@@ -418,7 +417,6 @@ function returnValuesDiagrammArray($prod_comp_id, $date)
 
         while ($row = $sql->fetch(PDO::FETCH_NUM))
         {
-            //$val = $row[0];
             $val = array_fill($c, 1, $row[0]);
             $c++;
         }
@@ -443,7 +441,7 @@ function returnValuesDiagrammInArray( $prod_comp_id, $date)
         $dataPoints = [];
         $query = 'SELECT price, date
             FROM 
-                skimp.price p 
+                price p 
                     NATURAL JOIN 
                 prod_comp pc 
             WHERE 
@@ -458,10 +456,6 @@ function returnValuesDiagrammInArray( $prod_comp_id, $date)
 
         while ($row = $sql->fetch(PDO::FETCH_NUM))
         {
-             //= array(
-
-             //   array("y" => $row[0], "label" => $row[1]));
-
             array_push($dataPoints, array("y" => $row[0], "label" => $row[1]));
         }
         return $dataPoints;
@@ -534,7 +528,7 @@ function makeTableWithGivenArray($query, $executeArray = NULL)
         }
     } catch (Exception $e) {
         echo '</td></tr></table>';
-        echo $e->getCode().': '.$e->getMessage().'<br>;';
+        echo $e->getCode().': '.$e->getMessage().'<br>';
         return -1;
     }
 
