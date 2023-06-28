@@ -28,7 +28,7 @@ function return_user_id($username)//, $executeArray = NULL)
     global $con;
     $user_id = "";
 
-    $query = 'SELECT user_id FROM skimp.user WHERE username = ?';
+    $query = 'SELECT user_id FROM user WHERE username = ?';
     $stmt = $con->prepare($query);
     $stmt->execute([$username]);
 
@@ -277,7 +277,7 @@ function returnAVGnoDecimals($prod_comp_id)//, $executeArray = NULL)
     global $con;
     $avg = 0;
 
-    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,0)) FROM skimp.user_prod_comp WHERE prod_comp_id = ?';
+    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,0)) FROM user_prod_comp WHERE prod_comp_id = ?';
     $sql = $con->prepare($stmt);
     $sql->execute([$prod_comp_id]);
 
@@ -293,7 +293,7 @@ function returnAVGoneDecimal($prod_comp_id)//, $executeArray = NULL)
     global $con;
     $avg = 0;
 
-    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,1)) FROM skimp.user_prod_comp WHERE prod_comp_id = ?';
+    $stmt = 'SELECT CAST(AVG(bewertung) AS DECIMAL(10,1)) FROM user_prod_comp WHERE prod_comp_id = ?';
     $sql = $con->prepare($stmt);
     $sql->execute([$prod_comp_id]);
 
@@ -326,7 +326,6 @@ function returnRatings($avgnodec, $avgonedec)
         }
         if($i < 5){
             for ($i; $i < 5; $i++) {
-                //echo '<script>alert("$i: '.$i.'")</script>';
                 echo '<i class="bi bi-star star1"></i>';
             }
         }
@@ -350,8 +349,148 @@ function returnRatings($avgnodec, $avgonedec)
 
 
 
+function returnValuesDiagramm($prod_comp_id, $date)
+{
+    try{
+        //include 'config.php';
+        global $con;
+        $val = 0.0;
 
 
+        $stmt =     'SELECT price
+                            FROM 
+                                price p 
+                                    NATURAL JOIN 
+                                prod_comp pc 
+                            WHERE 
+                            prod_comp_id = ?
+                                AND
+                            date  = (
+                                SELECT MAX(date) FROM price
+                                WHERE   
+                                    date <= ?)';
+        $sql = $con->prepare($stmt);
+        $sql->execute([$prod_comp_id, $date]);
+
+
+
+        while ($row = $sql->fetch(PDO::FETCH_NUM))
+        {
+            $val = $row[0];
+        }
+        return $val;
+    }
+    catch (Exception $e)
+    {
+        echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
+        return -1;
+    }
+
+}
+
+
+
+
+
+function returnValuesDiagrammArray($prod_comp_id, $date)
+{
+    try{
+        global $con;
+        $val = [];
+        $c = 0;
+
+
+        $stmt =     'SELECT price, date
+            FROM 
+                skimp.price p 
+                    NATURAL JOIN 
+                prod_comp pc 
+            WHERE 
+            prod_comp_id = ?
+                AND
+            date  <= ?
+            ORDER BY DATE DESC';
+        $sql = $con->prepare($stmt);
+        $sql->execute([$prod_comp_id, $date]);
+
+
+
+        while ($row = $sql->fetch(PDO::FETCH_NUM))
+        {
+            $val = array_fill($c, 1, $row[0]);
+            $c++;
+        }
+        return $val;
+    }
+    catch (Exception $e)
+    {
+        echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
+        return -1;
+    }
+
+}
+
+
+function returnValuesDiagrammInArray( $prod_comp_id, $date)
+{
+    try{
+        // include 'config.php';
+        global $con;
+        $val = [];
+
+        $dataPoints = [];
+        $query = 'SELECT price, date
+            FROM 
+                price p 
+                    NATURAL JOIN 
+                prod_comp pc 
+            WHERE 
+            prod_comp_id = ?
+                AND
+            date  <= ?
+            ORDER BY DATE ASC';
+        $sql = $con->prepare($query);
+        $sql->execute([$prod_comp_id, $date]);
+
+
+
+        while ($row = $sql->fetch(PDO::FETCH_NUM))
+        {
+            array_push($dataPoints, array("y" => $row[0], "label" => $row[1]));
+        }
+        return $dataPoints;
+    }
+    catch (Exception $e)
+    {
+        echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
+        return -1;
+    }
+
+}
+
+function returnMaxPriceForprod_comp_id($executeArray = NULL)
+{
+    global $con;
+    try {
+        $query = 'SELECT MAX(price)
+        FROM 
+            skimp.price p 
+            WHERE prod_comp_id = ?
+            ORDER BY price DESC';
+        $sql = $con->prepare($query);
+        $sql->execute([$executeArray]);
+
+        while ($row = $sql->fetch(PDO::FETCH_NUM))
+        {
+            return $row[0];
+        }
+
+    } catch (Exception $e)
+    {
+        echo $e->getCode().': '.$e->getMessage().'<br>;';
+        return -1;
+    }
+}
 
 
 
@@ -382,12 +521,17 @@ function makeTableWithGivenArray($query, $executeArray = NULL)
                 echo '</tr>';
             }
             echo '</table>';
+            return 1;
         } else {
-            echo '<br><h5>Keine Ergebnisse vorhanden</h5><br>';
+            echo '</table><br><h5>Keine Ergebnisse vorhanden</h5><br>';
+            return 0;
         }
     } catch (Exception $e) {
-        echo $e->getCode().': '.$e->getMessage().'<br>;';
+        echo '</td></tr></table>';
+        echo $e->getCode().': '.$e->getMessage().'<br>';
+        return -1;
     }
+
 }
 
 ?>
