@@ -52,7 +52,7 @@ try {
     }
 
 
-    $username = $_POST["username"];
+
     $userAlreadyExists = false;
 
     //Statement für lokale DB
@@ -80,40 +80,7 @@ try {
     } elseif ($userAlreadyExists) {
         $username_err = "User already exists.";
     } else {
-        // Prepare a select statement
-        /*$sqlSelect = "SELECT id FROM users WHERE username = ?";
-
-        //$sql->bind_param($username);
-        $result = $con->query($sqlSelect);*/
-
-       // $username = $_POST["username"];
-        /*
-        if ($stmt = mysqli_prepare($link, $sql)) {
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-
-            // Attempt to execute the prepared statement
-            if (mysqli_stmt_execute($stmt)) {
-                */
-                /* store result */
-        /*
-                mysqli_stmt_store_result($stmt);
-
-                if (mysqli_stmt_num_rows($stmt) == 1) {
-                    $username_err = "This username is already taken.";
-                } else {
-                    $username = trim($_POST["username"]);
-                }
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }*/
+        $username = $_POST["username"];
     }
 
     // Validate password
@@ -160,32 +127,12 @@ try {
 
 
             echo "<a href=index.php>Registrierung erfolgreich</a>";
-//            header("location: login.php");
+
         } catch (Exception $e) {
             echo 'Error - Verbindung: '.$e->getCode().': '.$e->getMessage().'<br>'; // Nachher entfernen
             echo "Oops! Something went wrong. Please try again later.";
         }
 
-        /*/$sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }*/
     } else {
         $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err;
         //echo "<a href=index.php>$alert</a>";
