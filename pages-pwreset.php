@@ -84,7 +84,7 @@ include "Sidebar.php";
                                         if (isset($_POST['ResetConfirmation'])){
                                             try
                                             {
-                                                $input_username = $_POST["username"];
+                                                $input_username = $_POST["usernameReset"];
                                                 $input_email = $_POST["emailReset"];
                                                 $input_newpw = $_POST["passwordReset"];
                                                 $input_newpwconfirm = $_POST["passwordResetConfirm"];
@@ -107,7 +107,7 @@ include "Sidebar.php";
                                                 {
                                                     try
                                                     {
-                                                        $queryPWReset = 'UPDATE skimp.user SET password = ? WHERE user_id = ?';
+                                                        $queryPWReset = 'UPDATE user SET password = ? WHERE user_id = ?';
                                                         $sqlPWReset = $con->prepare($queryPWReset);
                                                         $sqlPWReset->execute([md5($input_newpw), $idOfUser]);
 
