@@ -41,7 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     if (isset($_POST['query'])) {
 
-      echo '<script>alert("' . $filter . '")</script>';
+      //echo '<script>alert("' . $filter . '")</script>';
 
 
       $sql = 'SELECT p.price, c.company, pro.product FROM price p

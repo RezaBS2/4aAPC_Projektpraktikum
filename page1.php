@@ -5,6 +5,7 @@ if(session_status() === PHP_SESSION_NONE)
 session_start();
 }
 //
+
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +51,7 @@ session_start();
                                         try
                                         {
                                             //$cn = $_SESSION['currentcompany'];
-                                            $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];       //companyname
+                                            $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];       //companyname
                                             //$cn = "Mediamarkt Pluscity";
                                             $comp_id = return_comp_id($cn); //comp_id
                                             
