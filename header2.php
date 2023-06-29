@@ -19,65 +19,8 @@ if (session_status() === PHP_SESSION_NONE) {
       </a>
     </div><!-- End Logo -->
     <!-- ======= Header ======= -->
-    <div class="cen">
-      <div id="header" class="search-bar">
-        <form class="search-form d-flex" method="POST" action="#">
-          <input checked type="text" name="query" placeholder="Search" title="Enter search keyword">
-          <button type="submit" title="Search" onclick="send()"><i class="bi bi-search"></i></button>
-        </form>
-      </div><!-- End Search Bar -->
-    </div>
 
 
-    <?php
-
-
-
-    if (isset($_GET['filter'])) {
-      $filter = $_GET['filter'];
-    } else {
-      $filter = 3;
-    }
-
-    if (isset($_POST['query'])) {
-
-      //echo '<script>alert("' . $filter . '")</script>';
-
-
-      $sql = 'SELECT p.price, c.company, pro.product, ca.cat_id FROM price p
-      INNER JOIN prod_comp pc ON pc.prod_comp_id=p.prod_comp_id
-      INNER JOIN comp c ON c.comp_id=pc.comp_id
-      INNER JOIN prod pro ON pro.prod_id=pc.prod_id
-      INNER JOIN cat ca ON pro.cat_id = ca.cat_id
-      WHERE date = (
-          SELECT MAX(date) FROM price
-          WHERE    prod_comp_id=p.prod_comp_id)
-          and LOWER(ca.categorie) like LOWER(\'%' . $_POST['query'] . '%\')
-      order by ' . $filter . ';';
-
-      $result = $_SESSION['DBConnection']->query($sql);
-
-      $result->execute();
-
-      unset($_POST['query']);
-
-      $results_arr = array(array());
-
-
-          while($row = $result->fetch(PDO::FETCH_ASSOC))
-          {  
-
-            $tmp_arr =array($row["product"], $row["company"], $row["price"], $row["cat_id"]);
-
-            array_push($results_arr, $tmp_arr);
-    
-          }
-
-
-          $_SESSION['SearchResults'] = $results_arr;
-    }
-
-    ?>
 
 
     <div class="leer">

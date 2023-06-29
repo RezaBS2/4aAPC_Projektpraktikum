@@ -1,8 +1,7 @@
 <?php
 // Start the session
-if(session_status() === PHP_SESSION_NONE)
-{
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
 //
@@ -11,7 +10,7 @@ session_start();
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php include_once "head.php"; ?>
-<?php include_once "header.php"; ?>
+<?php include_once "header2.php"; ?>
 <?php include_once "functions.php"; ?>
 <?php include_once "Sidebar.php"; ?>
 
@@ -30,97 +29,106 @@ session_start();
                     <div class="col-md-12">
                         <div class="icon-box">
                             <div class="image-and-text">
-                                <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+                                <?php
+
+                                $categorie = $_GET['categorie'];
+
+                                echo '<img class="img-size img1" src="' .
+                                    ($categorie == 1 ? '\assets\img\Kamera.jpg' : ($categorie == 2 ? '\assets\img\Handy.jpg' : ($categorie == 3 ? '\assets\img\Laptop.jpg' : ($categorie == 4 ? '\assets\img\Lautsprecher.jpg' : '\assets\img\Smartwatch.jpg'
+                                    )))) . '">
                                 <div class="text-container">
                                     <!-- Anfang Reza Anteil -->
 
                                     <!-- -->
                                     <!-- Bewerttungsanzeige mit Sternen -->
-                                    <p>
-                                        <?php
+                                    <p>';
 
-                                        try
-                                        {   
-                                            //$cn = $_SESSION['currentcompany'];
-                                     
-                                            
-                                            //$cn = "Mediamarkt Pluscity";
-                                            if(isset($_GET['firma']))
-                                                $cn = $_GET['firma'];       //companyname
-                                                $_SESSION['compdiag'] = $cn;
-                                                echo '<p>'.$cn.'</p>';
-                                                $comp_id = return_comp_id($_GET['firma']); //comp_id
-                                            
-                                            //$pn = $_SESSION['currentproduct'];
-                                        
-                                            $pn = $_GET['name'];        //productname
-                                            $_SESSION['proddiag'] = $pn;
-                                            echo '<p>'.$pn.'</p>';
 
-                                            //$pn = "iPhone 13 Pro Max";
-                                            
-                                            $prod_id = return_prod_id($pn);
+                                try {
+                                    //$cn = $_SESSION['currentcompany'];
 
-                                            $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
 
-                                            $avgnodec = returnAVGnoDecimals($prod_comp_id);
-                                            $avgonedec = returnAVGoneDecimal($prod_comp_id);
+                                    //$cn = "Mediamarkt Pluscity";
+                                    if (isset($_GET['firma']))
+                                        $cn = $_GET['firma'];       //companyname
+                                    $_SESSION['compdiag'] = $cn;
+                                    echo '<p>' . $cn . '</p>';
+                                    $comp_id = return_comp_id($_GET['firma']); //comp_id
 
-                                            //Testwerte
-                                            //$avgnodec = 3;
-                                            //$avgonedec = 3.4;
-                                            //echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
+                                    //$pn = $_SESSION['currentproduct'];
 
-                                            returnRatings($avgnodec, $avgonedec);
-                                        }
-                                        catch (Exception $exce)
-                                        {
-                                            echo $exce->getCode() . ': ' . $exce->getMessage() . '<br>;';
-                                        }
+                                    $pn = $_GET['name'];        //productname
+                                    $_SESSION['proddiag'] = $pn;
+                                    echo '<p>' . $pn . '</p>';
+
+                                    //$pn = "iPhone 13 Pro Max";
+
+                                    $prod_id = return_prod_id($pn);
+
+                                    $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
+
+                                    $avgnodec = returnAVGnoDecimals($prod_comp_id);
+                                    $avgonedec = returnAVGoneDecimal($prod_comp_id);
+
+                                    //Testwerte
+                                    //$avgnodec = 3;
+                                    //$avgonedec = 3.4;
+                                    //echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
+
+                                    returnRatings($avgnodec, $avgonedec);
+                                } catch (Exception $exce) {
+                                    echo $exce->getCode() . ': ' . $exce->getMessage() . '<br>;';
+                                }
 
 
 
-                                        ?>
-                                    </p>
-                                    <!-- Ende der Bewerttungsanzeige mit Sternen -->
-                                    <hr style="color: black;">
-                                    <p>Für mehr Details auf den Button Drücken</p>
-                                    <hr style="color: black;">
-                                    <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
-                                </div>
+                                ?>
+                                </p>
+                                <!-- Ende der Bewerttungsanzeige mit Sternen -->
+                                <hr style="color: black;">
+                                <p>Für mehr Details auf den Button Drücken</p>
+                                <hr style="color: black;">
+                                <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
                             </div>
-                            <form method="POST">
-                                <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
-                                <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
-
-                                <div class="right">
-                      <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
-                      <br><br>
-                      <b><div class="Pricetxt">999€</div></b>
-                                        <!--i class="bi bi-heart-fill"-->
-                                        <i>
-                                            <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
-                                            <?php
-                                            //$_SESSION['logged_in'] = 0;
-                                            if (isset($_SESSION['logged_in']))
-                                            {
-                                                //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
-                                                echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
-                                                if(isset($_POST['fav'])){
-                                                    include_once 'fave-product.php';
-                                                }
-                                            }
-                                            ?>
-                                        </i>
-
-                                    </div>
-
-                                </div>
-                            </form>
                         </div>
+                        <form method="POST">
+                            <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
+                            <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
+
+                            <div class="right">
+                                <?php
+                                $cn = $_GET['firma'];
+
+                                echo '<img class="company-logo" src="' .
+                                    ($cn == "Hartlauer Dornach" ? '\assets\img\hartlauer.png' : ($cn == "Conrad Leonding" ? '\assets\img\Conrad.png' : ($cn == "Mediamarkt Pluscity" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Linz Altstadt" ? '\assets\img\A1.png' : ($cn == "Mediamarkt Passage" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Pluscity" ? '\assets\img\A1.png' : '\assets\img\hartlauer.png'
+                                    )))))) . '" alt="Company Logo">
+                                    <br><br>
+                                    <b><div class="Pricetxt">' . $_GET['preis'] . '</div></b>'
+                                ?>
+
+                                <!--i class="bi bi-heart-fill"-->
+                                <i>
+                                    <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
+                                    <?php
+                                    //$_SESSION['logged_in'] = 0;
+                                    if (isset($_SESSION['logged_in'])) {
+                                        //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
+                                        echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
+                                        if (isset($_POST['fav'])) {
+                                            include_once 'fave-product.php';
+                                        }
+                                    }
+                                    ?>
+                                </i>
+
+                            </div>
+
                     </div>
+                    </form>
                 </div>
             </div>
+        </div>
+        </div>
 
     </section>
     <section id="contact1" class="contact" style="display: none;">
@@ -280,18 +288,18 @@ session_start();
                             <div class="col-lg-12">
                                 <fieldset class="rating2">
                                     <input type="radio" id="star1" name="rating2" value="1"><label class="stsz" for="star1" title="Sehr schlecht">
-                                    <input type="radio" id="star2" name="rating2" value="2"><label class="stsz" for="star2" title="Schlecht">
-                                    <input type="radio" id="star3" name="rating2" value="3"><label class="stsz" for="star3" title="Durchschnittlich">
-                                    <input type="radio" id="star4" name="rating2" value="4"><label class="stsz" for="star4" title="Gut">
-                                    <input type="radio" id="star5" name="rating2" value="5"><label class="stsz" for="star5" title="Hervorragend">
+                                        <input type="radio" id="star2" name="rating2" value="2"><label class="stsz" for="star2" title="Schlecht">
+                                            <input type="radio" id="star3" name="rating2" value="3"><label class="stsz" for="star3" title="Durchschnittlich">
+                                                <input type="radio" id="star4" name="rating2" value="4"><label class="stsz" for="star4" title="Gut">
+                                                    <input type="radio" id="star5" name="rating2" value="5"><label class="stsz" for="star5" title="Hervorragend">
                                 </fieldset>
                             </div>
                             <div class="text-center"> <!-- Hinzugefügt: Ein Container für die Ausrichtung -->
                                 <?php
-                                if (isset($_SESSION['logged_in'])){
+                                if (isset($_SESSION['logged_in'])) {
                                     //echo '<button class="btf btn btn-danger">Absenden</button>';
                                     echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden" value="Absenden">';
-                                    if (isset($_POST['bewertungAbsenden'])){
+                                    if (isset($_POST['bewertungAbsenden'])) {
                                         //echo '<input type="hidden" name="companyname2" value="Mediamarkt Pluscity">';
                                         //echo '<input type="hidden" name="productname2" value="iPhone 13 Pro">';
                                         include_once 'rate-product.php';
@@ -388,17 +396,17 @@ session_start();
                                             <h5 class="card-title">Preis Verlauf der letzten Tage:</h5>
                                             <script>
                                                 window.Promise ||
-                                                document.write(
-                                                    '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-                                                )
+                                                    document.write(
+                                                        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+                                                    )
                                                 window.Promise ||
-                                                document.write(
-                                                    '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-                                                )
+                                                    document.write(
+                                                        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+                                                    )
                                                 window.Promise ||
-                                                document.write(
-                                                    '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-                                                )
+                                                    document.write(
+                                                        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+                                                    )
                                             </script>
 
 
@@ -421,7 +429,7 @@ session_start();
                                             </script>
                                             <?php
 
-                                                $qr= 'SELECT price AS "Preis",
+                                            $qr = 'SELECT price AS "Preis",
                                                             date AS "Datum"
                                                         FROM 
                                                             skimp.price p 
@@ -433,7 +441,7 @@ session_start();
                                                         date  <= ?
                                                         ORDER BY DATE DESC';
 
-                                                $datetoday = date('Y-m-d');
+                                            $datetoday = date('Y-m-d');
 
                                             ?>
                                             <!--script src="../../assets/irregular-data-series.js"></script-->
@@ -448,8 +456,7 @@ session_start();
                                             //makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
                                             $t = makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
 
-                                            if($t == 1)
-                                            {
+                                            if ($t == 1) {
                                                 echo '                                            
                                                 <div>
                                                     <a class="nav-link" href="diagramm3.php">
@@ -457,7 +464,6 @@ session_start();
                                                         <span>Als Diagramm anzeigen</span></i>
                                                     </a>
                                                 </div>';
-
                                             }
                                             ?>
 
@@ -480,4 +486,5 @@ session_start();
 <!-- Template Main JS File -->
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
+
 </html>
