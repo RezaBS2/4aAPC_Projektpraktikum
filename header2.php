@@ -76,7 +76,7 @@ if (session_status() === PHP_SESSION_NONE) {
                               if(strlen($usernamefromfile) > 0)
                               {
                                 $user_id = return_user_id($usernamefromfile);
-                                echo '<script>alert("user_id: '.$user_id.'    '.$usernamefromfile.'")</script>';
+                                //echo '<script>alert("user_id: '.$user_id.'    '.$usernamefromfile.'")</script>';
                                 $imgs="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg";
                                 getRememberedItemsForUserToList($user_id, $imgs);
                               }

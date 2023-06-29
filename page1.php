@@ -52,14 +52,15 @@ if (session_status() === PHP_SESSION_NONE) {
                                     if (isset($_GET['firma']))
                                         $cn = $_GET['firma'];       //companyname
                                     $_SESSION['compdiag'] = $cn;
-                                    echo '<p>' . $cn . '</p>';
+                                           
+                                    echo '<b><h5 class="herst2">'. $cn . '</h5></b>';
                                     $comp_id = return_comp_id($_GET['firma']); //comp_id
 
                                     //$pn = $_SESSION['currentproduct'];
 
                                     $pn = $_GET['name'];        //productname
                                     $_SESSION['proddiag'] = $pn;
-                                    echo '<p>' . $pn . '</p>';
+                                    echo '<strong><h5 class="herst3">'. $pn . '</h5></strong>';
 
                                     //$pn = "iPhone 13 Pro Max";
 
@@ -102,10 +103,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                 $cn = $_GET['firma'];
 
                                 echo '<img class="company-logo" src="' .
-                                    ($cn == "Hartlauer Dornach" ? '\assets\img\hartlauer.png' : ($cn == "Conrad Leonding" ? '\assets\img\Conrad.png' : ($cn == "Mediamarkt Pluscity" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Linz Altstadt" ? '\assets\img\A1.png' : ($cn == "Mediamarkt Passage" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Pluscity" ? '\assets\img\A1.png' : '\assets\img\hartlauer.png'
+                                    ($cn == "Hartlauer Dornach" ? '\assets\img\hartlauer.png' : ($cn == "Conrad Leonding" ? '\assets\img\Conrad.png' : ($cn == "Mediamarkt Pluscity" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Linz Altstadt" ? '\assets\img\A1.jpg' : ($cn == "Mediamarkt Passage" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Pluscity" ? '\assets\img\A1.jpg' : '\assets\img\hartlauer.png'
                                     )))))) . '" alt="Company Logo">
                                     <br><br>
-                                    <b><div class="Pricetxt">' . $_GET['preis'] . '</div></b>'
+                                    <b><div class="Pricetxt">' . $_GET['preis'] . '€' . '</div></b>'
                                 ?>
 
                                 <!--i class="bi bi-heart-fill"-->
@@ -151,10 +152,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
     </section>
     <section id="contact1" class="contact" style="display: none;">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-lg-12 d-flex align-items-stretch">
-                    <div class="info bordertb">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-12 d-flex align-items-stretch">
+          <div class="info bordertb">
                         <u>
                             <h2 class="ubermini">Weitere Details:</h2>
                             <br>
@@ -190,15 +191,14 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <div class="tab-pane fade show active Allgemein" id="Allgemein">
                                             <h5 class="card-title">Allgemein:</h5>
                                             <form>
-                                                <a>Warum iPhone? <br>
-                                                    Kein Telefon ist wie das iPhone!<br>
+                                                <a>Warum dieses Gerät?<br>
+                                                    Keiner ist wie Dieser!<br>
                                                     Leicht zu bedienen so einfach und intuitiv.<br>
-                                                    Dass du mit einem Tippen oder Streichen ganz leichtnavigieren kannst.<br>
                                                     Intelligente Leistung
-                                                    Von Apple entwickelter Chip, der alles schnell energieeffizient und intelligent erledigt.<br>
-                                                    Robust und wertbeständig, Das iPhone ist so entwickelt, dass es lange hält, und ist dabei wertbeständiger als andere Smartphones.<br>
+                                                    Von Experten entwickelter Chip, der alles schnell energieeffizient und intelligent erledigt.<br>
+                                                    Robust und wertbeständig, es ist so entwickelt, dass es lange hält, und ist dabei wertbeständiger als andere Geräte.<br>
                                                     Schützt deine Privatsphäre,
-                                                    Jeder Aspekt des iPhone ist gemacht, um deine Daten privat und sicher zu halten.
+                                                    Jeder Aspekt dieses Gerätes ist gemacht, um deine Daten privat und sicher zu halten.
                                                 </a>
                                             </form>
                                         </div>
@@ -207,10 +207,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                             <h5 class="card-title">Beschreibung:</h5>
                                             <form>
                                                 <a>
-                                                    Das iPhone 12 Pro ist ein leistungsstarkes Smartphone von Apple mit einem eleganten Design und hochwertigen Materialien.<br>
-                                                    Es verfügt über ein beeindruckendes Super Retina XDR Display, das lebendige Farben und eine hohe Auflösung bietet. <br>
-                                                    Die fortschrittliche Triple-Kamera ermöglicht es Benutzern, beeindruckende Fotos und Videos in verschiedenen Situationen aufzunehmen.<br>
-                                                    Angetrieben von einem leistungsstarken A14 Bionic Chip bietet das iPhone 12 Pro schnelle Leistung, 5G-Konnektivität und eine verbesserte Akkulaufzeit.
+                                                    Dieses Gerät ist besonders leistungsstark mit einem eleganten Design und hochwertigen Materialien.<br>
+                                                    Es verfügt über ein beeindruckende Verarbeitung, das Ihre Wünsche mit leichtigkeit übertrifft. <br>
+                                                    Die fortschrittliche Komponenten ermöglicht es Benutzern, beeindruckende Erläbnisse zu gewährleisten.<br>
+                                                    Angetrieben von einem leistungsstarken Netzteil, sowohl Metall- als auch Plastickomponenten original aus China!
                                                     <br><br>
                                                 </a>
                                             </form>
@@ -223,18 +223,18 @@ if (session_status() === PHP_SESSION_NONE) {
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <ul>
-                                                            <li>A14 Bionic Chip </li>
+                                                            <li>45 Jahre Garantie </li>
                                                             <li>Schutz vor Wasser und Staub IP68 klassifiziert</li>
-                                                            <li>Face ID </li>
-                                                            <li>Betriebs­system IOS </li>
+                                                            <li>Schutz vor Diebstahl</li>
+                                                            <li>Top chinesischer Verarbeitung</li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <ul>
-                                                            <li>Kapazität 128 GB, 256 GB oder 512 GB </li>
-                                                            <li>Super Retina XDR Display</li>
-                                                            <li>12 MP Pro Kamerasystem mit Ultraweitwinkel-, Weitwinkel- und Teleobjektiv</li>
-                                                            <li>MagSafe</li>
+                                                            <li>Besser als die Konkurrenz</li>
+                                                            <li>Extra User-Friendly</li>
+                                                            <li>Besonders Fair-Trade</li>
+                                                            <li>Dicht wie Wasser</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -250,10 +250,11 @@ if (session_status() === PHP_SESSION_NONE) {
                                             <form>
                                                 <a>
                                                     <ul>
-                                                        <li>iPhone mit iOS 14</li>
-                                                        <li>USB‑C auf Lightning Kabel</li>
+                                                        <li>Das Gerät selbst</li>
+                                                        <li>Stromkabel</li>
                                                         <li>Dokumentation</li>
-                                                        <li>1x Apple Sticker</li>
+                                                        <li>Sticker</li>
+                                                        <li>Verpackung</li>
                                                         <br>
                                                         <br>
                                                         <br>
@@ -263,10 +264,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                             </form>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
     </section>
@@ -278,10 +279,10 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="info bordertb">
                         <u>
                             <h2 class="ubermini">SHOPS:</h2>
-                            <a class="shop-txt2">Shops in deiner Nähe</a>
+                            <h5 class=" shop-txt2">Shops in deiner Nähe</h5>
                             <br>
                         </u>
-                        <div data-aos="fade-up" class="map2">
+                        <div class="map2">
 
                             <div id="googlemap">
                             </div>
@@ -335,7 +336,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                             }                                    
                                             else 
                                             {
-                                                echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                               // echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
                                             }
                                         
                                         }
@@ -344,7 +345,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     }
                                     else 
                                     {
-                                        echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                        //echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
                                     }
 
                             
@@ -355,7 +356,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     //echo '<button class="btf btn btn-danger">Absenden</button>';
                                     
                                 } else {
-                                    echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                    echo '<button class="btn btn-danger"  disabled class=" alert-info bold ">Zum Bewerten müssen Sie sich zuerst Anmelden</button>';
                                 }
                                 ?>
 
@@ -374,54 +375,54 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <hr>
                                 <!-- Container 1 -->
                                 <div class="container">
-                                    <img class="pic" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg" alt="Bild">
+                                    <img class="pic" src="/assets/img/Laptop.jpg" alt="Bild">
                                     <div class="text-container">
-                                        <h4 class="emptxt">Text hier</h4>
+                                        <h4 class="emptxt">Asus A516EA</h4>
                                         <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-half star11"></i>
                                             <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">Preis hier</div>
-                                    </div>
-                                </div>
-                                <br><br>
+                                        </div><br>
+                                        <div class="Pricetxt3">599,99€</div>
+                                    </div>                                
+                                <br>
                                 <hr>
                                 <!-- Container 1 -->
                                 <div class="container">
-                                    <img class="pic" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg" alt="Bild">
+                                    <img class="pic" src="/assets/img/Kamera.jpg" alt="Bild">
                                     <div class="text-container">
-                                        <h4 class="emptxt">Text hier</h4>
+                                        <h4 class="emptxt">Canon D3</h4>
                                         <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-half star11"></i>
                                             <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">Preis hier</div>
-                                    </div>
-                                </div>
-                                <br><br>
-                                <hr>
-                                <!-- Container 1 -->
-                                <div class="container">
-                                    <img class="pic" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg" alt="Bild">
-                                    <div class="text-container">
-                                        <h4 class="emptxt">Text hier</h4>
-                                        <div class="rating">
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-half star11"></i>
-                                            <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">Preis hier</div>
+                                        </div><br>
+                                        <div class="Pricetxt3">199,99€</div>
                                     </div>
                                 </div>
                                 <br>
+                                <hr>
+                                <!-- Container 1 -->
+                                <div class="container">
+                                                                    <img class="pic" src="/assets/img/Laptop.jpg" alt="Bild">
+                                    <div class="text-container">
+                                        <h4 class="emptxt">Asus A510EA</h4>
+                                        <div class="rating">
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-half star11"></i>
+                                            <i class="bi bi-star star11"></i>
+                                        </div><br>
+                                        <div class="Pricetxt3">499,99€</div>
+                                    </div>  
+                                </div>
+                                <br>
+                                <hr>
                             </div>
                         </div>
                     </form>
@@ -552,6 +553,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <!-- Template Main JS File -->
 </body>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
+<?php echo '<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>';?>
 
 </html>
