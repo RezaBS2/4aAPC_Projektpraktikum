@@ -345,19 +345,14 @@ if (session_status() === PHP_SESSION_NONE) {
                                     }
                                     else 
                                     {
-                                        //echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                        echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
                                     }
 
                             
 
 
 
-                                if (isset($_SESSION['logged_in'])) {
-                                    //echo '<button class="btf btn btn-danger">Absenden</button>';
-                                    
-                                } else {
-                                    echo '<button class="btn btn-danger"  disabled class=" alert-info bold ">Zum Bewerten müssen Sie sich zuerst Anmelden</button>';
-                                }
+
                                 ?>
 
                             </div>
