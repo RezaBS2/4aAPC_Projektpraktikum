@@ -1,8 +1,10 @@
 <?php
-// Start the session
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
 
-
-include 'config.php';
+include_once 'config.php';
 ?>
 
 
@@ -10,16 +12,16 @@ include 'config.php';
 <html lang="en">
 
 <?php
-include "head.php";
+include_once "head.php";
 ?>
 <?php
-include "header.php"
+include_once "header.php"
 ?>
 <?php
-include "Sidebar.php";
+include_once "Sidebar.php";
 ?>
 <?php
-include "Hero.php";
+include_once "Hero.php";
 ?>
 
 <body>
@@ -29,7 +31,7 @@ include "Hero.php";
 </main>
 
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>
 
 <!-- Template Main JS File -->

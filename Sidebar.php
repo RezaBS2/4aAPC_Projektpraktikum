@@ -8,7 +8,7 @@
         <div class="sidetrans">
           <a class="nav-link " href="index.php">
             <i class="bi bi-house-fill"></i>
-            <span>Starseite</span>
+            <span>Startseite</span>
           </a>
       </li>
       <!-- End Dashboard Nav -->
@@ -16,7 +16,7 @@
       <hr>
 
       <!-- Profile Page Nav -
-            <li class="nav-heading">Pages</li>-->
+            <li class="nav-heading">Pages</li>
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Ergebnis.php">
@@ -24,7 +24,7 @@
             <span>Ergebnisse</span>
           </a>
       </li>
-      <!-- End Profile Page Nav -->
+      End Profile Page Nav -->
 
       <hr>
 

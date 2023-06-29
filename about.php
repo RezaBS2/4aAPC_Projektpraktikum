@@ -2,10 +2,10 @@
 <html lang="en">
 
 <?php
-include "head.php";
+include_once "head.php";
 ?>
 <?php
-include "header.php"
+include_once "header.php"
 ?>
 <?php
 include "Sidebar.php";
@@ -280,10 +280,10 @@ include "Sidebar.php";
       </body>
 
       <?php
-      include "footer.php";
+      include_once "footer.php";
       ?>
       <?php
-      include "footer2.php";
+      include_once "footer2.php";
       ?>
 
 </html>
