@@ -243,33 +243,39 @@ function getRememberedItemsForUserToList($user_id, $imageSource = NULL)//, $exec
 }
 return 1;*/
 
+    $rCount = $sqlML->rowCount();
 
-    while ($rowML = $sqlML->fetch(PDO::FETCH_NUM))
+    if($rCount > 0)
     {
-        $remPr = $rowML[0];
-        try
+        while ($rowML = $sqlML->fetch(PDO::FETCH_NUM))
         {
-            echo '<hr class="dropdown-divider">
-                <li class="message-item">
-                  <img class="likepic likepic2" src="'.$imageSource.'">
-                  <b> '.$remPr.'</b>
-                  <div class="message-content">
-                    <b>
-                      <h3 class="message-title"></h3>
-                      <i class="heartkl2 i bi-heart-fill"></i>
-                    </b>
-                  </div>
-                </li>
-                </hr>';
-
-
-
-        } catch (Exception $e)
-        {
-            echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
+            $remPr = $rowML[0];
+            try
+            {
+                echo '<hr class="dropdown-divider">
+                    <li class="message-item">
+                      <img class="likepic likepic2" src="'.$imageSource.'" />
+                      <b> '.$remPr.'</b>
+                      <div class="message-content">
+                        <b>
+                          <h3 class="message-title"></h3>
+                          <i class="heartkl2 i bi-heart-fill"></i>
+                        </b>
+                      </div>
+                    </li>
+                    </hr>';
+    
+    
+    
+            } catch (Exception $e)
+            {
+                echo $e->getCode() . ': ' . $e->getMessage() . '<br>;';
+            }
+    
         }
 
     }
+
 
     //return $remPr;
 

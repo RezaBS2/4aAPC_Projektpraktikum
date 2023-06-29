@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+
+
+
 
 <?php
 include_once "head.php";
 ?>
 <?php
-include_once "header.php";
+include_once "header2.php";
 ?>
 <?php
 
 include_once "Sidebar.php";
 ?>
+<?php
+include_once 'functions.php';
+?>
 
-<main>
 
   <body>
     <div class="background-image"></div>
@@ -32,7 +40,7 @@ include_once "Sidebar.php";
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body  text-black">
-                    <form action="login.php" method="POST" class="row g-2 needs-validation" novalidate>
+                    <form method="POST" class="row g-2 needs-validation" novalidate>
                       <div class="d-flex align-items-center pb-0">
                         <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                         <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
@@ -51,7 +59,7 @@ include_once "Sidebar.php";
                       </div>
 
                       <div class=" mb-2 text-center">
-                        <button class="btn btn-danger btn-lg btn-block" type="submit">Einloggen</button>
+                        <input class="btn btn-danger btn-lg btn-block" type="submit" name="loginname" value="Einloggen" />
                       </div>
 
 
@@ -102,17 +110,75 @@ include_once "Sidebar.php";
 
                   </form>
 
+                  <?php
+                    if (isset($_POST['loginname']) ){
+                      $input_username = "";
+                      $input_password = "";
+
+                      $temp_username = "";
+                      $temp_password = "";
+
+                      try {
+                          $input_username = trim($_POST['username']);
+                          $input_password = trim($_POST['password']);
+
+                          $stmt = "SELECT username, password FROM user where user_id = ?";
+                          $sql = $_SESSION['DBConnection']->prepare($stmt);
+                          $sql->execute([return_user_id($input_username)]); //Sichere Methode
+
+
+                          $rcount = $sql->rowCount();
+
+
+                          if ($rcount > 0) {
+                              while ($row = $sql->fetch(PDO::FETCH_NUM)) {
+                                  $temp_username = $row[0];
+                                  $temp_password = $row[1];
+                              }
+                              if ($temp_password == md5($input_password)) {
+                                
+                                $dir = 'myDir';
+
+                                // create new directory with 744 permissions if it does not exist yet
+                                // owner will be the user/group the PHP script is run under
+                                if ( !file_exists($dir) ) {
+                                    mkdir ($dir, 0744);
+                                }
+                    
+                                //$myfile = fopen(session_id().'txt', "r+") or die("Unable to open file!");
+                                //$myfile = fopen('tempfile.txt', 'w+') or die('Unable to open file!');
+                                $myfile = fopen('./'.$dir.'/'.'tempfile.txt', 'w+');
+                                
+                                fwrite($myfile, $input_username);
+                                fclose($myfile);
+                                echo '<script>alert("Anmeldung erfolgreich")</script>';
+
+                              } else {
+                                 // echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
+                                 echo '<script>alert("Inkorrektes Passwort!")</script>';
+                              }
+                          } else {
+                              //echo '<button onclick="history.back()">Dieser Benutzer existiert nicht!</button>';
+                              echo '<script>alert("Dieser Benutzer existiert nicht!")</script>';
+                          }
+                      } catch (Exception $eall) {
+                          echo $eall->getCode() . ': ' . $eall->getMessage() . '<br>;';
+                          echo "<br>Failure!<br>";
+                      }
+
+                    }
+                  ?>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
     </section>
-</main>
+
 
 <?php
 include_once "footer.php";
 ?>
 </body>
 
-</html>

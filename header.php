@@ -122,7 +122,27 @@ if (session_status() === PHP_SESSION_NONE) {
                       try {
                           include_once 'functions.php';
 
-                          if(isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true)
+
+
+                          
+                          $dir = 'myDir';
+                          $myfilepath = './'.$dir.'/'.'tempfile.txt';
+                          if (file_exists($myfilepath))
+                          {
+                              $myfile = fopen($myfilepath, "r");
+
+                              $usernamefromfile = fgets($myfile);
+                              if(strlen($usernamefromfile) > 0)
+                              {
+                                $user_id = return_user_id($usernamefromfile);
+                                //echo '<script>alert("user_id: '.$user_id.'    '.$usernamefromfile.'")</script>';
+                                $imgs="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/192909_0ef6ec08-33d7-4cd1-989c-1c0819b0bbbd.jpg";
+                                getRememberedItemsForUserToList($user_id, $imgs);
+                              }
+                              fclose($myfile);
+                          }
+
+                          /*if(isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true)
                           {
                               //echo '<script>alert("Nach include_once vor return_user_id")</script>';
                               $user_id = return_user_id($_SESSION['username']);
@@ -135,10 +155,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                   "<a href=\"\\0\">\\0</a>",
                                   $imgs);*/
                               //echo '<script>alert("Image: '.$imgs.'")</script>';
-                              getRememberedItemsForUserToList($user_id, $imgs);
+                              /*getRememberedItemsForUserToList($user_id, $imgs);*/
                               //echo '<script>alert("Nach getRememberedItemsForUserToList")</script>';
 
-                          }
+                          //}
                       }
                       catch (Exception $favex)
                       {
@@ -253,13 +273,38 @@ if (session_status() === PHP_SESSION_NONE) {
                 <span class="d-none d-sm-block dropdown-toggle ps-2">
                   <?php
                   try {
-                       if (isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true){
+                       /*if (isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true){
                             echo $_SESSION['username'];
                       }
                          else {
                              echo 'User';
                      
+                          }*/
+
+                          $dir = 'myDir';
+                          $myfilepath = './'.$dir.'/'.'tempfile.txt';
+                          if (file_exists($myfilepath))
+                          {
+                            $myfile = fopen($myfilepath, "r");
+
+                            $usernamefromfile = fgets($myfile);
+                            if(strlen($usernamefromfile)>0)
+                            {
+                              echo $usernamefromfile;
+                            }
+                            else
+                            {
+                              echo 'User';
+                            }
+                              
+                            fclose($myfile);
                           }
+                          else 
+                          {
+                              echo 'User';
+                          }
+
+
                      } catch (Exception $e)
                     {
                         echo 'Error - Anmeldung: '.$e->getCode().': '.$e->getMessage().'<br>';
@@ -310,19 +355,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <i class="bi bi-person-fill-dash"></i>
                     <span>Sign Out</span>
                     <span>
-                      <!--<?php
-                          #       echo 'Is Session logged in: '.$_SESSION['logged_in'].'<br>';
-                          #       if($_SESSION['logged_in'])
-                          #      {
-                          #          $loggedIn = false;
-                          #           $_SESSION['logged_in'] = false;
-                          #           $_SESSION['username'] = "";
-                          #         header("Refresh: 1; url=index.php");
-                          //header("Refresh:0");
-                          #      }
 
-                          //echo "<a href=index.php>Sign Out</a>";
-                          ?>--></span>
+                    </span>
 
                   </a>
                 </li>

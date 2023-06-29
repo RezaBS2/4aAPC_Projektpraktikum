@@ -2,7 +2,10 @@
 if(session_status() === PHP_SESSION_NONE)
 {
     session_start();
+    //echo '<script>alert("Index: '.session_id().'")</script>';
 }
+
+
 
 include_once 'config.php';
 ?>
@@ -32,6 +35,15 @@ include_once "Hero.php";
 
 <?php
 include_once "footer.php";
+
+
+/*if(isset($_SESSION["username"])){
+  echo '<script>alert("Session-Username: '.$_SESSION["username"].'")</script>';
+}
+if(isset($_SESSION["logged_in"])){
+  echo '<script>alert("Session-logged in: '.$_SESSION["logged_in"].'")</script>';
+}*/
+
 ?>
 
 <!-- Template Main JS File -->

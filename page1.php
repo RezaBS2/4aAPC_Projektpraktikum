@@ -113,13 +113,30 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
                                     <?php
                                     //$_SESSION['logged_in'] = 0;
-                                    if (isset($_SESSION['logged_in'])) {
+                                    //if (isset($_SESSION['logged_in'])) {
                                         //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
-                                        echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
-                                        if (isset($_POST['fav'])) {
-                                            include_once 'fave-product.php';
+
+
+
+                                    $dir = 'myDir';
+                                    $myfilepath1 = './'.$dir.'/'.'tempfile.txt';
+                                    if (file_exists($myfilepath1))
+                                    {
+                                        $myfile1 = fopen($myfilepath1, "r");
+
+                                        $usernamefromfile1 = fgets($myfile1);
+                                        if(strlen($usernamefromfile1) > 0)
+                                        {
+                                            echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
+                                            if (isset($_POST['fav'])) 
+                                            {
+                                                include_once 'fave-product.php';
+                                            }
                                         }
+                                        fclose($myfile1);
                                     }
+
+                                    //}
                                     ?>
                                 </i>
 
@@ -300,14 +317,43 @@ if (session_status() === PHP_SESSION_NONE) {
                             </div>
                             <div class="text-center"> <!-- Hinzugefügt: Ein Container für die Ausrichtung -->
                                 <?php
+                                    $dir = 'myDir';
+                                    $myfilepath = './'.$dir.'/'.'tempfile.txt';
+                                    if (file_exists($myfilepath))
+                                    {
+                                        $myfile = fopen($myfilepath, "r");
+
+                                        $usernamefromfile = fgets($myfile);
+                                        if(strlen($usernamefromfile)>0)
+                                        {
+
+                                            echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden" value="Absenden">';
+                                            if (isset($_POST['bewertungAbsenden'])) {
+
+                                                include_once 'rate-product.php';
+
+                                            }                                    
+                                            else 
+                                            {
+                                                echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                            }
+                                        
+                                        }
+                                        fclose($myfile);
+
+                                    }
+                                    else 
+                                    {
+                                        echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                    }
+
+                            
+
+
+
                                 if (isset($_SESSION['logged_in'])) {
                                     //echo '<button class="btf btn btn-danger">Absenden</button>';
-                                    echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden" value="Absenden">';
-                                    if (isset($_POST['bewertungAbsenden'])) {
-                                        //echo '<input type="hidden" name="companyname2" value="Mediamarkt Pluscity">';
-                                        //echo '<input type="hidden" name="productname2" value="iPhone 13 Pro">';
-                                        include_once 'rate-product.php';
-                                    }
+                                    
                                 } else {
                                     echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
                                 }

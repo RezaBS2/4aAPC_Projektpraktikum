@@ -113,15 +113,45 @@ try {
         //echo 'temp password: '.$temp_password.'  input password: '.md5($input_password).'<br>';
         if ($temp_password == md5($input_password)) {
             //$remember = true;
-            if(!isset($_SESSION['logged_in']))
+
+            $dir = 'myDir';
+
+            // create new directory with 744 permissions if it does not exist yet
+            // owner will be the user/group the PHP script is run under
+            if ( !file_exists($dir) ) {
+                mkdir ($dir, 0744);
+            }
+
+            //$myfile = fopen(session_id().'txt', "r+") or die("Unable to open file!");
+            //$myfile = fopen('tempfile.txt', 'w+') or die('Unable to open file!');
+            $myfile = fopen('./'.$dir.'/'.'tempfile.txt', 'w+');
+            
+            fwrite($myfile, $input_username);
+            fclose($myfile);
+
+            echo "<a href=index.php>Anmeldung erfolgreich</a>";
+            /*if(!isset($_SESSION['logged_in']))
             {
-                $_SESSION['logged_in'] = true;
-                $_SESSION['username'] = $input_username;
+                $_SESSION["logged_in"] = true;
+                $_SESSION["username"] = $input_username;
+
+                //Testen
+                echo '<script>alert("Session-Username: '.$_SESSION["username"].'")</script>';
+                echo '<script>alert("Session-logged in: '.$_SESSION["logged_in"].'")</script>';
+
+
+
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
             } else {
                 $_SESSION['username'] = $input_username;
+
+
+                //Testen
+                echo '<script>alert("Session-Username: '.$_SESSION["username"].'")</script>';
+                echo '<script>alert("Session-logged in: '.$_SESSION["logged_in"].'")</script>';
+
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
-            }
+            }*/
         } else {
             echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
         }
