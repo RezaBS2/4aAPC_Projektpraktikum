@@ -7,7 +7,7 @@ if(session_status() === PHP_SESSION_NONE)
 
 //global $loggedIn;
 
-include 'config.php';
+include_once 'config.php';
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */
@@ -32,7 +32,7 @@ $db_name = 'projektpraktikum';
 $email = $alert = "";
 $username = $password = $confirm_password = "";
 $confirm_password_err = $username_err = $password_err = $email_err = $answer_err = "";
-$question = $answer = $qid = "";
+
 
 // Processing form data when form is submitted
 //if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -51,14 +51,8 @@ try {
         $email = $_POST["email"];
     }
 
-    if (empty(trim($_POST["answer"]))) {
-        $answer_err = "Please enter an answer.";
-    } else {
-        $question = $_POST["question"];
-        $qid = $_POST["answer"];
-    }
 
-    $username = $_POST["username"];
+
     $userAlreadyExists = false;
 
     //Statement für lokale DB
@@ -86,63 +80,30 @@ try {
     } elseif ($userAlreadyExists) {
         $username_err = "User already exists.";
     } else {
-        // Prepare a select statement
-        /*$sqlSelect = "SELECT id FROM users WHERE username = ?";
-
-        //$sql->bind_param($username);
-        $result = $con->query($sqlSelect);*/
-
-       // $username = $_POST["username"];
-        /*
-        if ($stmt = mysqli_prepare($link, $sql)) {
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-
-            // Attempt to execute the prepared statement
-            if (mysqli_stmt_execute($stmt)) {
-                */
-                /* store result */
-        /*
-                mysqli_stmt_store_result($stmt);
-
-                if (mysqli_stmt_num_rows($stmt) == 1) {
-                    $username_err = "This username is already taken.";
-                } else {
-                    $username = trim($_POST["username"]);
-                }
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }*/
+        $username = $_POST["username"];
     }
 
     // Validate password
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter a password.";
     } elseif (strlen(trim($_POST["password"])) < 6) {
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "Password must have at least 6 characters.";
     } else {
         $password = trim($_POST["password"]);
     }
 
     // Validate confirm password
-    if (empty(trim($_POST["passwordConfirmation"]))) {
+    if (empty(trim($_POST["confirm_password"]))) {
         $confirm_password_err = "Please confirm password.";
     } else {
-        $confirm_password = trim($_POST["passwordConfirmation"]);
+        $confirm_password = trim($_POST["confirm_password"]);
         if (empty($password_err) && ($password != $confirm_password)) {
             $confirm_password_err = "Password did not match.";
         }
     }
 
     // Check input errors before inserting in database
-    if (empty($username_err)  && empty($email_err) && empty($password_err) && empty($confirm_password_err) && empty($answer_err)) {
+    if (empty($username_err)  && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
 
@@ -153,18 +114,9 @@ try {
             //Statement für Thomas' DB
 
 
-            $querySelectQ = 'SELECT question FROM ques NATURAL JOIN skimp.user where user.ques_id = ?';
-            $sqlS = $con->prepare($querySelectQ);
-            $sqlS->execute([$qid]);
-            $answer =
-
-
-
-
-
-            $queryInsertNewUser = 'INSERT INTO user (username, email, password, answer, ques_id) values(?,?,?,?,?)';
+            $queryInsertNewUser = 'INSERT INTO user (username, email, password) values(?,?,?)';
             $sqlInsert = $con->prepare($queryInsertNewUser);
-            $sqlInsert->execute([$username, $email, md5($password), $question, $answer]);
+            $sqlInsert->execute([$username, $email, md5($password)]);
 
 
             if (!isset($_SESSION['logged_in'])){
@@ -175,34 +127,14 @@ try {
 
 
             echo "<a href=index.php>Registrierung erfolgreich</a>";
-//            header("location: login.php");
+
         } catch (Exception $e) {
             echo 'Error - Verbindung: '.$e->getCode().': '.$e->getMessage().'<br>'; // Nachher entfernen
             echo "Oops! Something went wrong. Please try again later.";
         }
 
-        /*/$sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }*/
     } else {
-        $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err.'\n'.$answer_err;
+        $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err;
         //echo "<a href=index.php>$alert</a>";
         echo '<script>alert("'.$alert.'")</script>';
         echo '<button onclick="history.back()">Zurück!</button>';
@@ -220,4 +152,3 @@ catch (Exception $eall)
     //$con = null;
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-?>

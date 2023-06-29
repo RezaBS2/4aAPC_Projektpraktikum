@@ -2,18 +2,18 @@
 // Start the session
 //session_start();
 ?>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <!DOCTYPE html>
 <html lang="en">
 
 <?php
-include "head.php";
+include_once "head.php";
 ?>
 <?php
-include "header.php"
+include_once "header.php"
 ?>
 <?php
-include "Sidebar.php";
+include_once "Sidebar.php";
 ?>
 
 <main id="main" class="main">
@@ -60,7 +60,7 @@ include "Sidebar.php";
       </u>
     </div>
     <div class="row">
-      <div class="col-lg-6 d-flex align-items-stretch">
+      <div class="col-lg-8 d-flex align-items-stretch">
         <div class="info bordertb">
           <div class="address">
             <i class="bi bi-geo-alt"></i>
@@ -98,7 +98,7 @@ include "Sidebar.php";
           </div>
         </div>
       </div>
-      <div class="col-lg-6 d-flex align-items-stretch">
+      <div class="col-lg-4 d-flex align-items-stretch">
         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="form-group col-md-6">
@@ -143,10 +143,10 @@ include "Sidebar.php";
 </section>
 <div class="topi"></div>
 <?php
-include "footer2.php";
+include_once "footer2.php";
 ?>
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>
 
 </body>

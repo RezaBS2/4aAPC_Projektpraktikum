@@ -2,13 +2,14 @@
 <html lang="en">
 
 <?php
-include "head.php";
+include_once "head.php";
 ?>
 <?php
-include "header.php";
+include_once "header.php";
 ?>
 <?php
-include "Sidebar.php";
+
+include_once "Sidebar.php";
 ?>
 
 <main>
@@ -30,7 +31,7 @@ include "Sidebar.php";
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div class="card-body p-4 p-lg-4 text-black">
+                  <div class="card-body  text-black">
                     <form action="login.php" method="POST" class="row g-3 needs-validation" novalidate>
                       <div class="d-flex align-items-center pb-0">
                         <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
@@ -60,7 +61,7 @@ include "Sidebar.php";
                           <a class="pt-2 small text-muted">Passwort Vergessen?</a>
                           <u>
                             <div class="d-flex justify-content-center">
-                              <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-pwreset.php" class="registertxt">Zurücksetzen</a></p>
+                              <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-pwreset2.php" class="registertxt">Zurücksetzen</a></p>
                           </u>
                         </div>
                       </div>
@@ -102,15 +103,15 @@ include "Sidebar.php";
                   </form>
 
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-      </div>
-      </div>
     </section>
 </main>
 
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>
 </body>
 

@@ -1,6 +1,6 @@
   <!-- ======= Sidebar ======= -->
   <hr>
-  </hr>
+
   <!-- Dashboard Nav -->
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -8,16 +8,15 @@
         <div class="sidetrans">
           <a class="nav-link " href="index.php">
             <i class="bi bi-house-fill"></i>
-            <span>Starseite</span>
+            <span>Startseite</span>
           </a>
       </li>
       <!-- End Dashboard Nav -->
 
       <hr>
-      </hr>
 
       <!-- Profile Page Nav -
-            <li class="nav-heading">Pages</li>-->
+            <li class="nav-heading">Pages</li>
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="Ergebnis.php">
@@ -25,12 +24,10 @@
             <span>Ergebnisse</span>
           </a>
       </li>
-      <!-- End Profile Page Nav -->
+      End Profile Page Nav -->
 
       <hr>
-      </hr>
 
-      <!-- F.A.Q Page Nav -->
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="about.php">
@@ -38,21 +35,49 @@
             <span>About US</span>
           </a>
       </li>
-      <!-- End F.A.Q Page Nav -->
 
       <hr>
-      </hr>
 
-      <!--Contact Page Nav -->
       <li class="nav-item">
         <div class="sidetrans">
           <a class="nav-link collapsed" href="contact.php">
-            <i class="bi bi-chat-left-fill"></i>
+            <i class="bi bi-envelope-fill"></i>
             <span>Kontakt</span>
           </a>
       </li>
-      <!-- End Contact Page Nav -->
+
       <hr>
-      </hr>
+
+
+      <li class="nav-item">
+        <div class="sidetrans">
+          <a class="nav-link collapsed" href="about.php#faq">
+            <i class="bi bi-question-circle-fill"></i>
+            <span>FAQ</span>
+          </a>
+      </li>
+
+      <hr>
+
+
+      <li class="nav-item">
+        <div class="sidetrans">
+          <a class="nav-link collapsed" href="Impress.php">
+            <i class="bi bi-chat-left-fill"></i>
+            <span>Impressum</span>
+          </a>
+      </li>
+      <hr>
+
+      <li class="nav-item">
+        <div class="sidetrans">
+          <a class="nav-link collapsed" href="Impress.php#daten">
+            <i class="bi bi-folder-fill"></i>
+            <span>Datenschutz</span>
+          </a>
+      </li>
     </ul>
+
+    <hr>
+
   </aside>
