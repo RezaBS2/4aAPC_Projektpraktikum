@@ -90,16 +90,13 @@ session_start();
                                 </div>
                             </div>
                             <form method="POST">
-                                <?php
-                                    echo '<input type="hidden" name="companyname1" value="'.$cn.'">';
-                                    echo '<input type="hidden" name="productname1" value="'.$pn.'">';
-                                ?>
+                                <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
+                                <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
 
                                 <div class="right">
-
-                                    <!--img class="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Media_Markt_logo.svg/2560px-Media_Markt_logo.svg.png" alt="Company Logo">
-                                    <div class="Pricetxt">999,99€</div-->
-                                    <div class="heart1">
+                      <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
+                      <br><br>
+                      <b><div class="Pricetxt">999€</div></b>
                                         <!--i class="bi bi-heart-fill"-->
                                         <i>
                                             <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
@@ -274,11 +271,8 @@ session_start();
                 <div class="col-lg-8 d-flex align-items-stretch">
                     <div class="info bordertb">
                         <form method="POST">
-                            <?php
-                                echo '<input type="hidden" name="companyname2" value="'.$cn.'">';
-                                echo '<input type="hidden" name="productname2" value="'.$pn.'">';
-                            ?>
-
+                            <input type="hidden" name="companyname2" value="Mediamarkt Pluscity">
+                            <input type="hidden" name="productname2" value="iPhone 13 Pro Max">
                             <u>
                                 <h2 class="ubermini2">Bewertung Abgeben:</h2>
                                 <br>

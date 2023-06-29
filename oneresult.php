@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <?php 
   $tmp = $_SESSION['current_Item'];
 ?>
@@ -10,24 +11,28 @@
 $_COOKIE['test'] = $_SESSION['SearchResults'];
 
             echo '<a href="page1.php?name='. $_SESSION['SearchResults'][$_SESSION['current_Item']][0] .'&firma=' .$_SESSION['SearchResults'][$_SESSION['current_Item']][1] .'">
-      <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="icon-box">
         <div class="image-and-text">
-          <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+          <img class="img-size img1" src="\assets\img\Handy.jpg">
           <div class="text-container">
 
-<h4>' . $_SESSION['SearchResults'][$_SESSION['current_Item']][0] . '</h4>
-                    <h5 class="herst">' . $_SESSION['SearchResults'][$_SESSION['current_Item']][1] . '</h5>
+<i><h4 class="herst2">' . $_SESSION['SearchResults'][$_SESSION['current_Item']][0] . '</h4></i>
+                    <h5 class="herst">' . 'Gefunden bei: <br>'. $_SESSION['SearchResults'][$_SESSION['current_Item']][1] . '</h5>
                     <p>"Der angeführte Preis ist ohne Gewähr"</p>
                   </div>
                     </div>
                     <div class="right">
-                      <img class="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Media_Markt_logo.svg/2560px-Media_Markt_logo.svg.png" alt="Company Logo">
-                      <div class="Pricetxt">' . $_SESSION['SearchResults'][$_SESSION['current_Item']][2] . '</div>
+                      <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
+                      <br><br>
+                      <b><div class="Pricetxt">' . $_SESSION['SearchResults'][$_SESSION['current_Item']][2] . '€</div></b>
                     </div>
                   </div>
                 </a>';
             ?>
           </div>
-
+          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+          <?php
+include_once "footer.php";
+?>
 </html>
 </script>

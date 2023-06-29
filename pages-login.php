@@ -32,7 +32,7 @@ include_once "Sidebar.php";
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body  text-black">
-                    <form action="login.php" method="POST" class="row g-3 needs-validation" novalidate>
+                    <form action="login.php" method="POST" class="row g-2 needs-validation" novalidate>
                       <div class="d-flex align-items-center pb-0">
                         <u><img src="assets/img/logo.png" alt="Logo" style="width: 6rem; height: 6rem; margin-right: 0.5rem;"></u>
                         <u><span class="h1 fw-bold mb-0">SKIMP®</span></u>
@@ -50,7 +50,7 @@ include_once "Sidebar.php";
                         <input type="password" name="password" id="yourPassword" placeholder="Passwort" class="form-control form-control-lg" required />
                       </div>
 
-                      <div class="pt-2 mb-4 text-center">
+                      <div class=" mb-2 text-center">
                         <button class="btn btn-danger btn-lg btn-block" type="submit">Einloggen</button>
                       </div>
 
@@ -58,10 +58,10 @@ include_once "Sidebar.php";
                       <hr>
                       <div class="d-flex justify-content-around">
                         <div>
-                          <a class="pt-2 small text-muted">Passwort Vergessen?</a>
+                          <a class="small text-muted">Passwort Vergessen?</a>
                           <u>
                             <div class="d-flex justify-content-center">
-                              <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-pwreset2.php" class="registertxt">Zurücksetzen</a></p>
+                              <p class="mb-1 pb-lg-1" style="color: #393f81;"><a href="pages-pwreset2.php" class="registertxt">Zurücksetzen</a></p>
                           </u>
                         </div>
                       </div>
@@ -77,13 +77,13 @@ include_once "Sidebar.php";
                   </div>
                   <hr>
 
-                  <div class="pt-2 text-center">
+                  <div class=" text-center">
                     <div class="d-flex justify-content-center">
                       <a class="pt-2 small text-muted">Du hast noch keinen Account?</a>
                       <u>
                     </div>
                     <div class="d-flex justify-content-center">
-                      <p class="mb-3 pb-lg-1" style="color: #393f81;"><a href="pages-register.php" class="registertxt">Account Erstellen</a></p>
+                      <p class="mb-1 pb-lg-1" style="color: #393f81;"><a href="pages-register.php" class="registertxt">Account Erstellen</a></p>
                       </u>
                     </div>
                   </div>
@@ -91,7 +91,7 @@ include_once "Sidebar.php";
 
                   <hr>
 
-                  <div class="pt-2 text-center">
+                  <div class=" text-center">
                     <div class="d-flex justify-content-around">
                       <u><a href="contact.php" class="small  registertxt">Hilfe</a></u>
                       <u><a href="about.php" class="small  registertxt">Fragen</a></u>

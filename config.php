@@ -1,8 +1,3 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 
 /* Verbindung zum Thomas sein Server */
@@ -22,5 +17,3 @@ try {
     echo 'Error - Verbindung: ' . $e->getCode() . ': ' . $e->getMessage() . '<br>';
 }
 ?>
-
-</html>

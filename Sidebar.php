@@ -13,8 +13,6 @@
       </li>
       <!-- End Dashboard Nav -->
 
-      <hr>
-
       <!-- Profile Page Nav -
             <li class="nav-heading">Pages</li>
       <li class="nav-item">

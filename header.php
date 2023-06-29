@@ -84,24 +84,7 @@ if (session_status() === PHP_SESSION_NONE) {
       <div class="d-flex align-items-center justify-content-end toggle-icon-container">
         <i class="bi bi-list toggle-sidebar-btn"></i>
 
-        <div class="dropdown2 d-flex align-items-center justify-content-end">
-          <button class="btn dropdown-toggle" type="button" id="optionsDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: 3px solid black; background-color:white;">
-            <i class="filtericon bi bi-sort-down-alt"></i>
-          </button>
-          <div class="dropdown-menu" style="border: 2px solid black; text-align: center;">
-            <option class="textfilter" selected disabled><b>Filtern Nach:</b></option>
-            <hr>
-            <a class="dropdown-item textfilter" href='?filter="1"'>Preis Aufsteigend</a>
-            <hr>
-            <a class="dropdown-item textfilter" href='?filter="1 desc"'>Preis Absteigend</a>
-            <hr>
-            <a class="dropdown-item textfilter" href='?filter="3"'>Namen</a>
-            <hr>
-            <a class="dropdown-item textfilter" href='?filter="2"'>Verkäufer</a>
-            <hr>
-          </div>
-        </div>
-
+        
 
         <nav class="header-nav ms-4">
           <ul class="d-flex align-items-center">
