@@ -57,12 +57,12 @@ session_start();
                                         try
                                         {
                                             //$cn = $_SESSION['currentcompany'];
-                                            $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];       //companyname
+                                            $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];       //companyname
                                             //$cn = "Mediamarkt Pluscity";
                                             $comp_id = return_comp_id($cn); //comp_id
                                             
                                             //$pn = $_SESSION['currentproduct'];
-                                            $pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];       //productname
+                                            $pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];       //productname
                                             
 
                                             //$pn = "iPhone 13 Pro Max";
