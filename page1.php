@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php include_once "head.php"; ?>
-<?php include_once "header.php"; ?>
+<?php include_once "header2.php"; ?>
 <?php include_once "functions.php"; ?>
 <?php include_once "Sidebar.php"; ?>
 
@@ -29,102 +29,105 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="col-md-12">
                         <div class="icon-box">
                             <div class="image-and-text">
-                                <img class="img-size img1" src="\assets\img\Handy.jpg">
+                                <?php
+
+                                $categorie = $_GET['categorie'];
+
+                                echo '<img class="img-size img1" src="' .
+                                    ($categorie == 1 ? '\assets\img\Kamera.jpg' : ($categorie == 2 ? '\assets\img\Handy.jpg' : ($categorie == 3 ? '\assets\img\Laptop.jpg' : ($categorie == 4 ? '\assets\img\Lautsprecher.jpg' : '\assets\img\Smartwatch.jpg'
+                                    )))) . '">
                                 <div class="text-container">
                                     <!-- Anfang Reza Anteil -->
 
                                     <!-- -->
                                     <!-- Bewerttungsanzeige mit Sternen -->
-                                    <p>
-                                        <?php
-
-                                        try {
+                                    <p>';
 
 
-                                            //$pn = $_SESSION['currentproduct'];
-
-                                            $pn = $_GET['name'];        //productname
-                                            $_SESSION['proddiag'] = $pn;
-                                            echo '<h4 class="herst2">' . $pn . '</h4>';
-
-                                                                                        //$cn = $_SESSION['currentcompany'];
+                                try {
+                                    //$cn = $_SESSION['currentcompany'];
 
 
-                                            //$cn = "Mediamarkt Pluscity";
-                                            if (isset($_GET['firma']))
-                                                $cn = $_GET['firma'];       //companyname
-                                            $_SESSION['compdiag'] = $cn;
-                                            echo '<h5 class="herst">Gefunden bei: <br>' . $cn . '</h5>';
-                                            $comp_id = return_comp_id($_GET['firma']); //comp_id
+                                    //$cn = "Mediamarkt Pluscity";
+                                    if (isset($_GET['firma']))
+                                        $cn = $_GET['firma'];       //companyname
+                                    $_SESSION['compdiag'] = $cn;
+                                    echo '<p>' . $cn . '</p>';
+                                    $comp_id = return_comp_id($_GET['firma']); //comp_id
 
-                                            //$pn = "iPhone 13 Pro Max";
+                                    //$pn = $_SESSION['currentproduct'];
 
-                                            $prod_id = return_prod_id($pn);
+                                    $pn = $_GET['name'];        //productname
+                                    $_SESSION['proddiag'] = $pn;
+                                    echo '<p>' . $pn . '</p>';
 
-                                            $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
-                                          
-                                            
-                                            
-                                            $avgnodec = returnAVGnoDecimals($prod_comp_id);
-                                            $avgonedec = returnAVGoneDecimal($prod_comp_id);
-                                           
-                                            //Testwerte
-                                            //$avgnodec = 3;
-                                            //$avgonedec = 3.4;
-                                            //echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
+                                    //$pn = "iPhone 13 Pro Max";
 
-                                            returnRatings($avgnodec, $avgonedec);
-                                            echo '<br> ';
-                                        } catch (Exception $exce) {
-                                            echo $exce->getCode() . ': ' . $exce->getMessage() . '<br>;';
-                                        }
+                                    $prod_id = return_prod_id($pn);
+
+                                    $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
+
+                                    $avgnodec = returnAVGnoDecimals($prod_comp_id);
+                                    $avgonedec = returnAVGoneDecimal($prod_comp_id);
+
+                                    //Testwerte
+                                    //$avgnodec = 3;
+                                    //$avgonedec = 3.4;
+                                    //echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
+
+                                    returnRatings($avgnodec, $avgonedec);
+                                } catch (Exception $exce) {
+                                    echo $exce->getCode() . ': ' . $exce->getMessage() . '<br>;';
+                                }
 
 
 
-                                        ?>
-                                    </p>
-                                    <!-- Ende der Bewerttungsanzeige mit Sternen -->
-                                    
-                                    
-                                    
-                                    <hr style="color: black;">
-                                    <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
-                                    <hr style="color: black;">
-                                   <p> Für mehr Details auf den Button Drücken</p>
-                                </div>
+                                ?>
+                                </p>
+                                <!-- Ende der Bewerttungsanzeige mit Sternen -->
+                                <hr style="color: black;">
+                                <p>Für mehr Details auf den Button Drücken</p>
+                                <hr style="color: black;">
+                                <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
                             </div>
-                            <form method="POST">
-                            <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
-                                <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
-
-                                <div class="right">
-                                    <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
-                                    <br><br>
-                                    <b>
-                                        <div class="Pricetxt">999€</div>
-                                    </b>
-                                    <!--i class="bi bi-heart-fill"-->
-                                    <i>
-                                        <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
-                                        <?php
-                                        //$_SESSION['logged_in'] = 0;
-                                        if (isset($_SESSION['logged_in'])) {
-                                            //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
-                                            echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
-                                            if (isset($_POST['fav'])) {
-                                                include_once 'fave-product.php';
-                                            }
-                                        }
-                                        ?>
-                                    </i>
-
-                                </div>
-
                         </div>
-                        </form>
+                        <form method="POST">
+                            <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
+                            <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
+
+                            <div class="right">
+                                <?php
+                                $cn = $_GET['firma'];
+
+                                echo '<img class="company-logo" src="' .
+                                    ($cn == "Hartlauer Dornach" ? '\assets\img\hartlauer.png' : ($cn == "Conrad Leonding" ? '\assets\img\Conrad.png' : ($cn == "Mediamarkt Pluscity" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Linz Altstadt" ? '\assets\img\A1.png' : ($cn == "Mediamarkt Passage" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Pluscity" ? '\assets\img\A1.png' : '\assets\img\hartlauer.png'
+                                    )))))) . '" alt="Company Logo">
+                                    <br><br>
+                                    <b><div class="Pricetxt">' . $_GET['preis'] . '</div></b>'
+                                ?>
+
+                                <!--i class="bi bi-heart-fill"-->
+                                <i>
+                                    <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
+                                    <?php
+                                    //$_SESSION['logged_in'] = 0;
+                                    if (isset($_SESSION['logged_in'])) {
+                                        //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
+                                        echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
+                                        if (isset($_POST['fav'])) {
+                                            include_once 'fave-product.php';
+                                        }
+                                    }
+                                    ?>
+                                </i>
+
+                            </div>
+
                     </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
 
     </section>

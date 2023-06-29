@@ -10,22 +10,41 @@
 <?php
 $_COOKIE['test'] = $_SESSION['SearchResults'];
 
-            echo '<a href="page1.php?name='. $_SESSION['SearchResults'][$_SESSION['current_Item']][0] .'&firma=' .$_SESSION['SearchResults'][$_SESSION['current_Item']][1] .'">
+$firma = $_SESSION['SearchResults'][$_SESSION['current_Item']][1];
+
+$itemname = $_SESSION['SearchResults'][$_SESSION['current_Item']][0];
+
+$preis = $_SESSION['SearchResults'][$_SESSION['current_Item']][2];
+
+$categorie = $_SESSION['SearchResults'][$_SESSION['current_Item']][3];
+
+            echo '<a href="page1.php?name='. $itemname .'&firma=' .$firma .'&preis='. $preis .'&categorie='. $categorie . '">
       <div class="icon-box">
         <div class="image-and-text">
-          <img class="img-size img1" src="\assets\img\Handy.jpg">
+          <img class="img-size img1" src="' . 
+          ($categorie==1?'\assets\img\Kamera.jpg':
+          ($categorie==2?'\assets\img\Handy.jpg':
+          ($categorie==3?'\assets\img\Laptop.jpg':
+          ($categorie==4?'\assets\img\Lautsprecher.jpg':'\assets\img\Smartwatch.jpg'
+          )))) .'">
           <div class="text-container">
 
-<u class="u"><i><h4 class="herst2">' . $_SESSION['SearchResults'][$_SESSION['current_Item']][0] . '</h4></i>
-                    <h5 class="herst">' . 'Gefunden bei: <br>'. $_SESSION['SearchResults'][$_SESSION['current_Item']][1] . '</h5>
-                    
+<i><h4 class="herst2">' . $itemname . '</h4></i>
+                    <h5 class="herst">' . 'Gefunden bei: <br>'. $firma . '</h5>
                     <p>"Der angeführte Preis ist ohne Gewähr"</p>
                   </div>
                     </div>
-                    <div class="right"></u>
-                      <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
+                    <div class="right">
+                      <img class="company-logo" src="' . 
+                      ($firma=="Hartlauer Dornach"?'\assets\img\hartlauer.png':
+                      ($firma=="Conrad Leonding"?'\assets\img\Conrad.png':
+                      ($firma=="Mediamarkt Pluscity"?'\assets\img\mediamarkt.png':
+                      ($firma=="A1 Linz Altstadt"?'\assets\img\A1.png':
+                      ($firma=="Mediamarkt Passage"?'\assets\img\mediamarkt.png':
+                      ($firma=="A1 Pluscity"?'\assets\img\A1.png':'\assets\img\hartlauer.png'
+                      )))))) .'" alt="Company Logo">
                       <br><br>
-                      <b><div class="Pricetxt">' . $_SESSION['SearchResults'][$_SESSION['current_Item']][2] . '€</div></b>
+                      <b><div class="Pricetxt">' . $preis . '€</div></b>
                     </div>
                   </div>
                 </a>';
