@@ -45,8 +45,8 @@ session_start();
                                     <!--h4>iPhone 12 Pro</h4>
                                     <h5 class="herst">APPLE</h5-->
                                     <?php
-                                        $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];
-                                        $pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];
+                                        $cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];
+                                        $pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];
                                         echo '<h4>'.$pn.'</h4>';
                                         echo '<h5 class="herst">'.$cn.'</h5>';
                                     ?>
