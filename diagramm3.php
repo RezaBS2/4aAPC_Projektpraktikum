@@ -108,11 +108,7 @@ $max = returnMaxPriceForprod_comp_id($prod_comp_id);
     <br>
     <br>
     <div>
-        <a class="nav-link " href="page1.php">
-            <i class="btn btn-primary">
-            <span>Zurück</span>
-            </i>
-        </a>
+    <button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back(-1)">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>
     </div>
 
 </html>

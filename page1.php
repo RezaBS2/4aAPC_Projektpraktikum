@@ -1,8 +1,7 @@
 <?php
 // Start the session
-if(session_status() === PHP_SESSION_NONE)
-{
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
 //
@@ -30,7 +29,7 @@ session_start();
                     <div class="col-md-12">
                         <div class="icon-box">
                             <div class="image-and-text">
-                                <img class="img-size img1" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg">
+                                <img class="img-size img1" src="\assets\img\Handy.jpg">
                                 <div class="text-container">
                                     <!-- Anfang Reza Anteil -->
 
@@ -39,42 +38,44 @@ session_start();
                                     <p>
                                         <?php
 
-                                        try
-                                        {   
-                                            //$cn = $_SESSION['currentcompany'];
-                                     
-                                            
-                                            //$cn = "Mediamarkt Pluscity";
-                                            if(isset($_GET['firma']))
-                                                $cn = $_GET['firma'];       //companyname
-                                                $_SESSION['compdiag'] = $cn;
-                                                echo '<p>'.$cn.'</p>';
-                                                $comp_id = return_comp_id($_GET['firma']); //comp_id
-                                            
+                                        try {
+
+
                                             //$pn = $_SESSION['currentproduct'];
-                                        
+
                                             $pn = $_GET['name'];        //productname
                                             $_SESSION['proddiag'] = $pn;
-                                            echo '<p>'.$pn.'</p>';
+                                            echo '<h4 class="herst2">' . $pn . '</h4>';
+
+                                                                                        //$cn = $_SESSION['currentcompany'];
+
+
+                                            //$cn = "Mediamarkt Pluscity";
+                                            if (isset($_GET['firma']))
+                                                $cn = $_GET['firma'];       //companyname
+                                            $_SESSION['compdiag'] = $cn;
+                                            echo '<h5 class="herst">Gefunden bei: <br>' . $cn . '</h5>';
+                                            $comp_id = return_comp_id($_GET['firma']); //comp_id
 
                                             //$pn = "iPhone 13 Pro Max";
-                                            
+
                                             $prod_id = return_prod_id($pn);
 
                                             $prod_comp_id = return_prod_comp_id($prod_id, $comp_id);
-
+                                          
+                                            
+                                            
                                             $avgnodec = returnAVGnoDecimals($prod_comp_id);
                                             $avgonedec = returnAVGoneDecimal($prod_comp_id);
-
+                                           
                                             //Testwerte
                                             //$avgnodec = 3;
                                             //$avgonedec = 3.4;
                                             //echo '<script>alert("$avgnodec: '.$avgnodec.' $avgonedec: '.$avgonedec.'")</script>';
 
                                             returnRatings($avgnodec, $avgonedec);
-                                        }
-                                        catch (Exception $exce)
-                                        {
+                                            echo '<br> ';
+                                        } catch (Exception $exce) {
                                             echo $exce->getCode() . ': ' . $exce->getMessage() . '<br>;';
                                         }
 
@@ -83,51 +84,55 @@ session_start();
                                         ?>
                                     </p>
                                     <!-- Ende der Bewerttungsanzeige mit Sternen -->
-                                    <hr style="color: black;">
-                                    <p>Für mehr Details auf den Button Drücken</p>
+                                    
+                                    
+                                    
                                     <hr style="color: black;">
                                     <button class="btf2 btn btn-danger" id="detailsBtn">Details</button>
+                                    <hr style="color: black;">
+                                   <p> Für mehr Details auf den Button Drücken</p>
                                 </div>
                             </div>
                             <form method="POST">
+                            <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
                                 <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
-                                <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
 
                                 <div class="right">
-                      <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
-                      <br><br>
-                      <b><div class="Pricetxt">999€</div></b>
-                                        <!--i class="bi bi-heart-fill"-->
-                                        <i>
-                                            <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
-                                            <?php
-                                            //$_SESSION['logged_in'] = 0;
-                                            if (isset($_SESSION['logged_in']))
-                                            {
-                                                //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
-                                                echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
-                                                if(isset($_POST['fav'])){
-                                                    include_once 'fave-product.php';
-                                                }
+                                    <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
+                                    <br><br>
+                                    <b>
+                                        <div class="Pricetxt">999€</div>
+                                    </b>
+                                    <!--i class="bi bi-heart-fill"-->
+                                    <i>
+                                        <!--input class="heart1 bord" type="submit" name="fav" value="♥"-->
+                                        <?php
+                                        //$_SESSION['logged_in'] = 0;
+                                        if (isset($_SESSION['logged_in'])) {
+                                            //echo '<script>alert("$_SESSION[logged_in]: '.$_SESSION['logged_in'].'")</script>';
+                                            echo '<input class="heart1 bord" type="submit" name="fav" value=" ♥ " style="font-size: 55px;">';
+                                            if (isset($_POST['fav'])) {
+                                                include_once 'fave-product.php';
                                             }
-                                            ?>
-                                        </i>
-
-                                    </div>
+                                        }
+                                        ?>
+                                    </i>
 
                                 </div>
-                            </form>
+
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
 
     </section>
     <section id="contact1" class="contact" style="display: none;">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-lg-12 d-flex align-items-stretch">
-                    <div class="info bordertb">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-12 d-flex align-items-stretch">
+          <div class="info bordertb">
                         <u>
                             <h2 class="ubermini">Weitere Details:</h2>
                             <br>
@@ -236,10 +241,10 @@ session_start();
                                             </form>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
     </section>
@@ -251,10 +256,10 @@ session_start();
                     <div class="info bordertb">
                         <u>
                             <h2 class="ubermini">SHOPS:</h2>
-                            <a class="shop-txt2">Shops in deiner Nähe</a>
+                            <h5 class=" shop-txt2">Shops in deiner Nähe</h5>
                             <br>
                         </u>
-                        <div data-aos="fade-up" class="map2">
+                        <div class="map2">
 
                             <div id="googlemap">
                             </div>
@@ -280,24 +285,24 @@ session_start();
                             <div class="col-lg-12">
                                 <fieldset class="rating2">
                                     <input type="radio" id="star1" name="rating2" value="1"><label class="stsz" for="star1" title="Sehr schlecht">
-                                    <input type="radio" id="star2" name="rating2" value="2"><label class="stsz" for="star2" title="Schlecht">
-                                    <input type="radio" id="star3" name="rating2" value="3"><label class="stsz" for="star3" title="Durchschnittlich">
-                                    <input type="radio" id="star4" name="rating2" value="4"><label class="stsz" for="star4" title="Gut">
-                                    <input type="radio" id="star5" name="rating2" value="5"><label class="stsz" for="star5" title="Hervorragend">
+                                        <input type="radio" id="star2" name="rating2" value="2"><label class="stsz" for="star2" title="Schlecht">
+                                            <input type="radio" id="star3" name="rating2" value="3"><label class="stsz" for="star3" title="Durchschnittlich">
+                                                <input type="radio" id="star4" name="rating2" value="4"><label class="stsz" for="star4" title="Gut">
+                                                    <input type="radio" id="star5" name="rating2" value="5"><label class="stsz" for="star5" title="Hervorragend">
                                 </fieldset>
                             </div>
                             <div class="text-center"> <!-- Hinzugefügt: Ein Container für die Ausrichtung -->
                                 <?php
-                                if (isset($_SESSION['logged_in'])){
+                                if (isset($_SESSION['logged_in'])) {
                                     //echo '<button class="btf btn btn-danger">Absenden</button>';
                                     echo '<input type="submit" class="btf btn btn-danger" name="bewertungAbsenden" value="Absenden">';
-                                    if (isset($_POST['bewertungAbsenden'])){
+                                    if (isset($_POST['bewertungAbsenden'])) {
                                         //echo '<input type="hidden" name="companyname2" value="Mediamarkt Pluscity">';
                                         //echo '<input type="hidden" name="productname2" value="iPhone 13 Pro">';
                                         include_once 'rate-product.php';
                                     }
                                 } else {
-                                    echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                    echo '<button class="btn btn-danger"  disabled class=" alert-info bold ">Zum Bewerten müssen Sie sich zuerst Anmelden</button>';
                                 }
                                 ?>
 
@@ -316,54 +321,54 @@ session_start();
                                 <hr>
                                 <!-- Container 1 -->
                                 <div class="container">
-                                    <img class="pic" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg" alt="Bild">
+                                    <img class="pic" src="/assets/img/Laptop.jpg" alt="Bild">
                                     <div class="text-container">
-                                        <h4 class="emptxt">Text hier</h4>
+                                        <h4 class="emptxt">Asus A516EA</h4>
                                         <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-half star11"></i>
                                             <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">Preis hier</div>
-                                    </div>
-                                </div>
-                                <br><br>
+                                        </div><br>
+                                        <div class="Pricetxt3">599,99€</div>
+                                    </div>                                
+                                <br>
                                 <hr>
                                 <!-- Container 1 -->
                                 <div class="container">
-                                    <img class="pic" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg" alt="Bild">
+                                    <img class="pic" src="/assets/img/Kamera.jpg" alt="Bild">
                                     <div class="text-container">
-                                        <h4 class="emptxt">Text hier</h4>
+                                        <h4 class="emptxt">Canon D3</h4>
                                         <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-half star11"></i>
                                             <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">Preis hier</div>
-                                    </div>
-                                </div>
-                                <br><br>
-                                <hr>
-                                <!-- Container 1 -->
-                                <div class="container">
-                                    <img class="pic" src="https://www.backmarket.at/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d1eh9yux7w8iql.cloudfront.net/product_images/413174_68c84823-9cfd-49fb-bb2c-ce5f82944142.jpg" alt="Bild">
-                                    <div class="text-container">
-                                        <h4 class="emptxt">Text hier</h4>
-                                        <div class="rating">
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-half star11"></i>
-                                            <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">Preis hier</div>
+                                        </div><br>
+                                        <div class="Pricetxt3">199,99€</div>
                                     </div>
                                 </div>
                                 <br>
+                                <hr>
+                                <!-- Container 1 -->
+                                <div class="container">
+                                                                    <img class="pic" src="/assets/img/Laptop.jpg" alt="Bild">
+                                    <div class="text-container">
+                                        <h4 class="emptxt">Asus A510EA</h4>
+                                        <div class="rating">
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-half star11"></i>
+                                            <i class="bi bi-star star11"></i>
+                                        </div><br>
+                                        <div class="Pricetxt3">499,99€</div>
+                                    </div>  
+                                </div>
+                                <br>
+                                <hr>
                             </div>
                         </div>
                     </form>
@@ -388,17 +393,17 @@ session_start();
                                             <h5 class="card-title">Preis Verlauf der letzten Tage:</h5>
                                             <script>
                                                 window.Promise ||
-                                                document.write(
-                                                    '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-                                                )
+                                                    document.write(
+                                                        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+                                                    )
                                                 window.Promise ||
-                                                document.write(
-                                                    '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-                                                )
+                                                    document.write(
+                                                        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+                                                    )
                                                 window.Promise ||
-                                                document.write(
-                                                    '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-                                                )
+                                                    document.write(
+                                                        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+                                                    )
                                             </script>
 
 
@@ -421,7 +426,7 @@ session_start();
                                             </script>
                                             <?php
 
-                                                $qr= 'SELECT price AS "Preis",
+                                            $qr = 'SELECT price AS "Preis",
                                                             date AS "Datum"
                                                         FROM 
                                                             skimp.price p 
@@ -433,7 +438,7 @@ session_start();
                                                         date  <= ?
                                                         ORDER BY DATE DESC';
 
-                                                $datetoday = date('Y-m-d');
+                                            $datetoday = date('Y-m-d');
 
                                             ?>
                                             <!--script src="../../assets/irregular-data-series.js"></script-->
@@ -448,16 +453,13 @@ session_start();
                                             //makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
                                             $t = makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
 
-                                            if($t == 1)
-                                            {
+                                            if ($t == 1) {
                                                 echo '                                            
                                                 <div>
-                                                    <a class="nav-link" href="diagramm3.php">
-                                                        <i class="btn btn-primary center" >
-                                                        <span>Als Diagramm anzeigen</span></i>
-                                                    </a>
+                                                <a href="diagramm3.php">
+                                                <button class="btn btn-danger centered-btn"   class=" alert-info bold ">Als Diagram Anzeigen</button>
+                                                </a>
                                                 </div>';
-
                                             }
                                             ?>
 
@@ -480,4 +482,5 @@ session_start();
 <!-- Template Main JS File -->
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE-9-itGaSPetW7EPKvZ_E149JtnQ7-Bo&callback=loadMap"></script>
+
 </html>
