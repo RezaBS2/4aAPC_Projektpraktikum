@@ -132,10 +132,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
     </section>
     <section id="contact1" class="contact" style="display: none;">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-lg-12 d-flex align-items-stretch">
-                    <div class="info bordertb">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-12 d-flex align-items-stretch">
+          <div class="info bordertb">
                         <u>
                             <h2 class="ubermini">Weitere Details:</h2>
                             <br>
@@ -244,10 +244,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                             </form>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
     </section>
@@ -259,10 +259,10 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="info bordertb">
                         <u>
                             <h2 class="ubermini">SHOPS:</h2>
-                            <a class="shop-txt2">Shops in deiner Nähe</a>
+                            <h5 class=" shop-txt2">Shops in deiner Nähe</h5>
                             <br>
                         </u>
-                        <div data-aos="fade-up" class="map2">
+                        <div class="map2">
 
                             <div id="googlemap">
                             </div>
@@ -305,7 +305,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         include_once 'rate-product.php';
                                     }
                                 } else {
-                                    echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                    echo '<button class="btn btn-danger"  disabled class=" alert-info bold ">Zum Bewerten müssen Sie sich zuerst Anmelden</button>';
                                 }
                                 ?>
 
@@ -324,54 +324,54 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <hr>
                                 <!-- Container 1 -->
                                 <div class="container">
-                                    <img class="pic" src="\assets\img\Lautsprecher.jpg" alt="Bild">
+                                    <img class="pic" src="/assets/img/Laptop.jpg" alt="Bild">
                                     <div class="text-container">
-                                        <h4 class="emptxt">Hochmoderne Lautsprechanlagen</h4>
+                                        <h4 class="emptxt">Asus A516EA</h4>
                                         <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-half star11"></i>
                                             <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">499€-1299€</div>
-                                    </div>
-                                </div>
-                                <br><br>
+                                        </div><br>
+                                        <div class="Pricetxt3">599,99€</div>
+                                    </div>                                
+                                <br>
                                 <hr>
                                 <!-- Container 1 -->
                                 <div class="container">
-                                    <img class="pic" src="\assets\img\Kamera.jpg" alt="Bild">
+                                    <img class="pic" src="/assets/img/Kamera.jpg" alt="Bild">
                                     <div class="text-container">
-                                        <h4 class="emptxt">Spiegelreflexkameras</h4>
+                                        <h4 class="emptxt">Canon D3</h4>
                                         <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                            <i class="bi bi-star-fill star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">199€-4999€</div>
-                                    </div>
-                                </div>
-                                <br><br>
-                                <hr>
-                                <!-- Container 1 -->
-                                <div class="container">
-                                    <img class="pic" src="\assets\img\Laptop.jpg" alt="Bild">
-                                    <div class="text-container">
-                                        <h4 class="emptxt">Die Langlebigsten Notebooks</h4>
-                                        <div class="rating">
                                             <i class="bi bi-star-fill star11"></i>
                                             <i class="bi bi-star-half star11"></i>
                                             <i class="bi bi-star star11"></i>
-                                            <i class="bi bi-star star11"></i>
-                                            <i class="bi bi-star star11"></i>
-                                        </div>
-                                        <div class="Pricetxt3">899€-3899€</div>
+                                        </div><br>
+                                        <div class="Pricetxt3">199,99€</div>
                                     </div>
                                 </div>
                                 <br>
+                                <hr>
+                                <!-- Container 1 -->
+                                <div class="container">
+                                                                    <img class="pic" src="/assets/img/Laptop.jpg" alt="Bild">
+                                    <div class="text-container">
+                                        <h4 class="emptxt">Asus A510EA</h4>
+                                        <div class="rating">
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-fill star11"></i>
+                                            <i class="bi bi-star-half star11"></i>
+                                            <i class="bi bi-star star11"></i>
+                                        </div><br>
+                                        <div class="Pricetxt3">499,99€</div>
+                                    </div>  
+                                </div>
+                                <br>
+                                <hr>
                             </div>
                         </div>
                     </form>
@@ -459,10 +459,9 @@ if (session_status() === PHP_SESSION_NONE) {
                                             if ($t == 1) {
                                                 echo '                                            
                                                 <div>
-                                                    <a class="nav-link" href="diagramm3.php">
-                                                        <i class="btn btn-primary center" >
-                                                        <span>Als Diagramm anzeigen</span></i>
-                                                    </a>
+                                                <a href="diagramm3.php">
+                                                <button class="btn btn-danger centered-btn"   class=" alert-info bold ">Als Diagram Anzeigen</button>
+                                                </a>
                                                 </div>';
                                             }
                                             ?>

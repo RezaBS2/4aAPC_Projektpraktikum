@@ -11,6 +11,12 @@
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+.u:hover {
+  text-decoration: underline;
+  text-decoration-color: black;
+  transition: color 1s, text-decoration 1s;
+}
+
 #googlemap {
 
   width: 75%;
@@ -223,7 +229,7 @@
   align-items: center;
   justify-content: center;
   color: #000000;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 900;
 }
 
@@ -377,6 +383,11 @@
   padding-bottom: 10px;
 }
 
+.herst2:hover {
+  font-weight: 900;
+  padding-bottom: 10px;
+}
+
 .heart1.bord {
   border: 4px solid black;
   padding: 3px;
@@ -433,10 +444,16 @@
 .Pricetxt3 {
   color: #000000;
   font-size: 20px;
+  font-weight: 900;
 }
 
 .emptxt {
   color: #000000;
+  font-size: 25px;
+  font-weight: 900;
+}
+.alert
+{
   font-size: 20px;
 }
 
@@ -2385,7 +2402,7 @@ h6 {
 @media (min-width: 440px) {
   .logo1 {
     justify-content: flex-start;
-    max-width: 105px;
+    max-width: 95px;
     max-height: 105px;
   }
 }
@@ -2393,8 +2410,18 @@ h6 {
 @media (max-width: 416px) {
   .logo1 {
     justify-content: flex-start;
-    max-width: 100px;
+    max-width: 90px;
     max-height: 100px;
+  }
+}
+@media (min-width: 0px) and (max-width: 361px) {
+  .logosc {
+   
+    display: none;
+  }
+  .logo1
+  {
+    margin-left: 23px;
   }
 }
 
