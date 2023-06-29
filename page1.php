@@ -90,8 +90,10 @@ session_start();
                                 </div>
                             </div>
                             <form method="POST">
-                                <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
-                                <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
+                                <?php
+                                    echo '<input type="hidden" name="companyname1" value="'.$cn.'">';
+                                    echo '<input type="hidden" name="productname1" value="'.$pn.'">';
+                                ?>
 
                                 <div class="right">
 
@@ -272,8 +274,11 @@ session_start();
                 <div class="col-lg-8 d-flex align-items-stretch">
                     <div class="info bordertb">
                         <form method="POST">
-                            <input type="hidden" name="companyname2" value="Mediamarkt Pluscity">
-                            <input type="hidden" name="productname2" value="iPhone 13 Pro Max">
+                            <?php
+                                echo '<input type="hidden" name="companyname2" value="'.$cn.'">';
+                                echo '<input type="hidden" name="productname2" value="'.$pn.'">';
+                            ?>
+
                             <u>
                                 <h2 class="ubermini2">Bewertung Abgeben:</h2>
                                 <br>

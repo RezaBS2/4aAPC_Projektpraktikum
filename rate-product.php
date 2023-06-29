@@ -6,8 +6,8 @@ if(session_status() === PHP_SESSION_NONE)
     session_start();
 }
 
-//$cn = $_POST['companyname2']; //companyname
-$cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];
+$cn = $_POST['companyname2']; //companyname
+//$cn = $_SESSION['SearchResults'][$_GET['producktArr_id']][1];
 //$cn = $_SESSION['currentcompany'];
 
 $comp_id = return_comp_id($cn); //comp_id
@@ -15,9 +15,9 @@ $comp_id = return_comp_id($cn); //comp_id
 //echo '<script>alert("companyname: '.$cn.'   comp_id: '.$comp_id.'")</script>';
 
 
-//$pn = $_POST['productname2']; // productname
+$pn = $_POST['productname2']; // productname
 //$pn = $_SESSION['currentproduct'];
-$pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];
+//$pn = $_SESSION['SearchResults'][$_GET['producktArr_id']][0];
 
 $prod_id = return_prod_id($pn);
 
