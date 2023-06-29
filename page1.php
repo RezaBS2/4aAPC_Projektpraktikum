@@ -47,14 +47,14 @@ session_start();
                                             //$cn = "Mediamarkt Pluscity";
                                             if(isset($_GET['firma']))
                                                 $cn = $_GET['firma'];       //companyname
-                                                $_SESSION['compdiag'] = $cn;
+                                                //$_SESSION['compdiag'] = $cn;
                                                 echo '<p>'.$cn.'</p>';
                                                 $comp_id = return_comp_id($_GET['firma']); //comp_id
                                             
                                             //$pn = $_SESSION['currentproduct'];
                                         
                                             $pn = $_GET['name'];        //productname
-                                            $_SESSION['proddiag'] = $pn;
+                                            //$_SESSION['proddiag'] = $pn;
                                             echo '<p>'.$pn.'</p>';
 
                                             //$pn = "iPhone 13 Pro Max";
@@ -90,8 +90,10 @@ session_start();
                                 </div>
                             </div>
                             <form method="POST">
-                                <input type="hidden" name="companyname1" value="Mediamarkt Pluscity">
-                                <input type="hidden" name="productname1" value="iPhone 13 Pro Max">
+                                <?php
+                                    echo '<input type="hidden" name="companyname1" value="'.$cn.'">';
+                                    echo '<input type="hidden" name="productname1" value="'.$pn.'">';
+                                ?>
 
                                 <div class="right">
                       <img class="company-logo" src="\assets\img\Shöpping.at_logo.svg.png" alt="Company Logo">
@@ -271,8 +273,10 @@ session_start();
                 <div class="col-lg-8 d-flex align-items-stretch">
                     <div class="info bordertb">
                         <form method="POST">
-                            <input type="hidden" name="companyname2" value="Mediamarkt Pluscity">
-                            <input type="hidden" name="productname2" value="iPhone 13 Pro Max">
+                            <?php
+                                echo '<input type="hidden" name="companyname2" value="'.$cn.'">';
+                                echo '<input type="hidden" name="productname2" value="'.$pn.'">';
+                            ?>
                             <u>
                                 <h2 class="ubermini2">Bewertung Abgeben:</h2>
                                 <br>
@@ -421,7 +425,7 @@ session_start();
                                             </script>
                                             <?php
 
-                                                $qr= 'SELECT price AS "Preis",
+                                                $qr= 'SELECT price AS "Preis (€)",
                                                             date AS "Datum"
                                                         FROM 
                                                             skimp.price p 
@@ -448,15 +452,30 @@ session_start();
                                             //makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
                                             $t = makeTableWithGivenArray($qr, [$prod_comp_id, $datetoday]);
 
-                                            if($t == 1)
+                                            if($t > 1)
                                             {
-                                                echo '                                            
+                                                ?>  
+                                                    <div>
+                                                        <form action="diagramm3.php" method="post"><br>
+                                                            <?php
+                                                                echo '<input type="hidden" name="companyname3" value="'.$cn.'">';
+                                                                echo '<input type="hidden" name="productname3" value="'.$pn.'">';
+                                                            ?>
+
+                                                            <input type="submit" name="diag3" value="Als Diagramm anzeigen">
+                                                        </form>
+                                                        <br>                                                
+                                                    </div>
+                                                <?php
+
+
+                                                /*echo '                                            
                                                 <div>
                                                     <a class="nav-link" href="diagramm3.php">
                                                         <i class="btn btn-primary center" >
                                                         <span>Als Diagramm anzeigen</span></i>
                                                     </a>
-                                                </div>';
+                                                </div>';*/
 
                                             }
                                             ?>

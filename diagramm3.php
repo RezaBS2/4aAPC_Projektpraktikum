@@ -10,12 +10,18 @@ if(session_status() === PHP_SESSION_NONE)
 
 /**/
 //$cn = $_SESSION['currentcompany'];
-$cn = $_SESSION['compdiag'];
+//$cn = $_SESSION['compdiag'];
+$cn = $_POST['companyname3'];
+
+
 //$cn = "Mediamarkt Pluscity";
 $comp_id = return_comp_id($cn); //comp_id
 
 //$pn = $_SESSION['currentproduct'];
-$pn = $_SESSION['proddiag'];
+//$pn = $_SESSION['proddiag'];
+$pn = $_POST['productname3'];
+
+
 //$pn = "iPhone 13 Pro Max";
 $prod_id = return_prod_id($pn);
 
@@ -108,9 +114,9 @@ $max = returnMaxPriceForprod_comp_id($prod_comp_id);
     <br>
     <br>
     <div>
-        <a class="nav-link " href="page1.php">
+        <a class="nav-link " href="index.php">
             <i class="btn btn-primary">
-            <span>Zurück</span>
+            <span>Zurück zur Startseite</span>
             </i>
         </a>
     </div>

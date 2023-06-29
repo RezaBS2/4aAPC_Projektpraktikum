@@ -528,7 +528,7 @@ function makeTableWithGivenArray($query, $executeArray = NULL)
                 echo '</tr>';
             }
             echo '</table>';
-            return 1;
+            return $rowCount;
         } else {
             echo '</table><br><h5>Keine Ergebnisse vorhanden</h5><br>';
             return 0;
