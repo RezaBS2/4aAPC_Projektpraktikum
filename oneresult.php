@@ -43,7 +43,7 @@ $lon = $_SESSION['SearchResults'][$_SESSION['current_Item']][5];
                       ($firma=="Hartlauer Dornach"?'\assets\img\hartlauer.png':
                       ($firma=="Conrad Leonding"?'\assets\img\Conrad.png':
                       ($firma=="Mediamarkt Pluscity"?'\assets\img\mediamarkt.png':
-                      ($firma=="A1 Linz Altstadt"?'\assets\img\A1.png':
+                    ($firma=="A1 Linz Altstadt"?'\assets\img\A1.jpg':
                       ($firma=="Mediamarkt Passage"?'\assets\img\mediamarkt.png':
                       ($firma=="A1 Pluscity"?'\assets\img\A1.png':'\assets\img\hartlauer.png'
                       )))))) .'" alt="Company Logo">

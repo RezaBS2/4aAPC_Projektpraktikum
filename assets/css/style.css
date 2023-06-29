@@ -381,10 +381,22 @@
   font-weight: 900;
   color: #000000;
   padding-bottom: 10px;
+  font-size: 30px;
+  font-family: "Verdana";
+}
+
+
+.herst3 {
+  font-weight: 900;
+  color: #000000;
+  padding-bottom: 10px;
+  font-size: 22px;
+  font-family: "Verdana";
 }
 
 .herst2:hover {
   font-weight: 900;
+
   padding-bottom: 10px;
 }
 

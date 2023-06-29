@@ -52,14 +52,15 @@ if (session_status() === PHP_SESSION_NONE) {
                                     if (isset($_GET['firma']))
                                         $cn = $_GET['firma'];       //companyname
                                     $_SESSION['compdiag'] = $cn;
-                                    echo '<p>' . $cn . '</p>';
+                                           
+                                    echo '<b><h5 class="herst2">'. $cn . '</h5></b>';
                                     $comp_id = return_comp_id($_GET['firma']); //comp_id
 
                                     //$pn = $_SESSION['currentproduct'];
 
                                     $pn = $_GET['name'];        //productname
                                     $_SESSION['proddiag'] = $pn;
-                                    echo '<p>' . $pn . '</p>';
+                                    echo '<strong><h5 class="herst3">'. $pn . '</h5></strong>';
 
                                     //$pn = "iPhone 13 Pro Max";
 
@@ -100,10 +101,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                 $cn = $_GET['firma'];
 
                                 echo '<img class="company-logo" src="' .
-                                    ($cn == "Hartlauer Dornach" ? '\assets\img\hartlauer.png' : ($cn == "Conrad Leonding" ? '\assets\img\Conrad.png' : ($cn == "Mediamarkt Pluscity" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Linz Altstadt" ? '\assets\img\A1.png' : ($cn == "Mediamarkt Passage" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Pluscity" ? '\assets\img\A1.png' : '\assets\img\hartlauer.png'
+                                    ($cn == "Hartlauer Dornach" ? '\assets\img\hartlauer.png' : ($cn == "Conrad Leonding" ? '\assets\img\Conrad.png' : ($cn == "Mediamarkt Pluscity" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Linz Altstadt" ? '\assets\img\A1.jpg' : ($cn == "Mediamarkt Passage" ? '\assets\img\mediamarkt.png' : ($cn == "A1 Pluscity" ? '\assets\img\A1.jpg' : '\assets\img\hartlauer.png'
                                     )))))) . '" alt="Company Logo">
                                     <br><br>
-                                    <b><div class="Pricetxt">' . $_GET['preis'] . '</div></b>'
+                                    <b><div class="Pricetxt">' . $_GET['preis'] . '€' . '</div></b>'
                                 ?>
 
                                 <!--i class="bi bi-heart-fill"-->
