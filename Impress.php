@@ -2,14 +2,14 @@
 <html lang="en">
 
 <?php
-include "head.php";
+include_once "head.php";
 ?>
 <?php
-include "header.php";
+include_once "header.php";
 ?>
 <?php
 
-include "Sidebar.php";
+include_once "Sidebar.php";
 ?>
 
 <body>
@@ -451,10 +451,10 @@ include "Sidebar.php";
 </main>
 
 <?php
-include "footer2.php";
+include_once "footer2.php";
 ?>
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>
 
 </body>

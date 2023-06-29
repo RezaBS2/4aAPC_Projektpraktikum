@@ -2317,10 +2317,9 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 .logosc {
-  
+  font-family: fantasy;
   font-size: 43;
   color: #000000;
-  font-weight: 800;
 }
 
 .logoueb {
@@ -2334,7 +2333,6 @@ h6 {
     justify-content: flex-start;
     font-size: 40px;
     color: #000000;
-    font-weight: 800;
   }
 }
 
@@ -2343,7 +2341,6 @@ h6 {
     justify-content: flex-start;
     font-size: 43px;
     color: #000000;
-    font-weight: 800;
   }
 }
 
@@ -2352,7 +2349,6 @@ h6 {
     justify-content: flex-start;
     font-size: 25px;
     color: #000000;
-    font-weight: 800;
   }
 }
 
@@ -2361,7 +2357,6 @@ h6 {
     justify-content: flex-start;
     font-size: 20px;
     color: #000000;
-    font-weight: 800;
   }
 }
 

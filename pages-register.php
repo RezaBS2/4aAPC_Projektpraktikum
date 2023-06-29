@@ -2,13 +2,13 @@
 <html lang="en">
 
 <?php
-include "head.php";
+include_once "head.php";
 ?>
 <?php
-include "header.php";
+include_once "header.php";
 ?>
 <?php
-include "Sidebar.php";
+include_once "Sidebar.php";
 ?>
 
 <body>
@@ -58,7 +58,7 @@ include "Sidebar.php";
 
                         <div class="form-outline ">
                           <label class="form-label logtx" for="yourPasswordConfirmation">Passwort Wiederholen:</label>
-                          <input type="password" name="confirm_password" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
+                          <input type="password" name="confirm_password" class="form-control" id="yourPasswordConfirmation" placeholder="Passwort Wiederholen" class="form-control form-control-lg" required />
                         </div>
 
                         <div class=" mb-2 text-center">
@@ -93,7 +93,7 @@ include "Sidebar.php";
       </section>
   </main>
   <?php
-  include "footer.php";
+  include_once "footer.php";
   ?>
 </body>
 
