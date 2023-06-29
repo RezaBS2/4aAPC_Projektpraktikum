@@ -39,13 +39,13 @@ include_once "Sidebar.php";
 
                                         <div class="form-outline  to">
                                             <label class="form-label logtx" for="yourUsername">Username:</label>
-                                            <input type="text" name="username" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
+                                            <input type="text" name="usernameReset" id="yourUsername" placeholder="Max" class="form-control form-control-lg" required />
                                         </div>
 
 
                                         <div class="form-outline ">
                                             <label class="form-label logtx" for="yourEmail">Deine Email:</label>
-                                            <input type="email" name="email" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
+                                            <input type="email" name="emailReset" id="yourEmail" placeholder="Max@musteremail.com" class="form-control form-control-lg" required />
                                         </div>
 
                                         <a href="pages-pwreset.php">

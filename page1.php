@@ -47,13 +47,15 @@ session_start();
                                             //$cn = "Mediamarkt Pluscity";
                                             if(isset($_GET['firma']))
                                                 $cn = $_GET['firma'];       //companyname
+                                                $_SESSION['compdiag'] = $cn;
                                                 echo '<p>'.$cn.'</p>';
                                                 $comp_id = return_comp_id($_GET['firma']); //comp_id
                                             
                                             //$pn = $_SESSION['currentproduct'];
                                         
                                             $pn = $_GET['name'];        //productname
-                                            echo $pn;
+                                            $_SESSION['proddiag'] = $pn;
+                                            echo '<p>'.$pn.'</p>';
 
                                             //$pn = "iPhone 13 Pro Max";
                                             

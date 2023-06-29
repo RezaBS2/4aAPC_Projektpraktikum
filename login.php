@@ -1,9 +1,12 @@
 
 <?php
 
-session_start();
+if(session_status() === PHP_SESSION_NONE)
+{
+    session_start();
+}
 global $loggedIn;
-include_once 'config.php';
+include_once 'functions.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
  **/
@@ -91,9 +94,10 @@ try {
     // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    $stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
-    $sql = $con->prepare($stmt);
-    $sql->execute([trim($input_username)]); //Sichere Methode
+    $stmt = "SELECT username, password FROM user where user_id = ?";
+    //$sql = $con->prepare($stmt);
+    $sql = $_SESSION['DBConnection']->prepare($stmt);
+    $sql->execute([return_user_id($input_username)]); //Sichere Methode
 
 
     $rcount = $sql->rowCount();

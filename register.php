@@ -7,7 +7,7 @@ if(session_status() === PHP_SESSION_NONE)
 
 //global $loggedIn;
 
-include_once 'config.php';
+include_once 'functions.php';
 /*  Reza:
  *  "This page is for the backend element of the register page"
  * */

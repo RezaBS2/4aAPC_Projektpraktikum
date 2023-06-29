@@ -6,7 +6,7 @@ if(session_status() === PHP_SESSION_NONE)
 {
     session_start();
 }
-include_once 'config.php';
+include_once 'functions.php';
 ?>
 <?php
 include_once "head.php";
@@ -84,7 +84,7 @@ include_once "Sidebar.php";
                                         if (isset($_POST['ResetConfirmation'])){
                                             try
                                             {
-                                                $input_username = $_POST["username"];
+                                                $input_username = $_POST["usernameReset"];
                                                 $input_email = $_POST["emailReset"];
                                                 $input_newpw = $_POST["passwordReset"];
                                                 $input_newpwconfirm = $_POST["passwordResetConfirm"];
@@ -92,13 +92,14 @@ include_once "Sidebar.php";
                                                 $idOfUser = 0;
 
                                                 $querySelectid = 'Select user_id from skimp.user WHERE username = ? AND email = ?';
-                                                $sqlSelectid = $con->prepare($querySelectid);
+                                                $sqlSelectid = $_SESSION['DBConnection']->prepare($querySelectid);
                                                 $sqlSelectid->execute([$input_username, $input_email]);
 
                                                 while($row1 = $sqlSelectid->fetch(PDO::FETCH_NUM))
                                                 {
                                                     $idOfUser = $row1[0];
                                                 }
+                                                $rc = $sqlSelectid->rowCount();
 
                                                 $input_newpw = trim($_POST['passwordReset']);
                                                 $input_newpwconfirm = trim($_POST['passwordResetConfirm']);
@@ -107,7 +108,7 @@ include_once "Sidebar.php";
                                                 {
                                                     try
                                                     {
-                                                        $queryPWReset = 'UPDATE skimp.user SET password = ? WHERE user_id = ?';
+                                                        $queryPWReset = 'UPDATE user SET password = ? WHERE user_id = ?';
                                                         $sqlPWReset = $con->prepare($queryPWReset);
                                                         $sqlPWReset->execute([md5($input_newpw), $idOfUser]);
 
@@ -142,7 +143,7 @@ include_once "Sidebar.php";
                                                     echo '<script>alert("'.$alert.'")</script>';
                                                     //echo '<button onclick="history.back(-2)">Zurück!</button>';
                                                 }
-                                                elseif ($strlen($input_newpw) < 6)
+                                                elseif (strlen($input_newpw) < 6)
                                                 {
                                                     $alert = "Passworter zu kurz";
                                                     //echo "<a href=index.php>$alert</a>";

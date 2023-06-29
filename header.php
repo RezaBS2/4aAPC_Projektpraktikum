@@ -138,7 +138,7 @@ if (session_status() === PHP_SESSION_NONE) {
                       <?php
                       try {
                           include_once 'functions.php';
-                          include_once 'config.php';
+
                           if(isset($_SESSION['logged_in']) &&  isset($_SESSION['username']) && $_SESSION['logged_in'] == true)
                           {
                               //echo '<script>alert("Nach include_once vor return_user_id")</script>';
