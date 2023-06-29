@@ -32,19 +32,14 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php
 
 
-
+$filter = 1;
     if (isset($_GET['filter'])) {
       $filter = $_GET['filter'];
-    } else {
-      $filter = 3;
-    }
+    } 
 
     if (isset($_POST['query'])) {
 
-      //echo '<script>alert("' . $filter . '")</script>';
-
-
-      $sql = 'SELECT p.price, c.company, pro.product, ca.cat_id FROM price p
+      $sql = 'SELECT p.price, c.company, pro.product, ca.cat_id, c.lat, c.lon FROM price p
       INNER JOIN prod_comp pc ON pc.prod_comp_id=p.prod_comp_id
       INNER JOIN comp c ON c.comp_id=pc.comp_id
       INNER JOIN prod pro ON pro.prod_id=pc.prod_id
@@ -67,7 +62,7 @@ if (session_status() === PHP_SESSION_NONE) {
           while($row = $result->fetch(PDO::FETCH_ASSOC))
           {  
 
-            $tmp_arr =array($row["product"], $row["company"], $row["price"], $row["cat_id"]);
+            $tmp_arr =array($row["product"], $row["company"], $row["price"], $row["cat_id"], $row["lat"], $row["lon"]);
 
             array_push($results_arr, $tmp_arr);
     

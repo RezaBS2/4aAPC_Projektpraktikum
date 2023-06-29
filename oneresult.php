@@ -18,7 +18,11 @@ $preis = $_SESSION['SearchResults'][$_SESSION['current_Item']][2];
 
 $categorie = $_SESSION['SearchResults'][$_SESSION['current_Item']][3];
 
-            echo '<a href="page1.php?name='. $itemname .'&firma=' .$firma .'&preis='. $preis .'&categorie='. $categorie . '">
+$lat = $_SESSION['SearchResults'][$_SESSION['current_Item']][4];
+
+$lon = $_SESSION['SearchResults'][$_SESSION['current_Item']][5];
+
+            echo '<a href="page1.php?name='. $itemname .'&firma=' .$firma .'&preis='. $preis .'&categorie='. $categorie . '&lat=' . $lat . '&lon=' . $lon . '">
       <div class="icon-box">
         <div class="image-and-text">
           <img class="img-size img1" src="' . 
