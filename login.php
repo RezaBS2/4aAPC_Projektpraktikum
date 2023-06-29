@@ -6,7 +6,7 @@ if(session_status() === PHP_SESSION_NONE)
     session_start();
 }
 global $loggedIn;
-include 'config.php';
+include_once 'functions.php';
 /*  Reza:
  *  "This page is for the backend element of the login page"
  **/
@@ -86,18 +86,18 @@ try {
 
     global $con;
 
-    $input_username = $_POST["username"];
-    $input_password = $_POST["password"];
+    $input_username = trim($_POST["username"]);
+    $input_password = trim($_POST["password"]);
 
 
     // $stmt1 = "SELECT benutzer_id, benutzer_username, benutzer_email, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = $input_username";
     // $result = $con->query($stmt1); //Unsichere Methode wegen SQL-Injections
 
 
-    //$stmt = "SELECT benutzer_username, benutzer_passwort FROM projektpraktikum.benutzer where benutzer_username = ?";
-    $stmt = "SELECT username, password FROM skimp.user where username = ?";
-    $sql = $con->prepare($stmt);
-    $sql->execute([trim($input_username)]); //Sichere Methode
+    $stmt = "SELECT username, password FROM user where user_id = ?";
+    //$sql = $con->prepare($stmt);
+    $sql = $_SESSION['DBConnection']->prepare($stmt);
+    $sql->execute([return_user_id($input_username)]); //Sichere Methode
 
 
     $rcount = $sql->rowCount();
