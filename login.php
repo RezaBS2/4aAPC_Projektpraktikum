@@ -1,6 +1,6 @@
 
 <?php
-
+ include_once "head.php"; 
 if(session_status() === PHP_SESSION_NONE)
 {
     session_start();
@@ -129,7 +129,11 @@ try {
             fwrite($myfile, $input_username);
             fclose($myfile);
 
-            echo "<a href=index.php>Anmeldung erfolgreich</a>";
+            echo '<a href=index.php class="reg">';
+            echo '<h1 class="fail reg topi3 to">Anmeldung war Erfolgreich!</h1>';
+            echo '<button class="centered-btn btf2 btn btn-danger topi5">&nbsp;&nbsp;&nbsp;Weiter&nbsp;&nbsp;&nbsp;</button></a>';  
+                  echo '<br>';
+            echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
             /*if(!isset($_SESSION['logged_in']))
             {
                 $_SESSION["logged_in"] = true;
@@ -153,14 +157,23 @@ try {
                 echo "<a href=index.php>Anmeldung erfolgreich</a>";
             }*/
         } else {
-            echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
+            echo '<h1 class="fail reg topi3 to">Inkorrektes Passwort</h1>';
+            echo '<button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>';
+            echo '<br>';
+            echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
+
         }
     } else {
-        echo '<button onclick="history.back()">Dieser Benutzer existiert nicht!</button>';
+        echo '<h1 class="fail reg topi3 to">Dieser Benutzer exestiert nicht!</h1>';
+        echo '<button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>';
+        echo '<br>';
+        echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
     }
 } catch (Exception $eall) {
     echo $eall->getCode() . ': ' . $eall->getMessage() . '<br>;';
     echo "<br>Failure!<br>";
+    echo '<br>';
+    echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 

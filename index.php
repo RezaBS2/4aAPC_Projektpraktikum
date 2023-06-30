@@ -51,7 +51,7 @@ if(isset($_SESSION["logged_in"])){
   <div class="preloader">
     <img id="meinBild" class="preimg" src="assets\img\logo.png" alt="Logo">
     <div class="loader"></div>
-    <div class="corner-text">Version 1.1.4</div>
+    <div class="corner-text">Version 1.1.5 Beta</div>
   </div>
 </section>
 </body>

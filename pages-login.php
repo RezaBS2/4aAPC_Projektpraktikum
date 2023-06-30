@@ -151,19 +151,26 @@ include_once 'functions.php';
                                 
                                 fwrite($myfile, $input_username);
                                 fclose($myfile);
-                                echo '<script>alert("Anmeldung erfolgreich")</script>';
+                                echo '<a href=index.php class="reg">';
+                                echo '<h1 class="fail reg topi3 to">Anmeldung war Erfolgreich!</h1>';
+                                echo '<button class="centered-btn btf2 btn btn-danger topi5">&nbsp;&nbsp;&nbsp;Weiter&nbsp;&nbsp;&nbsp;</button></a>';  
+                                      echo '<br>';
 
                               } else {
-                                 // echo '<button onclick="history.back()">Inkorrektes Passwort!</button>';
-                                 echo '<script>alert("Inkorrektes Passwort!")</script>';
+                                echo '<h1 class="fail reg topi3 to">Inkorrektes Passwort</h1>';
+                                echo '<button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>';
+                                echo '<br>';
                               }
                           } else {
                               //echo '<button onclick="history.back()">Dieser Benutzer existiert nicht!</button>';
-                              echo '<script>alert("Dieser Benutzer existiert nicht!")</script>';
+                              echo '<h1 class="fail reg topi3 to">Dieser Benutzer exestiert nicht!</h1>';
+                              echo '<button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>';
+                              echo '<br>';
                           }
                       } catch (Exception $eall) {
                           echo $eall->getCode() . ': ' . $eall->getMessage() . '<br>;';
                           echo "<br>Failure!<br>";
+                          echo '<br>';
                       }
 
                     }

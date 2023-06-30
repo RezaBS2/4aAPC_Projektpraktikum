@@ -11,6 +11,9 @@
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+.reg{
+color: #000000;
+}
 .u:hover {
   text-decoration: underline;
   text-decoration-color: black;
@@ -1401,6 +1404,10 @@
     1px -1px 1px #ffffff,
     -1px 1px 1px #ffffff,
     -1px -1px 1px #000000;
+}
+.fail{
+  text-align: center;
+
 }
 
 .ubermini {

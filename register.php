@@ -1,5 +1,5 @@
 <?php
-
+ include_once "head.php"; 
 if(session_status() === PHP_SESSION_NONE)
 {
     session_start();
@@ -126,18 +126,27 @@ try {
             $_SESSION['username'] = $username;
 
 
-            echo "<a href=index.php>Registrierung erfolgreich</a>";
+            echo '<a href=index.php class="reg">';
+            echo '<h1 class="fail reg topi3 to">Registrierung erfolgreich</h1>';
+            echo '<button class="centered-btn btf2 btn btn-danger topi5">&nbsp;&nbsp;&nbsp;Weiter&nbsp;&nbsp;&nbsp;</button></a>';
+            echo '<br>';
+            echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
 
         } catch (Exception $e) {
             echo 'Error - Verbindung: '.$e->getCode().': '.$e->getMessage().'<br>'; // Nachher entfernen
             echo "Oops! Something went wrong. Please try again later.";
+            echo '<br>';
+            echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
         }
 
     } else {
         $alert = $username_err.'\n'.$password_err.'\n'.$confirm_password_err.'\n'.$email_err;
         //echo "<a href=index.php>$alert</a>";
         echo '<script>alert("'.$alert.'")</script>';
-        echo '<button onclick="history.back()">Zurück!</button>';
+        echo '<h1 class="fail topi3 to">Bitte Probiere es noch einmal:</h1>';
+        echo '<button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>';
+        echo '<br>';
+        echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
     }
 
     // Close connection
@@ -148,7 +157,12 @@ try {
 catch (Exception $eall)
 {
     echo $eall->getCode().': '.$eall->getMessage().'<br>;';
+    echo '<h1 class="fail topi3 to">Bitte Probiere es noch einmal:</h1>';
+    echo '<button class="centered-btn btf2 btn btn-danger topi5" onclick="history.back()">&nbsp;&nbsp;&nbsp;Zurück&nbsp;&nbsp;&nbsp;</button>';
     echo "<br>Failure while trying to register!<br>";
+    echo '<br>';
+    echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
+    
     //$con = null;
     //die("ERROR: Could not connect. " . mysqli_connect_error());
 }

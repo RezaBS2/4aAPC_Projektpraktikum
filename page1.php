@@ -192,7 +192,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                             <h5 class="card-title">Allgemein:</h5>
                                             <form>
                                                 <a>Warum dieses Gerät?<br>
-                                                    Keiner ist wie Dieser!<br>
+                                                    Keines ist wie Dieses!<br>
                                                     Leicht zu bedienen so einfach und intuitiv.<br>
                                                     Intelligente Leistung
                                                     Von Experten entwickelter Chip, der alles schnell energieeffizient und intelligent erledigt.<br>
@@ -226,7 +226,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                             <li>45 Jahre Garantie </li>
                                                             <li>Schutz vor Wasser und Staub IP68 klassifiziert</li>
                                                             <li>Schutz vor Diebstahl</li>
-                                                            <li>Top chinesischer Verarbeitung</li>
+                                                            <li>Top  Verarbeitung</li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-6">
@@ -345,7 +345,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     }
                                     else 
                                     {
-                                        echo '<p class="alert-info bold ">Zum Bewerten müssen Sie sich zuerst anmelden</p>';
+                                        echo '<button  class="btn btn-danger"  class="alert-info bold " disabled>Zum Bewerten müssen Sie sich zuerst anmelden</button>';
                                     }
 
                             
@@ -485,7 +485,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                         prod_comp_id = ?
                                                         AND
                                                         date  <= ?
-                                                        ORDER BY DATE DESC';
+                                                        ORDER BY DATE ASC';
 
                                             $datetoday = date('Y-m-d');
 
@@ -512,7 +512,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                                 echo '<input type="hidden" name="productname3" value="'.$pn.'">';
                                                             ?>
 
-                                                            <input type="submit" name="diag3" value="Als Diagramm anzeigen">
+                                                            <input class="btn centered-btn btn-danger" type="submit" name="diag3" value="Als Diagramm anzeigen">
                                                         </form>
                                                         <br>                                                
                                                     </div>

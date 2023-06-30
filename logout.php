@@ -1,5 +1,6 @@
 <!-- input type="" id="signout" name="signout" method="POST" title="Sign Out" action="" -->
 <?php
+ include_once "head.php"; 
     if(session_status() === PHP_SESSION_NONE)
     {
         session_start();
@@ -34,7 +35,11 @@
         
         //session_destroy();
         
-        echo "<a href=index.php>User abgemeldet</a>";
+        echo '<a href=index.php class="reg">';
+        echo '<h1 class="fail reg topi3 to">Sie wurde Erfolgreich Abgemeldet!</h1>';
+        echo '<button class="centered-btn btf2 btn btn-danger topi5">&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;</button></a>';
+        echo '<br>';
+        echo'    <img  class="preimg" src="assets\img\logo.png" alt="Logo">';
 
         //header("Refresh: 1; url=index.php");
         //header("Refresh:0");
